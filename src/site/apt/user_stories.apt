@@ -48,6 +48,45 @@ correctly implemented.
 |..|...|...|...|
 *--+---------------------------------------------------------+-----------+-----------+
 
+1) Title:
+
+Search for bookings.
+
+Description:
+
+As a page visitor, i need the ability to search all available bookings.
+
+Acceptance criteria:
+
+A site visitor is able to open the site and start a search query on all free rooms
+
+and a date, information about which he can enter in a separate field. 
+
+He can also leave any of the fields empty, in this case he will get all of available variants.
+
+2) Title:
+
+Guest booking.
+
+Description:
+
+As a guest customer, i’d like to book a free room and get a confirmation.
+
+Acceptance criteria:
+
+3) Title:
+
+Change status from «Guest» to «User»
+
+As a guest, i’d like to create an account and login into it upon completing my guest booking.
+
+Acceptance criteria:
+
+Upon confirming a guest booking, system asks user whether he wants to register itself, or not.
+
+If a user answers positively, transfer it to the separate registration page.
+
+If not, do nothing.
 
 
 * 3. Open Issues
