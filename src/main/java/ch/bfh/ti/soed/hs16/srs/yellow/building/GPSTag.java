@@ -1,10 +1,7 @@
-package ch.bfh.ti.soed.hs16.srs.yellow;
-
-
-import java.util.*;
+package ch.bfh.ti.soed.hs16.srs.yellow.building;
 
 /**
- * 
+ * Tag in global positioning system
  */
 public class GPSTag {
 
@@ -12,6 +9,7 @@ public class GPSTag {
      * Default constructor
      */
     public GPSTag() {
+    	
     }
 
     /**

@@ -1,4 +1,4 @@
-package ch.bfh.ti.soed.hs16.srs.yellow;
+package ch.bfh.ti.soed.hs16.srs.yellow.bankingRelations;
 
 
 import java.util.*;
