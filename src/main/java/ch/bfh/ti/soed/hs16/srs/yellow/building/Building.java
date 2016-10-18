@@ -2,7 +2,7 @@ package ch.bfh.ti.soed.hs16.srs.yellow.building;
 
 import java.util.Set;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.room.Room;
+import ch.bfh.ti.soed.hs16.srs.yellow.room.RoomTest;
 
 /**
  * Building class which holds Rooms
@@ -14,9 +14,9 @@ public class Building {
      */
     private String Name;
     
-    private GPSTag gpsTag;
+    private GPSTagTest gpsTag;
     
-    private Set<Room> roomsInBuilding;
+    private Set<RoomTest> roomsInBuilding;
 	
     /**
      * Default constructor
@@ -32,19 +32,19 @@ public class Building {
 		Name = name;
 	}
 
-	public GPSTag getGpsTag() {
+	public GPSTagTest getGpsTag() {
 		return gpsTag;
 	}
 
-	public void setGpsTag(GPSTag gpsTag) {
+	public void setGpsTag(GPSTagTest gpsTag) {
 		this.gpsTag = gpsTag;
 	}
 
-	public Set<Room> getRoomsInBuilding() {
+	public Set<RoomTest> getRoomsInBuilding() {
 		return roomsInBuilding;
 	}
 
-	public void setRoomsInBuilding(Set<Room> roomsInBuilding) {
+	public void setRoomsInBuilding(Set<RoomTest> roomsInBuilding) {
 		this.roomsInBuilding = roomsInBuilding;
 	}
 }

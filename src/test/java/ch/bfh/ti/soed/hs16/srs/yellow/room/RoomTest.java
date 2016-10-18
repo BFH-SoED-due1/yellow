@@ -6,12 +6,12 @@ import java.util.*;
 /**
  * 
  */
-public class Room {
+public class RoomTest {
 
     /**
      * Default constructor
      */
-    public Room() {
+    public RoomTest() {
     }
 
     /**
@@ -19,7 +19,7 @@ public class Room {
      */
     private UUID ID;
     
-    private Set<EquipmentTest> equSet;
+    private Set<Equipment> equSet;
 
 	public UUID getID() {
 		return ID;
@@ -29,11 +29,11 @@ public class Room {
 		ID = iD;
 	}
 
-	public Set<EquipmentTest> getEquSet() {
+	public Set<Equipment> getEquSet() {
 		return equSet;
 	}
 
-	public void setEquSet(Set<EquipmentTest> equSet) {
+	public void setEquSet(Set<Equipment> equSet) {
 		this.equSet = equSet;
 	}
 

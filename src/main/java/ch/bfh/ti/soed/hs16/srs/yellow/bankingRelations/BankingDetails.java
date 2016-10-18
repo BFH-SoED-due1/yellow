@@ -37,7 +37,7 @@ public class BankingDetails {
     /**
      * 
      */
-    private BankCardProvider provider;
+    private BankCardProviderTest provider;
 
     public UUID getID() {
 		return ID;
@@ -71,11 +71,11 @@ public class BankingDetails {
 		CardName = cardName;
 	}
 
-	public BankCardProvider getProvider() {
+	public BankCardProviderTest getProvider() {
 		return provider;
 	}
 
-	public void setProvider(BankCardProvider provider) {
+	public void setProvider(BankCardProviderTest provider) {
 		this.provider = provider;
 	}
 
