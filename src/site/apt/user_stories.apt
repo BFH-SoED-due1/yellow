@@ -48,45 +48,28 @@ correctly implemented.
 |..|...|...|...|
 *--+---------------------------------------------------------+-----------+-----------+
 
-1) Title:
+As a... 		I want to... 		So that...
 
-Search for bookings.
+Customer	log in/sign up								I can access the booking system
+Customer	change password								I can change my password
+Customer	book rooms									I can do meetings
+Customer	cancel my booking							the room can be available for others
+Customer	know which rooms are available and when		I can choose an available room
+Customer	invite guests								they have the information when and where the meeting takes place
+Customer	pay the booking								the system will reserve the booked room
+Customer	receive confirmation						I know the room has been booked
+Customer	receive refund								I get my money back when cancelling
+Guest		book rooms									I can do meetings
+Guest		cancel my booking							the room can be available for others
+Guest		know which rooms are available and when		I can choose an available room
+Guest		invite guests								they have the information when and where the meeting takes place
+Guest		pay the booking								the system will reserve the booked room
+Guest		receive confirmation						I know the room has been booked
+Customer	receive refund								I get my money back when cancelling
+Admin		add/remove rooms							the system has the right amount of rooms
+Admin		analyze the stats							I can get current booking stats
+Invitee		receive invitation							receive informatin when and where the meeting takes place
 
-Description:
-
-As a page visitor, i need the ability to search all available bookings.
-
-Acceptance criteria:
-
-A site visitor is able to open the site and start a search query on all free rooms
-
-and a date, information about which he can enter in a separate field. 
-
-He can also leave any of the fields empty, in this case he will get all of available variants.
-
-2) Title:
-
-Guest booking.
-
-Description:
-
-As a guest customer, i’d like to book a free room and get a confirmation.
-
-Acceptance criteria:
-
-3) Title:
-
-Change status from «Guest» to «User»
-
-As a guest, i’d like to create an account and login into it upon completing my guest booking.
-
-Acceptance criteria:
-
-Upon confirming a guest booking, system asks user whether he wants to register itself, or not.
-
-If a user answers positively, transfer it to the separate registration page.
-
-If not, do nothing.
 
 
 * 3. Open Issues
