@@ -1,18 +1,22 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.customer;
 
+import java.util.UUID;
+
 /**
  * 
  */
 public class Credentials {
-
+	
+	private UUID ID;
+	
 	/**
-     * 
+     * Name under which the customer is known to system
      */
     private String login;
 
     /**
-     * 
+     * Hash from customer's password from the input field (not a plaintext password !)
      */
     private String passwordHash;
 	
@@ -20,11 +24,11 @@ public class Credentials {
      * Default constructor
      */
     public Credentials() {
-    	
+    	this.ID = UUID.randomUUID();
     }
 
     public String getPasswordHash() {
-		return passwordHash;
+		return this.passwordHash;
 	}
 
 
@@ -33,7 +37,7 @@ public class Credentials {
 	}
 
 	public String getLogin() {
-		return login;
+		return this.login;
 	}
 
 	public void setLogin(String login) {

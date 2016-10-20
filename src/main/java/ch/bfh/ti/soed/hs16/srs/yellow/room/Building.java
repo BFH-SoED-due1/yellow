@@ -1,8 +1,6 @@
-package ch.bfh.ti.soed.hs16.srs.yellow.building;
+package ch.bfh.ti.soed.hs16.srs.yellow.room;
 
 import java.util.Set;
-
-import ch.bfh.ti.soed.hs16.srs.yellow.room.Room;
 
 /**
  * Building class which holds Rooms
@@ -44,7 +42,7 @@ public class Building {
 		return roomsInBuilding;
 	}
 
-	public void setRoomsInBuilding(Set<Room> roomsInBuilding) {
-		this.roomsInBuilding = roomsInBuilding;
+	public void addRoomToBuilding(Room newRoom) {
+		this.roomsInBuilding.add(newRoom);
 	}
 }

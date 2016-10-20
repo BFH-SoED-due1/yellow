@@ -9,7 +9,7 @@ import java.util.*;
 public class Person {
 
     /**
-     * 
+     * Person can change any info except from UUID
      */
     private final UUID ID;
     
@@ -22,15 +22,11 @@ public class Person {
     public Person(){
     	this.ID = UUID.randomUUID();
     }
-
-	public Date getDateOfBirth() {
-		return dateOfBirth;
+    
+	public UUID getPersonID() {
+		return ID;
 	}
-
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-
+	
 	public String getLastName() {
 		return lastName;
 	}
@@ -47,8 +43,12 @@ public class Person {
 		this.firstName = firstName;
 	}
 
-	public UUID getPersonID() {
-		return ID;
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 }
