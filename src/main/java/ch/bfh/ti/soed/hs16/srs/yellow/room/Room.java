@@ -8,16 +8,10 @@ import java.util.*;
  */
 public class Room {
 
-    /**
-     * 
-     */
     private final UUID ID;
     
     private Set<Equipment> equSet;
 	
-	/**
-     * Default constructor
-     */
     public Room() {
     	this.ID = UUID.randomUUID();
     }

@@ -9,15 +9,11 @@ import java.util.*;
  */
 public class Payment {
 
-	/**
-     * 
-     */
     private final UUID ID;
 
-    /**
-     * 
-     */
     private Boolean isSuccessful;
+    
+    private int sumToPay;
 	
     /**
      * Default constructor
@@ -36,6 +32,14 @@ public class Payment {
 
 	public void setIs_successful(Boolean isSuccessful) {
 		this.isSuccessful = isSuccessful;
+	}
+
+	public int getSumToPay() {
+		return sumToPay;
+	}
+
+	public void setSumToPay(int sumToPay) {
+		this.sumToPay = sumToPay;
 	}
 
 }
