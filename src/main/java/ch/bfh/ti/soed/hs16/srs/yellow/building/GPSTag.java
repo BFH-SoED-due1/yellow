@@ -6,37 +6,29 @@ package ch.bfh.ti.soed.hs16.srs.yellow.building;
 public class GPSTag {
 
     /**
-     * Default constructor
-     */
-    public GPSTag() {
-    	
-    }
-
-    /**
      * 
      */
-    private String XCoor;
+    private final String XCoor;
     
 	/**
      * 
      */
-    public String YCoor;
-    
+    private final String YCoor;
+	
+    /**
+     * Default constructor
+     */
+    public GPSTag(String XCoor, String YCoor) {
+    	this.XCoor= XCoor;
+    	this.YCoor = YCoor;
+    }
 
     public String getXCoor() {
 		return XCoor;
 	}
 
-	public void setXCoor(String xCoor) {
-		XCoor = xCoor;
-	}
-
 	public String getYCoor() {
 		return YCoor;
-	}
-
-	public void setYCoor(String yCoor) {
-		YCoor = yCoor;
 	}
 
 }

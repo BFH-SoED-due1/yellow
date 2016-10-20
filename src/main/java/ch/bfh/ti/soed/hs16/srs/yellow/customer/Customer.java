@@ -8,7 +8,7 @@ import ch.bfh.ti.soed.hs16.srs.yellow.bankingRelations.PaymentTest;
 /**
  * 
  */
-public class Customer extends PersonTest {
+public class Customer extends Person {
 
     /**
      * Default constructor

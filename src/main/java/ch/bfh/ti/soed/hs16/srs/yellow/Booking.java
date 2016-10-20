@@ -1,9 +1,10 @@
+
 package ch.bfh.ti.soed.hs16.srs.yellow;
 
 import java.util.UUID;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.customer.CustomerTest;
-import ch.bfh.ti.soed.hs16.srs.yellow.room.RoomTest;
+import ch.bfh.ti.soed.hs16.srs.yellow.customer.Customer;
+import ch.bfh.ti.soed.hs16.srs.yellow.room.Room;
 
 /**
  * 
@@ -11,41 +12,38 @@ import ch.bfh.ti.soed.hs16.srs.yellow.room.RoomTest;
 public class Booking {
 
     /**
+     * 
+     */
+    private final UUID ID;
+    
+    private Customer bookingCustomer;
+    
+    private Room bookedRoom;
+	
+    /**
      * Default constructor
      */
     public Booking() {
+    	this.ID = UUID.randomUUID();
     }
-
-    /**
-     * 
-     */
-    private UUID ID;
-    
-    private CustomerTest bookingCustomer;
-    
-    private RoomTest bookedRoom;
 
 	public UUID getID() {
 		return ID;
 	}
 
-	public void setID(UUID iD) {
-		ID = iD;
-	}
-
-	public CustomerTest getBookingCustomer() {
+	public Customer getBookingCustomer() {
 		return bookingCustomer;
 	}
 
-	public void setBookingCustomer(CustomerTest bookingCustomer) {
+	public void setBookingCustomer(Customer bookingCustomer) {
 		this.bookingCustomer = bookingCustomer;
 	}
 
-	public RoomTest getBookedRoom() {
+	public Room getBookedRoom() {
 		return bookedRoom;
 	}
 
-	public void setBookedRoom(RoomTest bookedRoom) {
+	public void setBookedRoom(Room bookedRoom) {
 		this.bookedRoom = bookedRoom;
 	}
 }
