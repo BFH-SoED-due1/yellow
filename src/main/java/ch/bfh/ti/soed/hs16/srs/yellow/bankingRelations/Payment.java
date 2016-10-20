@@ -1,3 +1,4 @@
+
 package ch.bfh.ti.soed.hs16.srs.yellow.bankingRelations;
 
 
@@ -11,7 +12,7 @@ public class Payment {
 	/**
      * 
      */
-    private UUID ID;
+    private final UUID ID;
 
     /**
      * 
@@ -22,14 +23,11 @@ public class Payment {
      * Default constructor
      */
     public Payment() {
+    	this.ID = UUID.randomUUID();
     }
 
     public UUID getID() {
 		return ID;
-	}
-
-	public void setID(UUID iD) {
-		ID = iD;
 	}
 
 	public Boolean getIs_successful() {

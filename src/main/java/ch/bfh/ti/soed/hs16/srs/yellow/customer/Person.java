@@ -11,13 +11,17 @@ public class Person {
     /**
      * 
      */
-    private UUID ID;
+    private final UUID ID;
     
     private String firstName;
     
     private String lastName;
     
     private Date dateOfBirth;
+    
+    public Person(){
+    	this.ID = UUID.randomUUID();
+    }
 
 	public Date getDateOfBirth() {
 		return dateOfBirth;
@@ -45,10 +49,6 @@ public class Person {
 
 	public UUID getPersonID() {
 		return ID;
-	}
-
-	public void setPersonID(UUID personID) {
-		this.ID = personID;
 	}
 
 }

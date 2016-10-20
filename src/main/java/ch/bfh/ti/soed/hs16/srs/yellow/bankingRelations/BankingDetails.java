@@ -1,3 +1,4 @@
+
 package ch.bfh.ti.soed.hs16.srs.yellow.bankingRelations;
 
 
@@ -9,73 +10,67 @@ import java.util.*;
 public class BankingDetails {
 
     /**
-     * Default constructor
-     */
-    public BankingDetails() {
-    }
-
-    /**
      * 
      */
-    private UUID ID;
+    private final UUID ID;
     
 	/**
      * 
      */
-    private UUID boundPersonID;
+    private final UUID boundPersonID;
 
     /**
      * 
      */
-    private String CardNumber;
+    private String cardNumber;
 
     /**
      * 
      */
-    private String CardName;
+    private String cardName;
 
     /**
      * 
      */
-    private BankCardProviderTest provider;
+    private BankCardProvider provider;
+	
+    /**
+     * Default constructor
+     */
+    public BankingDetails(UUID boundPersonID) {
+    	this.ID = UUID.randomUUID();
+    	this.boundPersonID = boundPersonID;
+    }
 
     public UUID getID() {
 		return ID;
-	}
-
-	public void setID(UUID iD) {
-		ID = iD;
 	}
 
 	public UUID getBoundPersonID() {
 		return boundPersonID;
 	}
 
-	public void setBoundPersonID(UUID boundPersonID) {
-		this.boundPersonID = boundPersonID;
-	}
-
 	public String getCardNumber() {
-		return CardNumber;
+		return cardNumber;
 	}
 
 	public void setCardNumber(String cardNumber) {
-		CardNumber = cardNumber;
+		this.cardNumber = cardNumber;
 	}
 
 	public String getCardName() {
-		return CardName;
+		return cardName;
 	}
 
 	public void setCardName(String cardName) {
-		CardName = cardName;
+		this.cardName = cardName;
 	}
 
-	public BankCardProviderTest getProvider() {
+	public BankCardProvider getProvider() {
 		return provider;
 	}
 
-	public void setProvider(BankCardProviderTest provider) {
+	public void setProvider(BankCardProvider provider) {
 		this.provider = provider;
 	}
 
