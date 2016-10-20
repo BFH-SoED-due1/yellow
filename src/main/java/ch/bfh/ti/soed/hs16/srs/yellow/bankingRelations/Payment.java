@@ -17,7 +17,7 @@ public class Payment {
     /**
      * 
      */
-    private Boolean is_successful;
+    private Boolean isSuccessful;
 	
     /**
      * Default constructor
@@ -30,12 +30,12 @@ public class Payment {
 		return ID;
 	}
 
-	public Boolean getIs_successful() {
-		return is_successful;
+	public Boolean getIsSuccessful() {
+		return isSuccessful;
 	}
 
-	public void setIs_successful(Boolean is_successful) {
-		this.is_successful = is_successful;
+	public void setIs_successful(Boolean isSuccessful) {
+		this.isSuccessful = isSuccessful;
 	}
 
 }
