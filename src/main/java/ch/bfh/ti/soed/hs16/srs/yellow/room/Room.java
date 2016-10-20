@@ -8,30 +8,28 @@ import java.util.*;
  */
 public class Room {
 
-    /**
-     * 
-     */
     private final UUID ID;
     
     private Set<Equipment> equSet;
 	
-	/**
-     * Default constructor
-     */
     public Room() {
     	this.ID = UUID.randomUUID();
     }
 
 	public UUID getID() {
-		return ID;
+		return this.ID;
 	}
 
 	public Set<Equipment> getEquSet() {
-		return equSet;
+		return Collections.unmodifiableSet(equSet);
 	}
 
-	public void setEquSet(Set<Equipment> equSet) {
-		this.equSet = equSet;
+	public void addEquipment(Equipment newEquipment) {
+		this.equSet.add(newEquipment);
+	}
+	
+	public void removeEquipment(Equipment equipmentToRemove){
+		this.equSet.remove(equipmentToRemove);
 	}
 
 }

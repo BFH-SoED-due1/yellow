@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/danbelov/yellow.svg?branch=dev)](https://travis-ci.org/danbelov/yellow)
+
 srs-yellow
 ==============
 
