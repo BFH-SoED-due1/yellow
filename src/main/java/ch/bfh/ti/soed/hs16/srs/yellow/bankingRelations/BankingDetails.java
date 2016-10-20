@@ -5,37 +5,22 @@ package ch.bfh.ti.soed.hs16.srs.yellow.bankingRelations;
 import java.util.*;
 
 /**
- * 
+ * Banking details of a Customer
  */
 public class BankingDetails {
 
-    /**
-     * 
-     */
     private final UUID ID;
     
-	/**
-     * 
-     */
     private final UUID boundPersonID;
 
-    /**
-     * 
-     */
     private String cardNumber;
 
-    /**
-     * 
-     */
     private String cardName;
 
-    /**
-     * 
-     */
     private BankCardProvider provider;
 	
     /**
-     * Default constructor
+     * Must bound a Person who created an entrz bz adding to account 
      */
     public BankingDetails(UUID boundPersonID) {
     	this.ID = UUID.randomUUID();
