@@ -32,6 +32,7 @@ public class PersonTest {
 		assertEquals(lName, person1.getLastName());
 	}
 	
+//	Date format?
 //	@Test
 //	public void testBirthDate() {
 //		Person person1 = new Person();
