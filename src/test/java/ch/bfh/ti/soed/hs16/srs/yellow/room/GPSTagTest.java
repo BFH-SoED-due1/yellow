@@ -1,4 +1,4 @@
-package ch.bfh.ti.soed.hs16.srs.yellow.building;
+package ch.bfh.ti.soed.hs16.srs.yellow.room;
 
 import static org.junit.Assert.fail;
 
