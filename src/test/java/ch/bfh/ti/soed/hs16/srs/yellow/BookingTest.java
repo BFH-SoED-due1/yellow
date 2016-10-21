@@ -10,8 +10,4 @@ import org.junit.Test;
  */
 public class BookingTest {
 
-	@Test
-	public void testNewBooking() {
-		Booking book = new Booking();
-	}
 }
