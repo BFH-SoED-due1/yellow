@@ -1,7 +1,7 @@
     ----------
     User Stories
     ----------
-    Author: To be provided
+    Author: belod1
     ----------
     October 03, 2016
 
@@ -15,13 +15,13 @@ roles users have when using the Smart Reservation System (SRS).
   Describe the roles you have identified. I recommend to use a definition
 list:
 
-  [...] This is the ...
+  [Admin] This is the administrator of system. He gets involved in case there is an unevitable conflict or a request from user or customer
 
-  [Room Manager] Person who enters the rooms that can be booked.
+  [Customer] An ordinary user of the system. Can reserve rooms, cancel reservation and save its banking details for later.
 
-  [...] An ordinary user of the system.
+  [User] Person who wants to reserve a room or cancel reservation without creating an account.
 
-  [...] And so on ...
+  [Invitee] Person invited to visit the booking by customer or user
 
 
 * 2. User Stories
@@ -37,18 +37,42 @@ correctly implemented.
 *------+---------------+--------------+-------+
 |<<No>>|<<Description>>|<<Success>>|<<Failed>>|
 *------+---------------+--------------+-------+
-|01|...|...|...|
+|01|As a <Customer>|I want to sign up for an account/login into that account, so that i can access my bookings.|The account is created in the DB and a customer can use it|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+
-|..|As <Room Manager> I want to be to add add new room to the system, so that users can reserve this room.|The room is added and the users are able to book it.|A message box appears and shows the reason of an error.|
+|02|As a <Customer>|I want to book rooms, so that i can do meetings|The room is booked, confirmation sent per email, invitees get email, too|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+
-|..|...|...|...|
+|03|As a <Customer>|I want to cancel my booking, so that the room will be available for the others.|The booking is cancelled, confirmation sent per email, invitees get cancellation email, too|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+
-|..|As <User> I want to be able to add a new reservation, so that a resource is reserved till the reservation ends.|The object is reserved for the entered time.|A message box appears with the errors.|
+|04|As a <Customer>|I want to know which rooms are available and when, so that i can choose an available room.|Customer gets indirect access to the database and can view all available bookings|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+
-|..|...|...|...|
+|05|As a <Customer>|I want to invite guests, so that they have the information when and where the meeting takes place.|Customer can enter all invitee emails to the list|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+
-
-
+|06|As a <Customer>|I want to pay the booking, so that the system will reserve the booked room for me.|Bank confirms the payment is ok, room status changes itself to "busy"|A message box appears and shows the reason of an error.|
+*--+---------------------------------------------------------+-----------+-----------+
+|07|As a <Customer>|I want to receive confirmation, so that i can be sure that the room has been booked.|The customer gets confirmation per email|A message box appears and shows the reason of an error.|
+*--+---------------------------------------------------------+-----------+-----------+
+|08|As a <Customer>|I want to receive refund in an event of cancellation, so that i get some of my money back when cancelling.|The cancellation request sent to bank, it transfers money back to customer, room status changed to "free"|A message box appears and shows the reason of an error.|
+*--+---------------------------------------------------------+-----------+-----------+
+|09|As a <User>|I want to book rooms, so that i can do meetings|The room is booked, confirmation sent per email, invitees get email, too|A message box appears and shows the reason of an error.|
+*--+---------------------------------------------------------+-----------+-----------+
+|10|As a <User>|I want to cancel my booking, so that the room will be available for the others.|The booking is cancelled, confirmation sent per email, invitees get cancellation email, too|A message box appears and shows the reason of an error.|
+*--+---------------------------------------------------------+-----------+-----------+
+|11|As a <User>|I want to know which rooms are available and when, so that i can choose an available room.|User gets indirect access to the database and can view all available bookings|A message box appears and shows the reason of an error.|
+*--+---------------------------------------------------------+-----------+-----------+
+|12|As a <User>|I want to invite guests, so that they have the information when and where the meeting takes place.|User can enter all invitee emails to the list|A message box appears and shows the reason of an error.|
+*--+---------------------------------------------------------+-----------+-----------+
+|13|As a <User>|I want to pay the booking, so that the system will reserve the booked room for me.|Bank confirms the payment is ok, room status changes itself to "busy"|A message box appears and shows the reason of an error.|
+*--+---------------------------------------------------------+-----------+-----------+
+|14|As a <User>|I want to receive confirmation, so that i can be sure that the room has been booked.|The User gets confirmation per email|A message box appears and shows the reason of an error.|
+*--+---------------------------------------------------------+-----------+-----------+
+|15|As a <User>|I want to receive refund in an event of cancellation, so that i get some of my money back when cancelling.|The cancellation request sent to bank, it transfers money back to User, room status changed to "free"|A message box appears and shows the reason of an error.|
+*--+---------------------------------------------------------+-----------+-----------+
+|16|As a <Admin>|I want to add/remove rooms, so that i can resolve user/customer requests sent via an interface.|The customer/user request is resolved|Customer/User gets an e-mail with some explanation in regards of this situation|
+*--+---------------------------------------------------------+-----------+-----------+
+|17|As a <Admin>|I want to analyze the stats, so that i can write reports.|Admin can access logs/system stats|A message box appears and shows the reason of an error.|
+*--+---------------------------------------------------------+-----------+-----------+
+|17|As an <Invitee>|I want to recieve invitation per mail, so that i can know when and where the meeting takes place.|Mail is sent to invitee|A message box appears and shows the reason of an error.|
+*--+---------------------------------------------------------+-----------+-----------+
 
 * 3. Open Issues
 
