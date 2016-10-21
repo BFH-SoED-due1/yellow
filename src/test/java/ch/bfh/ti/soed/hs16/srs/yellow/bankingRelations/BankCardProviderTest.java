@@ -8,8 +8,4 @@ import org.junit.Test;
  * Enumerated payment system providers
  */
 public class BankCardProviderTest {
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
 }

@@ -14,9 +14,4 @@ import ch.bfh.ti.soed.hs16.srs.yellow.bankingRelations.Payment;
  */
 public class CustomerTest extends PersonTest {
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-
 }

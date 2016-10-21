@@ -9,9 +9,4 @@ import org.junit.Test;
  */
 public class GPSTagTest {
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-
 }
