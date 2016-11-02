@@ -40,15 +40,25 @@
 
 	<developers>
 		<developer>
-			<id>xyzow1</id><!-- provide BFH Kürzel -->
-			<name>... ...</name><!-- provide first and last name -->
+			<id>belod1</id><!-- provide BFH Kürzel -->
+			<name>Daniil Belov</name><!-- provide first and last name -->
 			<email>...@students.bfh.ch</email><!-- provide e-mail address (optional) -->
 			<organization>Berner Fachhochschule / TI</organization>
 			<organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
 			<roles>
-				<role>software developer</role>
+				<role>Software developer</role>
 			</roles>
 		</developer>
+        <developer>
+            <id>itmam94</id><!-- provide BFH Kürzel -->
+            <name>... ...</name><!-- provide first and last name -->
+            <email>...@students.bfh.ch</email><!-- provide e-mail address (optional) -->
+            <organization>Berner Fachhochschule / TI</organization>
+            <organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
+            <roles>
+                <role>Software developer</role>
+            </roles>
+        </developer>
 		<!-- add other developers, too -->
 	</developers>
 
@@ -158,7 +168,7 @@
 										<limit implementation="org.jacoco.report.check.Limit">
 											<counter>COMPLEXITY</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.60</minimum>
+											<minimum>0.10</minimum>
 										</limit>
 									</limits>
 								</rule>
