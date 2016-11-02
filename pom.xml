@@ -40,13 +40,23 @@
 
     <developers>
         <developer>
-            <id>xyzow1</id><!-- provide BFH Kürzel -->
-            <name>... ...</name><!-- provide first and last name -->
+            <id>belod1</id><!-- provide BFH Kürzel -->
+            <name>Daniil Belov</name><!-- provide first and last name -->
             <email>...@students.bfh.ch</email><!-- provide e-mail address (optional) -->
             <organization>Berner Fachhochschule / TI</organization>
             <organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
             <roles>
-                <role>software developer</role>
+                <role>Software developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>itmam94</id><!-- provide BFH Kürzel -->
+            <name>Itmam Al Rasyid</name><!-- provide first and last name -->
+            <email>...@students.bfh.ch</email><!-- provide e-mail address (optional) -->
+            <organization>Berner Fachhochschule / TI</organization>
+            <organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
+            <roles>
+                <role>Software developer</role>
             </roles>
         </developer>
         <!-- add other developers, too -->
@@ -244,17 +254,18 @@
                     </reportSet>
                 </reportSets>
             </plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.7</version>
-				<configuration>
-					<formats>
-						<format>html</format>
-						<format>xml</format>
-					</formats>
-				</configuration>
-			</plugin>
+            <!--plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                </configuration>
+            </plugin-->
+
         </plugins>
     </reporting>
 
