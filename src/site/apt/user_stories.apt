@@ -47,7 +47,7 @@ correctly implemented.
 *--+---------------------------------------------------------+-----------+-----------+
 |05|As a <Customer>|I want to invite guests, so that they have the information when and where the meeting takes place.|Customer can enter all invitee emails to the list|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+
-|06|As a <Customer>|I want to pay the booking, so that the system will reserve the booked room for me.|Bank confirms the payment is ok, room status changes itself to "busy"|A message box appears and shows the reason of an error.|
+|06|As a <Customer>|I want to pay the booking, so that the system will reserve the booked room for me.|Bank confirms the paymentImpl is ok, room status changes itself to "busy"|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+
 |07|As a <Customer>|I want to receive confirmation, so that i can be sure that the room has been booked.|The customer gets confirmation per email|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+
@@ -61,7 +61,7 @@ correctly implemented.
 *--+---------------------------------------------------------+-----------+-----------+
 |12|As a <User>|I want to invite guests, so that they have the information when and where the meeting takes place.|User can enter all invitee emails to the list|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+
-|13|As a <User>|I want to pay the booking, so that the system will reserve the booked room for me.|Bank confirms the payment is ok, room status changes itself to "busy"|A message box appears and shows the reason of an error.|
+|13|As a <User>|I want to pay the booking, so that the system will reserve the booked room for me.|Bank confirms the paymentImpl is ok, room status changes itself to "busy"|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+
 |14|As a <User>|I want to receive confirmation, so that i can be sure that the room has been booked.|The User gets confirmation per email|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+

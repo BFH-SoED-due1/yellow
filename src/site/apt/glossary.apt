@@ -1,7 +1,6 @@
 		----------
 		Glossary
 		----------
-		----------
 
 
 Glossary for the Smart Reservation System
@@ -11,7 +10,7 @@ most important terms are captured and briefly described. It is maintained
 by the development team.
 	
 	
-	[Product owner]		The product owner has all rights about the project.
+	[Product owner]		The product owner has all rights on the project.
 
 	[SRS]	    		Smart Reservation System - A software system enabling
 				    	associations and enterprises to book and share rooms.
@@ -27,10 +26,10 @@ by the development team.
 
     [Use Case Diagram]  A visual description of cases a Person(role) and Objects use the SRS.
 
-    {Product Backlog]   A list of User Stories assigned with a Priority level to priorities the workload.
+    [Product Backlog]   A list of User Stories assigned with a Priority level to priorities the workload.
 
     [User]              The person who will use the finish product from the front-end.
 
-    [Admin]             The person who will manage the data of the SRS (Room names, add/remove Rooms)
+    [Admin]             The person who will manage the data of the SRS (Room names, add/remove Rooms).
 
 
