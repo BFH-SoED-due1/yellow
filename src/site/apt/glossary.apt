@@ -13,9 +13,24 @@ by the development team.
 	
 	[Product owner]		The product owner has all rights about the project.
 
-	[SRS]			Smart Reservation System - A software system enabling
-					associations and enterprises to book and share rooms.
+	[SRS]	    		Smart Reservation System - A software system enabling
+				    	associations and enterprises to book and share rooms.
 	
-	[Scrum]			An agile development process
-	
+	[Scrum] 			An agile development process.
+
+    [Scrum Master]      The leader in a scrum team. Its role is to guide, teach, assist the team members.
+
+    [Sprint]            An iteration of work during which an increment of product functionality is implemented.
+                        The iteration lasts 21 Days.
+
+    [User Stories]      The description of cases a Person(role) use the SRS.
+
+    [Use Case Diagram]  A visual description of cases a Person(role) and Objects use the SRS.
+
+    {Product Backlog]   A list of User Stories assigned with a Priority level to priorities the workload.
+
+    [User]              The person who will use the finish product from the front-end.
+
+    [Admin]             The person who will manage the data of the SRS (Room names, add/remove Rooms)
+
 
