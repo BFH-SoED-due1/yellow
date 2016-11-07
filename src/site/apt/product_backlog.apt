@@ -3,63 +3,48 @@
     ----------
     Name: To be provided
     ----------
-    October 03, 2016
+    October 07, 2016
 
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-|ID  |User Type        |        Story/Task Description              |Priority|Est. Effort [h]|Updt. Effort [h]|Actual Effort [h]|Status|
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-|                                                             SPRINT 2                                                                 |
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-|2.1 |Customer         |Allow Customer to sign up for an account    |High    |3              |                |                 |      |
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-|2.2 |Customer         |Allow Customer to login to that account     |High    |3              |                |                 |      |
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-|2.3 |Admin            |Allow Admin to add/remove rooms             |High    |8              |                |                 |      |
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-|2.4 |Customer         |Allow Customer to book room/s               |Medium  |10             |                |                 |      |
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-|2.5 |Guest            |Allow Guest to book rooms                   |Medium  |3              |                |                 |      |
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-|2.6 |Customer         |Allow Customer to view available rooms      |Medium  |12             |                |                 |      |
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-|2.7 |Guest            |Allow Guest to view available rooms         |Medium  |12             |                |                 |      |
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-|2.8 |Customer         |Allow Customer to invite Invitee            |Low     |5              |                |                 |      |
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-|2.9 |Customer         |Allow Customer to cancel the booked room/s  |Low     |5              |                |                 |      |
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-|2.10|Guest            |Allow Guest to cancel the booked room/s     |Low     |5              |                |                 |      |
-*----+-----------------+--------------------------------------------+--------+---------------+----------------+-----------------+------+
-
-
-*--+---------------------------------------------------------+-----------+-----------+
-|04|As a <Customer>|I want to know which rooms are available and when, so that i can choose an available room.|Customer gets indirect access to the database and can view all available bookings|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|05|As a <Customer>|I want to invite guests, so that they have the information when and where the meeting takes place.|Customer can enter all invitee emails to the list|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|06|As a <Customer>|I want to pay the booking, so that the system will reserve the booked room for me.|Bank confirms the payment is ok, room status changes itself to "busy"|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|07|As a <Customer>|I want to receive confirmation, so that i can be sure that the room has been booked.|The customer gets confirmation per email|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|08|As a <Customer>|I want to receive refund in an event of cancellation, so that i get some of my money back when cancelling.|The cancellation request sent to bank, it transfers money back to customer, room status changed to "free"|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|09|As a <User>|I want to book rooms, so that i can do meetings|The room is booked, confirmation sent per email, invitees get email, too|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|10|As a <User>|I want to cancel my booking, so that the room will be available for the others.|The booking is cancelled, confirmation sent per email, invitees get cancellation email, too|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|11|As a <User>|I want to know which rooms are available and when, so that i can choose an available room.|User gets indirect access to the database and can view all available bookings|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|12|As a <User>|I want to invite guests, so that they have the information when and where the meeting takes place.|User can enter all invitee emails to the list|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|13|As a <User>|I want to pay the booking, so that the system will reserve the booked room for me.|Bank confirms the payment is ok, room status changes itself to "busy"|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|14|As a <User>|I want to receive confirmation, so that i can be sure that the room has been booked.|The User gets confirmation per email|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|15|As a <User>|I want to receive refund in an event of cancellation, so that i get some of my money back when cancelling.|The cancellation request sent to bank, it transfers money back to User, room status changed to "free"|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|16|As a <Admin>|I want to add/remove rooms, so that i can resolve user/customer requests sent via an interface.|The customer/user request is resolved|Customer/User gets an e-mail with some explanation in regards of this situation|
-*--+---------------------------------------------------------+-----------+-----------+
-|17|As a <Admin>|I want to analyze the stats, so that i can write reports.|Admin can access logs/system stats|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|17|As an <Invitee>|I want to recieve invitation per mail, so that i can know when and where the meeting takes place.|Mail is sent to invitee|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|ID  |User Type        |        Story/Task Description                     |Priority|Est. Effort [h]|Updt. Effort [h]|Actual Effort [h]|Status|
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|                                                                  SPRINT 2                                                                   |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.1 |Customer         |Allow Customer to sign up for an account           |High    |3              |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.2 |Customer         |Allow Customer to login to that account            |High    |3              |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.3 |Admin            |Allow Admin to add/remove rooms                    |High    |8              |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.4 |Customer         |Allow Customer to book room/s                      |Medium  |10             |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.5 |Guest            |Allow Guest to book rooms                          |Medium  |3              |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.6 |Customer         |Allow Customer to view available rooms             |Medium  |12             |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.7 |Guest            |Allow Guest to view available rooms                |Medium  |12             |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.8 |Customer         |Allow Customer to invite Invitee                   |Low     |5              |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.9 |Customer         |Allow Guest to invite Invitee                      |Low     |3              |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.10|Invitee          |Send Invitation to the Invitee                     |Low     |5              |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.10|Customer         |Allow Customer to cancel the booked room/s         |Low     |10             |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.11|Guest            |Allow Guest to cancel the booked room/s            |Low     |5              |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.15|Customer         |Send confirmation to Customer                      |Low     |10             |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.16|Guest            |Send confirmation to Guest                         |Low     |5              |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.17|Customer         |Allow Customer to pay for booked room              |Low     |10             |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.17|Guest            |Allow Guest to pay for booked room                 |Low     |5              |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.17|Customer         |Allow Customer to get refund on cancelled booking  |Low     |10             |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.17|Guest            |Allow Guest to get refund on cancelled booking     |Low     |5              |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
+|2.17|Admin            |Allow Admin to analyze the stats                   |Low     |10             |                |                 |      |
+*----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
