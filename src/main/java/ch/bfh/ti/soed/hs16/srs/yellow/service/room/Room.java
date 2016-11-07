@@ -10,8 +10,6 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.service.room;
 
 
-import ch.bfh.ti.soed.hs16.srs.yellow.impl.room.EquipmentImpl;
-
 import java.util.Set;
 import java.util.UUID;
 
@@ -22,10 +20,10 @@ public interface Room {
 
     UUID getID();
 
-    Set<EquipmentImpl> getEquSet();
+    Set<Equipment> getEquSet();
 
-    void addEquipment(EquipmentImpl newEquipmentImpl);
+    void addEquipment(Equipment newEquipmentImpl);
 
-    void removeEquipment(EquipmentImpl equipmentImplToRemove);
+    void removeEquipment(Equipment equipmentImplToRemove);
 
 }

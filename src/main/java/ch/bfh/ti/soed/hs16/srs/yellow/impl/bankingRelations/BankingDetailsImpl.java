@@ -31,7 +31,7 @@ public class BankingDetailsImpl
     private BankCardProvider provider;
 	
     /**
-	 * Must bound a PersonImpl who created an entrz bz adding to account
+	 * Must bound a PersonImpl who created an entry by adding to account
 	 */
 	public BankingDetailsImpl(UUID boundPersonID) {
 		this.ID = UUID.randomUUID();

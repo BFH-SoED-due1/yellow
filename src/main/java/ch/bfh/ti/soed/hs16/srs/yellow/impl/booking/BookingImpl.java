@@ -9,9 +9,9 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.booking;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.impl.customer.CustomerImpl;
-import ch.bfh.ti.soed.hs16.srs.yellow.impl.room.RoomImpl;
 import ch.bfh.ti.soed.hs16.srs.yellow.service.booking.Booking;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.customer.Customer;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.room.Room;
 
 import java.util.Collections;
 import java.util.Set;
@@ -25,9 +25,9 @@ public class BookingImpl
 
     private final UUID ID;
 
-    private CustomerImpl bookingCustomer;
+    private Customer bookingCustomer;
 
-    private RoomImpl bookedRoomImpl;
+    private Room bookedRoomImpl;
 
     private Set<UUID> paymentLinkID;
 
@@ -42,19 +42,19 @@ public class BookingImpl
         return ID;
     }
 
-    public CustomerImpl getBookingCustomer() {
+    public Customer getBookingCustomer() {
         return bookingCustomer;
     }
 
-    public void setBookingCustomer(CustomerImpl bookingCustomer) {
+    public void setBookingCustomer(Customer bookingCustomer) {
         this.bookingCustomer = bookingCustomer;
     }
 
-    public RoomImpl getBookedRoomImpl() {
+    public Room getBookedRoomImpl() {
         return bookedRoomImpl;
     }
 
-    public void setBookedRoomImpl(RoomImpl bookedRoomImpl) {
+    public void setBookedRoomImpl(Room bookedRoomImpl) {
         this.bookedRoomImpl = bookedRoomImpl;
     }
 

@@ -9,6 +9,9 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.room;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.service.room.Building;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.room.GPSTag;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.room.Room;
 import org.junit.Test;
 
 import java.util.Set;
@@ -23,7 +26,7 @@ public class BuildingImplTest {
     @Test
     public void testBuildingName() {
 
-        BuildingImpl build1 = new BuildingImpl();
+        Building build1 = new BuildingImpl();
 
         assertNotNull(build1);
 
@@ -37,18 +40,18 @@ public class BuildingImplTest {
     @Test
     public void testBuildingGPS() {
 
-        BuildingImpl build1 = new BuildingImpl();
+        Building build1 = new BuildingImpl();
 
         assertNotNull(build1);
 
         String lat = "N40° 44.9764";
         String lon = "W073° 59.9735";
 
-        GPSTagImpl gpsTag = new GPSTagImpl(lat, lon);
+        GPSTag gpsTag = new GPSTagImpl(lat, lon);
 
         build1.setGpsTag(gpsTag);
 
-        GPSTagImpl gpsTagBuild = build1.getGpsTag();
+        GPSTag gpsTagBuild = build1.getGpsTag();
 
         assertNotNull(gpsTagBuild);
 
@@ -60,9 +63,9 @@ public class BuildingImplTest {
     @Test
     public void testRoomsInitialized() {
 
-        BuildingImpl build1 = new BuildingImpl();
+        Building build1 = new BuildingImpl();
 
-        Set<RoomImpl> roomSet = build1.getRoomsInBuilding();
+        Set<Room> roomSet = build1.getRoomsInBuilding();
 
         assertNotNull(roomSet);
     }
@@ -70,9 +73,9 @@ public class BuildingImplTest {
     @Test
     public void testAddRoomToBuilding() {
 
-        BuildingImpl build1 = new BuildingImpl();
+        Building build1 = new BuildingImpl();
 
-        RoomImpl rm1 = new RoomImpl();
+        Room rm1 = new RoomImpl();
 
         build1.addRoomToBuilding(rm1);
 

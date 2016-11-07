@@ -9,6 +9,7 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.room;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.service.room.Equipment;
 import ch.bfh.ti.soed.hs16.srs.yellow.service.room.Room;
 
 import java.util.Collections;
@@ -24,7 +25,10 @@ public class RoomImpl
 
     private final UUID ID;
 
-    private Set<EquipmentImpl> equSet;
+    /**
+     *
+     */
+    private Set<Equipment> equSet;
 
     public RoomImpl() {
         this.ID = UUID.randomUUID();
@@ -35,15 +39,15 @@ public class RoomImpl
         return this.ID;
     }
 
-    public Set<EquipmentImpl> getEquSet() {
+    public Set<Equipment> getEquSet() {
         return Collections.unmodifiableSet(equSet);
     }
 
-    public void addEquipment(EquipmentImpl newEquipmentImpl) {
+    public void addEquipment(Equipment newEquipmentImpl) {
         this.equSet.add(newEquipmentImpl);
     }
 
-    public void removeEquipment(EquipmentImpl equipmentImplToRemove) {
+    public void removeEquipment(Equipment equipmentImplToRemove) {
         this.equSet.remove(equipmentImplToRemove);
     }
 

@@ -9,8 +9,8 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.service.booking;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.impl.customer.CustomerImpl;
-import ch.bfh.ti.soed.hs16.srs.yellow.impl.room.RoomImpl;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.customer.Customer;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.room.Room;
 
 import java.util.Set;
 import java.util.UUID;
@@ -22,13 +22,13 @@ public interface Booking {
 
     UUID getID();
 
-    CustomerImpl getBookingCustomer();
+    Customer getBookingCustomer();
 
-    void setBookingCustomer(CustomerImpl bookingCustomer);
+    void setBookingCustomer(Customer bookingCustomer);
 
-    RoomImpl getBookedRoomImpl();
+    Room getBookedRoomImpl();
 
-    void setBookedRoomImpl(RoomImpl bookedRoomImpl);
+    void setBookedRoomImpl(Room bookedRoomImpl);
 
     Set<UUID> getPaymentLinkID();
 

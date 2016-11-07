@@ -9,8 +9,9 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.impl.bankingRelations.BankingDetailsImpl;
-import ch.bfh.ti.soed.hs16.srs.yellow.impl.bankingRelations.PaymentImpl;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.bankingRelations.BankingDetails;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.bankingRelations.Payment;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.customer.Credentials;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -21,11 +22,11 @@ import java.util.Set;
  */
 public class CustomerImpl extends PersonImpl {
 
-    private Set<BankingDetailsImpl> bankingDetailImpls;
+    private Set<BankingDetails> bankingDetailImpls;
 
-    private Set<PaymentImpl> paymentImpls;
+    private Set<Payment> paymentImpls;
 
-    private CredentialsImpl cred;
+    private Credentials cred;
 
     /**
      * First generating a PersonImpl so that we could use his data and UUID database key
@@ -37,19 +38,19 @@ public class CustomerImpl extends PersonImpl {
         this.cred = new CredentialsImpl();
     }
 
-    public Set<BankingDetailsImpl> getBankingDetailImpls() {
+    public Set<BankingDetails> getBankingDetailImpls() {
         return Collections.unmodifiableSet(this.bankingDetailImpls);
     }
 
-    public void addBankingDetail(BankingDetailsImpl bankingDetailsImpl) {
+    public void addBankingDetail(BankingDetails bankingDetailsImpl) {
         this.bankingDetailImpls.add(bankingDetailsImpl);
     }
 
-    public Set<PaymentImpl> getPaymentImpls() {
+    public Set<Payment> getPaymentImpls() {
         return Collections.unmodifiableSet(this.paymentImpls);
     }
 
-    public void addPayment(PaymentImpl paymentImpl) {
+    public void addPayment(Payment paymentImpl) {
         this.paymentImpls.add(paymentImpl);
     }
 

@@ -10,7 +10,8 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.service.customer;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.impl.bankingRelations.BankingDetailsImpl;
-import ch.bfh.ti.soed.hs16.srs.yellow.impl.bankingRelations.PaymentImpl;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.bankingRelations.BankingDetails;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.bankingRelations.Payment;
 
 import java.util.Set;
 
@@ -24,11 +25,11 @@ public interface Customer extends Person {
      */
     Set<BankingDetailsImpl> getBankingDetails();
 
-    void addBankingDetail(BankingDetailsImpl bankingDetailsImpl);
+    void addBankingDetail(BankingDetails bankingDetailsImpl);
 
-    Set<PaymentImpl> getPayments();
+    Set<Payment> getPayments();
 
-    void addPayment(PaymentImpl paymentImpl);
+    void addPayment(Payment paymentImpl);
 
     String getLogin();
 

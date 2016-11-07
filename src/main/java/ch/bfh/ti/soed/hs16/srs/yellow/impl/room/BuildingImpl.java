@@ -10,6 +10,8 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.room;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.service.room.Building;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.room.GPSTag;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.room.Room;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,9 +24,9 @@ public class BuildingImpl
 
     private String name;
 
-    private GPSTagImpl gpsTag;
+    private GPSTag gpsTag;
 
-    private Set<RoomImpl> roomsInBuilding;
+    private Set<Room> roomsInBuilding;
 
     public BuildingImpl() {
 
@@ -59,23 +61,23 @@ public class BuildingImpl
         this.name = name;
     }
 
-    public GPSTagImpl getGpsTag() {
+    public GPSTag getGpsTag() {
 
         return gpsTag;
     }
 
-    public void setGpsTag(GPSTagImpl gpsTag) {
+    public void setGpsTag(GPSTag gpsTag) {
 
         this.gpsTag = gpsTag;
     }
 
-    public Set<RoomImpl> getRoomsInBuilding() {
+    public Set<Room> getRoomsInBuilding() {
 
         return roomsInBuilding;
     }
 
-    public void addRoomToBuilding(RoomImpl newRoomImpl) {
+    public void addRoomToBuilding(Room newRoom) {
 
-        this.roomsInBuilding.add(newRoomImpl);
+        this.roomsInBuilding.add(newRoom);
     }
 }

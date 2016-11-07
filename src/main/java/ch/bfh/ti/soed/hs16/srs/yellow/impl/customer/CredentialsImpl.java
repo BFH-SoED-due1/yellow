@@ -32,23 +32,28 @@ public class CredentialsImpl
     private String passwordHash;
 
 	public CredentialsImpl() {
+
         this.ID = UUID.randomUUID();
     }
 
     public String getPasswordHash() {
-		return this.passwordHash;
+
+        return this.passwordHash;
 	}
 
 
 	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+
+        this.passwordHash = passwordHash;
 	}
 
 	public String getLogin() {
-		return this.login;
+
+        return this.login;
 	}
 
 	public void setLogin(String login) {
-		this.login = login;
+
+        this.login = login;
 	}
 }

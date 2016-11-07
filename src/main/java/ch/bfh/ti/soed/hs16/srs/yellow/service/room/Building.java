@@ -9,9 +9,6 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.service.room;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.impl.room.GPSTagImpl;
-import ch.bfh.ti.soed.hs16.srs.yellow.impl.room.RoomImpl;
-
 import java.util.Set;
 
 /**
@@ -23,11 +20,11 @@ public interface Building {
 
     void setName(String name);
 
-    GPSTagImpl getGpsTag();
+    GPSTag getGpsTag();
 
-    void setGpsTag(GPSTagImpl gpsTag);
+    void setGpsTag(GPSTag gpsTag);
 
-    Set<RoomImpl> getRoomsInBuilding();
+    Set<Room> getRoomsInBuilding();
 
-    void addRoomToBuilding(RoomImpl newRoomImpl);
+    void addRoomToBuilding(Room newRoomImpl);
 }
