@@ -12,6 +12,7 @@ package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.service.bankingRelations.BankingDetails;
 import ch.bfh.ti.soed.hs16.srs.yellow.service.bankingRelations.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.service.customer.Credentials;
+import ch.bfh.ti.soed.hs16.srs.yellow.service.customer.Customer;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -20,7 +21,9 @@ import java.util.Set;
 /**
  * CustomerImpl is a person which signed up for a login
  */
-public class CustomerImpl extends PersonImpl {
+public class CustomerImpl
+        extends PersonImpl
+        implements Customer {
 
     private Set<BankingDetails> bankingDetailImpls;
 
@@ -38,12 +41,16 @@ public class CustomerImpl extends PersonImpl {
         this.cred = new CredentialsImpl();
     }
 
-    public Set<BankingDetails> getBankingDetailImpls() {
+    public Set<BankingDetails> getBankingDetails() {
         return Collections.unmodifiableSet(this.bankingDetailImpls);
     }
 
     public void addBankingDetail(BankingDetails bankingDetailsImpl) {
         this.bankingDetailImpls.add(bankingDetailsImpl);
+    }
+
+    public Set<Payment> getPayments() {
+        return Collections.unmodifiableSet(paymentImpls);
     }
 
     public Set<Payment> getPaymentImpls() {

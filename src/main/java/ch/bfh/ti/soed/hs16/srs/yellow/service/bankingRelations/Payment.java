@@ -10,6 +10,7 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.service.bankingRelations;
 
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 /**
@@ -21,10 +22,16 @@ public interface Payment {
 
     Boolean getIsSuccessful();
 
-    void setIs_successful(Boolean isSuccessful);
+    /**
+     * @param isSuccessful
+     */
+    public void setIsSuccessful(Boolean isSuccessful);
 
-    int getSumToPay();
+    public String getSumToPay();
 
-    void setSumToPay(int sumToPay);
+    /**
+     * @param sumToPay
+     */
+    public void setSumToPay(BigDecimal sumToPay);
 
 }

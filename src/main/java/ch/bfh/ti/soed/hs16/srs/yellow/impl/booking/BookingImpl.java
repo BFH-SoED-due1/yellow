@@ -14,6 +14,7 @@ import ch.bfh.ti.soed.hs16.srs.yellow.service.customer.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.service.room.Room;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -36,6 +37,7 @@ public class BookingImpl
      */
     public BookingImpl() {
         this.ID = UUID.randomUUID();
+        paymentLinkID = new HashSet<>();
     }
 
     public UUID getID() {
