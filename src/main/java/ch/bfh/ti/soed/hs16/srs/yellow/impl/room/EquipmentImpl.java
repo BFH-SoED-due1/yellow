@@ -26,6 +26,7 @@ public class EquipmentImpl
 
     public EquipmentImpl() {
         this.ID = UUID.randomUUID();
+        Description = "";
     }
 
     public UUID getID() {

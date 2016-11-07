@@ -30,11 +30,8 @@ public class CredentialsImpl
      * Hash from customer's password from the input field (not a plaintext password !)
      */
     private String passwordHash;
-	
-    /**
-     * Default constructor
-     */
-    public CredentialsImpl() {
+
+	public CredentialsImpl() {
         this.ID = UUID.randomUUID();
     }
 

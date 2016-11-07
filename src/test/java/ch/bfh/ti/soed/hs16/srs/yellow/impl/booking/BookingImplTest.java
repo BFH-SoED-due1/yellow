@@ -1,5 +1,4 @@
 
-
 /*
  * Copyright (c) 2016 Berner Fachhochschule, Switzerland
  *
@@ -8,11 +7,11 @@
  * Distributable under GPL license\. See terms of license at gnu.org
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
+package ch.bfh.ti.soed.hs16.srs.yellow.impl.booking;
 
 /**
- * Unit tests for Customer implementation
+ *
  */
-public class CustomerImplTest extends PersonImplTest {
+public class BookingImplTest {
 
 }

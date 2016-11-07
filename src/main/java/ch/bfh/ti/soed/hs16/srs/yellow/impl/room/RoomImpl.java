@@ -12,6 +12,7 @@ package ch.bfh.ti.soed.hs16.srs.yellow.impl.room;
 import ch.bfh.ti.soed.hs16.srs.yellow.service.room.Room;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -27,6 +28,7 @@ public class RoomImpl
 
     public RoomImpl() {
         this.ID = UUID.randomUUID();
+        equSet = new HashSet<>();
     }
 
     public UUID getID() {

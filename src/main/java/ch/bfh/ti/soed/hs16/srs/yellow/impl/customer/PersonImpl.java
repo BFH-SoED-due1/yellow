@@ -33,35 +33,43 @@ public class PersonImpl
     private Date dateOfBirth;
 
     public PersonImpl() {
+
         this.ID = UUID.randomUUID();
     }
     
 	public UUID getPersonID() {
+
 		return ID;
 	}
 	
 	public String getLastName() {
-		return lastName;
-	}
+
+        return lastName;
+    }
 
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+
+        this.lastName = lastName;
+    }
 
 	public String getFirstName() {
-		return firstName;
-	}
+
+        return firstName;
+    }
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+
+        this.firstName = firstName;
+    }
 
 	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
+
+        return dateOfBirth;
+    }
 
 	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
+
+        this.dateOfBirth = dateOfBirth;
+    }
 
 }

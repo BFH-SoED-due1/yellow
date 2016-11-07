@@ -11,6 +11,7 @@ package ch.bfh.ti.soed.hs16.srs.yellow.impl.room;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.service.room.Building;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -19,42 +20,62 @@ import java.util.Set;
 public class BuildingImpl
         implements Building {
 
-    /**
-     *
-     */
-    private String Name;
+    private String name;
 
     private GPSTagImpl gpsTag;
 
     private Set<RoomImpl> roomsInBuilding;
 
-    /**
-     * Default constructor
-     */
     public BuildingImpl() {
+
+        name = "";
+        gpsTag = new GPSTagImpl("0", "0");
+        roomsInBuilding = new HashSet<>();
+
+    }
+
+    public BuildingImpl(String name, GPSTagImpl tag) {
+
+        this.name = name;
+        this.gpsTag = tag;
+        roomsInBuilding = new HashSet<>();
+
+    }
+
+    public BuildingImpl(String name, String latitude, String longitude) {
+
+        this.name = name;
+        this.gpsTag = new GPSTagImpl(latitude, longitude);
+        roomsInBuilding = new HashSet<>();
+
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+
+        this.name = name;
     }
 
     public GPSTagImpl getGpsTag() {
+
         return gpsTag;
     }
 
     public void setGpsTag(GPSTagImpl gpsTag) {
+
         this.gpsTag = gpsTag;
     }
 
     public Set<RoomImpl> getRoomsInBuilding() {
+
         return roomsInBuilding;
     }
 
     public void addRoomToBuilding(RoomImpl newRoomImpl) {
+
         this.roomsInBuilding.add(newRoomImpl);
     }
 }

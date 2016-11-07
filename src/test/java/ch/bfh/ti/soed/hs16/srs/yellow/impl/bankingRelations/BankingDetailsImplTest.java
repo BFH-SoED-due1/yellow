@@ -8,11 +8,13 @@
  * Distributable under GPL license\. See terms of license at gnu.org
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
+
+package ch.bfh.ti.soed.hs16.srs.yellow.impl.bankingRelations;
+
 
 /**
- * Unit tests for Customer implementation
+ * Unit tests for BankingDetails implementation
  */
-public class CustomerImplTest extends PersonImplTest {
+public class BankingDetailsImplTest {
 
 }

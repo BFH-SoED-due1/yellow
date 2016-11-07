@@ -1,3 +1,12 @@
+
+/*
+ * Copyright (c) 2016 Berner Fachhochschule, Switzerland
+ *
+ * Project Smart Reservation System.
+ *
+ * Distributable under GPL license\. See terms of license at gnu.org
+ */
+
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
 
 
@@ -7,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- *
+ * Unit tests for Person implementation
  */
 public class PersonImplTest {
 
@@ -31,13 +40,11 @@ public class PersonImplTest {
         assertEquals(lName, personImpl1.getLastName());
     }
 
-//	Date format?
-//	@Test
-//	public void testBirthDate() {
-//		PersonImpl person1 = new PersonImpl();
-//		
-//		Date birthDate = 
-//		assertEquals(birthDate, person1.getDateOfBirth());
-//	}
+    @Test
+    public void testBirthDate() {
+        PersonImpl person1 = new PersonImpl();
+
+
+    }
 
 }
