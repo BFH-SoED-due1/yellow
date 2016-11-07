@@ -20,6 +20,7 @@ public class CredentialsImplTest {
 
 	@Test
 	public void testCredentialsPassword() {
+
         CredentialsImpl cred1 = new CredentialsImpl();
 
         String passw = "hallo123";

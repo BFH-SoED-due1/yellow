@@ -9,7 +9,6 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.service.customer;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.impl.bankingRelations.BankingDetailsImpl;
 import ch.bfh.ti.soed.hs16.srs.yellow.service.bankingRelations.BankingDetails;
 import ch.bfh.ti.soed.hs16.srs.yellow.service.bankingRelations.Payment;
 
@@ -23,7 +22,7 @@ public interface Customer extends Person {
     /**
      * First generating a PersonImpl so that we could use his data and UUID database key
      */
-    Set<BankingDetailsImpl> getBankingDetails();
+    Set<BankingDetails> getBankingDetails();
 
     void addBankingDetail(BankingDetails bankingDetailsImpl);
 
