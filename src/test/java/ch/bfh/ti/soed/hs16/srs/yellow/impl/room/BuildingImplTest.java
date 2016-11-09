@@ -24,6 +24,25 @@ import static org.junit.Assert.*;
 public class BuildingImplTest {
 
     @Test
+    public void testBuildingCreation() {
+
+        String lat = "26356";
+        String lon = "6363653";
+        String buildingName = "Hauptgebäude";
+        String buildingName1 = "Hauptgebäude123";
+        GPSTag gpsCoors = new GPSTagImpl(lat, lon);
+        Building building = new BuildingImpl(buildingName, gpsCoors);
+        Building building1 = new BuildingImpl(buildingName1, lat, lon);
+        assertNotNull(building);
+        assertNotNull(building1);
+        assertEquals(building.getName(), buildingName);
+        assertEquals(building1.getName(), buildingName1);
+        assertEquals(building.getGpsTag(), gpsCoors);
+        assertEquals(building.getGpsTag().getXCoor(), lat);
+        assertEquals(building.getGpsTag().getYCoor(), lon);
+    }
+
+    @Test
     public void testBuildingName() {
 
         Building build1 = new BuildingImpl();

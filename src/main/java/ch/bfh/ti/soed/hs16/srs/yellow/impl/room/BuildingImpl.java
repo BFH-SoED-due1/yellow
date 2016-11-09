@@ -36,7 +36,7 @@ public class BuildingImpl
 
     }
 
-    public BuildingImpl(String name, GPSTagImpl tag) {
+    public BuildingImpl(String name, GPSTag tag) {
 
         this.name = name;
         this.gpsTag = tag;

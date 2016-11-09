@@ -37,7 +37,7 @@ correctly implemented.
 *------+---------------+--------------+-------+
 |<<No>>|<<Description>>|<<Success>>|<<Failed>>|
 *------+---------------+--------------+-------+
-|01|As a <Customer>|I want to sign up for an account/login into that account, so that i can access my bookings.|The account is created in the DB and a customer can use it|A message box appears and shows the reason of an error.|
+|01|As a <Customer>|I want to sign up for an account/login into that account, so that i can access my bookings.|The account is created and a customer can use it|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+
 |02|As a <Customer>|I want to book rooms, so that i can do meetings|The room is booked, confirmation sent per email, invitees get email, too|A message box appears and shows the reason of an error.|
 *--+---------------------------------------------------------+-----------+-----------+
