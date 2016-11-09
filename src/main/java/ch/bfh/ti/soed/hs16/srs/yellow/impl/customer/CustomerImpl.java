@@ -53,10 +53,6 @@ public class CustomerImpl
         return Collections.unmodifiableSet(paymentImpls);
     }
 
-    public Set<Payment> getPaymentImpls() {
-        return Collections.unmodifiableSet(this.paymentImpls);
-    }
-
     public void addPayment(Payment paymentImpl) {
         this.paymentImpls.add(paymentImpl);
     }
