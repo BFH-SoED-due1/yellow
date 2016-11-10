@@ -1,15 +1,22 @@
     ----------
-    Product Backlog
+    System sequence diagrams
     ----------
-    Name: To be provided
-    ----------
-    October 03, 2016
+    November 08, 2016
 
-Context View
+System sequence diagrams
 
-  This document describes the context view of the Smart Reservation
-System (SRS). It introduces the system and its environment.
+  This document describes the scenarios described in User Stories
 
   Image:
 
-[images/UML_Exports/UCD.png]
+[images/Sequence_Diagram/C_BookRoom.jpg]
+
+[images/Sequence_Diagram/C_CancelBooking.jpg]
+
+[images/Sequence_Diagram/G_Bookroom.jpg]
+
+[images/Sequence_Diagram/G_CancelBooking.jpg]
+
+[images/Sequence_Diagram/A_GetReport.png]
+
+[images/Sequence_Diagram/I_GetLink.png]

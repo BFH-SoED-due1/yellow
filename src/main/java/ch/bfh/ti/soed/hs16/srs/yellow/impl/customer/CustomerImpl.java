@@ -1,10 +1,10 @@
 
 /*
- * Copyright (c) 2016 Berner Fachhochschule, Switzerland
+ * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
  *
  * Project Smart Reservation System.
  *
- * Distributable under GPL license\. See terms of license at gnu.org
+ * Distributable under GPL license. See terms of license at gnu.org.
  */
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
@@ -51,10 +51,6 @@ public class CustomerImpl
 
     public Set<Payment> getPayments() {
         return Collections.unmodifiableSet(paymentImpls);
-    }
-
-    public Set<Payment> getPaymentImpls() {
-        return Collections.unmodifiableSet(this.paymentImpls);
     }
 
     public void addPayment(Payment paymentImpl) {
