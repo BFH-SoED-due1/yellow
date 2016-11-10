@@ -1,10 +1,10 @@
 
 /*
- * Copyright (c) 2016 Berner Fachhochschule, Switzerland
+ * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
  *
  * Project Smart Reservation System.
  *
- * Distributable under GPL license\. See terms of license at gnu.org
+ * Distributable under GPL license. See terms of license at gnu.org.
  */
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * 
+ *
  */
 public class PersonImpl
         implements Person {
@@ -25,24 +25,24 @@ public class PersonImpl
      * PersonImpl can change any info except from UUID
      */
     private final UUID ID;
-    
+
     private String firstName;
-    
+
     private String lastName;
-    
+
     private Date dateOfBirth;
 
     public PersonImpl() {
 
         this.ID = UUID.randomUUID();
     }
-    
-	public UUID getPersonID() {
+
+    public UUID getPersonID() {
 
 		return ID;
 	}
-	
-	public String getLastName() {
+
+    public String getLastName() {
 
         return lastName;
     }

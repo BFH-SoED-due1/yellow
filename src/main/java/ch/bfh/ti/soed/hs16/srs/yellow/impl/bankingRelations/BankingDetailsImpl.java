@@ -1,10 +1,10 @@
 
 /*
- * Copyright (c) 2016 Berner Fachhochschule, Switzerland
+ * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
  *
  * Project Smart Reservation System.
  *
- * Distributable under GPL license\. See terms of license at gnu.org
+ * Distributable under GPL license. See terms of license at gnu.org.
  */
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.bankingRelations;
@@ -21,16 +21,16 @@ public class BankingDetailsImpl
 		implements BankingDetails {
 
     private final UUID ID;
-    
-    private final UUID boundPersonID;
+
+	private final UUID boundPersonID;
 
     private String cardNumber;
 
     private String cardName;
 
     private BankCardProvider provider;
-	
-    /**
+
+	/**
 	 * Must bound a PersonImpl who created an entry by adding to account
 	 */
 	public BankingDetailsImpl(UUID boundPersonID) {
