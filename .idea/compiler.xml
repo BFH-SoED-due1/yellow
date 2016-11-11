@@ -25,7 +25,7 @@
         <module name="srs-yellow" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.9">
       <module name="srs-yellow" target="1.8" />
     </bytecodeTargetLevel>
   </component>
