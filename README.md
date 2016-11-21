@@ -1,5 +1,5 @@
 
-[![Build Status](https://travis-ci.org/danbelov/yellow.svg?branch=dev)](https://travis-ci.org/danbelov/yellow)
+[![Build Status](https://travis-ci.org/BFH-SoED-due1/yellow.svg?branch=master)](https://travis-ci.org/BFH-SoED-due1/yellow)
 
 srs-yellow
 ==============

@@ -1,0 +1,22 @@
+    ----------
+    System sequence diagrams
+    ----------
+    November 08, 2016
+
+System sequence diagrams
+
+  This document describes the scenarios described in User Stories
+
+  Image:
+
+[images/Sequence_Diagram/C_BookRoom.jpg]
+
+[images/Sequence_Diagram/C_CancelBooking.jpg]
+
+[images/Sequence_Diagram/G_Bookroom.jpg]
+
+[images/Sequence_Diagram/G_CancelBooking.jpg]
+
+[images/Sequence_Diagram/A_GetReport.png]
+
+[images/Sequence_Diagram/I_GetLink.png]
