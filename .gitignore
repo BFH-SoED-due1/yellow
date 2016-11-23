@@ -4,3 +4,14 @@
 /.settings/
 /.project
 .idea/workspace.xml
+.idea/libraries/Maven__com_h2database_h2_1_3_160.xml
+.idea/libraries/Maven__com_vaadin_addon_jpacontainer_3_1_0.xml
+.idea/libraries/Maven__javax_validation_validation_api_1_0_0_GA.xml
+.idea/libraries/Maven__org_eclipse_persistence_commonj_sdo_2_1_1.xml
+.idea/libraries/Maven__org_eclipse_persistence_eclipselink_2_5_2.xml
+.idea/libraries/Maven__org_eclipse_persistence_javax_persistence_2_0_0.xml
+.idea/libraries/Maven__org_hibernate_hibernate_validator_4_2_0_Final.xml
+.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_21.xml
+.idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_21.xml
+src/main/resources/META-INF/
+/src/main/resources/META-INF/persistence.xml
