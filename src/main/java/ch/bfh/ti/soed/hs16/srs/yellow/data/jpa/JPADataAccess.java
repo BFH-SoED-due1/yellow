@@ -14,19 +14,24 @@ import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.customer.PersonEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.RoomEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-import java.util.List;
-import java.util.UUID;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import java.util.List;
 
-public class JPADataAccess extends DataAccess {
+public class JPADataAccess
+        extends DataAccess {
     public static final String PERSISTENCE_UNIT = "srs-pu";
 
     private EntityManager entityManager;
 
     public JPADataAccess() {
-        this.entityManager = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT).createEntityManager();
+        try {
+            this.entityManager = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT).createEntityManager();
+        } catch (Exception ex) {
+            throw new RuntimeException("Persistence file not found or cannot be loaded");
+        }
     }
 
     @Override
@@ -46,7 +51,7 @@ public class JPADataAccess extends DataAccess {
     }
 
     @Override
-    public void removePerson(UUID id) {
+    public void removePerson(Long id) {
         this.entityManager.getTransaction().begin();
         PersonEntity person = this.entityManager.find(PersonEntity.class, id);
         this.entityManager.remove(person);

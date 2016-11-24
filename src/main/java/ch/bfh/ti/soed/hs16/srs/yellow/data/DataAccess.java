@@ -1,3 +1,4 @@
+
 package ch.bfh.ti.soed.hs16.srs.yellow.data;
 
 /*
@@ -12,7 +13,6 @@ import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
 
 import java.util.List;
-import java.util.UUID;
 
 public abstract class DataAccess {
 
@@ -41,7 +41,7 @@ public abstract class DataAccess {
 
     public abstract List<Person> findAllPersons();
 
-    public abstract void removePerson(UUID id);
+    public abstract void removePerson(Long id);
 
     // Methods for rooms
     ////////////////////

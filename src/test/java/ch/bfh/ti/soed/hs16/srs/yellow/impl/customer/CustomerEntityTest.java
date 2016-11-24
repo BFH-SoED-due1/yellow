@@ -10,16 +10,11 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations.BankingDetailsEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations.PaymentEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.customer.CustomerEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetails;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
-import java.math.BigDecimal;
-import java.util.UUID;
-import static org.junit.Assert.*;
 import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Unit tests for Customer implementation
@@ -33,7 +28,7 @@ public class CustomerEntityTest extends PersonEntityTest {
         assertNotNull(cust.getBankingDetails());
     }
 
-    @Test
+ /*   @Test
     public void testAddBankingDetail() {
 
         UUID boundPerson = UUID.randomUUID();
@@ -125,5 +120,5 @@ public class CustomerEntityTest extends PersonEntityTest {
         cust.updatePwdHash(pwdNew);
         assertEquals(pwdNew, cust.getpwdHash());
     }
-
+*/
 }

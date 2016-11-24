@@ -11,14 +11,15 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.customer;
 
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
+
+import javax.persistence.*;
 import java.util.Date;
-import java.util.UUID;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 /**
  *
  */
+@Entity
+@Table(name = "Person")
 public class PersonEntity
         implements Person {
 
@@ -26,8 +27,8 @@ public class PersonEntity
      * PersonEntity can change any info except from UUID
      */
     @Id
-    @GeneratedValue
-    private final UUID ID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ID;
 
     private String firstName;
 
@@ -37,13 +38,11 @@ public class PersonEntity
 
     public PersonEntity() {
 
-        this.ID = UUID.randomUUID();
     }
 
-    public UUID getPersonID() {
-
-		return ID;
-	}
+    public Long getID() {
+        return this.ID;
+    }
 
     public String getLastName() {
 
