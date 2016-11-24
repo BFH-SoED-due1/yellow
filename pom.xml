@@ -147,6 +147,12 @@
 			<version>1.7.21</version>
 			<scope>test</scope>
 		</dependency>
+        <!--Library for fake data generation-->
+        <dependency>
+            <groupId>io.codearte.jfairy</groupId>
+            <artifactId>jfairy</artifactId>
+            <version>0.5.3</version>
+        </dependency>
 	</dependencies>
 
 	<build>
