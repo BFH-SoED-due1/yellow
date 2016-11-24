@@ -9,49 +9,119 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.service.DataGen;
-import com.vaadin.annotations.Theme;
-import com.vaadin.annotations.VaadinServletConfiguration;
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.*;
-import javax.servlet.annotation.WebServlet;
+		import java.util.Calendar;
+		import java.util.Date;
+		import java.util.Locale;
+		import java.util.TimeZone;
+
+		import javax.servlet.annotation.WebServlet;
+
+		import com.vaadin.annotations.Theme;
+		import com.vaadin.annotations.VaadinServletConfiguration;
+		import com.vaadin.server.VaadinRequest;
+		import com.vaadin.server.VaadinServlet;
+		import com.vaadin.shared.ui.datefield.Resolution;
+		import com.vaadin.ui.Alignment;
+		import com.vaadin.ui.Button;
+		import com.vaadin.ui.DateField;
+		import com.vaadin.ui.HorizontalLayout;
+		import com.vaadin.ui.Label;
+		import com.vaadin.ui.NativeSelect;
+		import com.vaadin.ui.Panel;
+		import com.vaadin.ui.PopupDateField;
+		import com.vaadin.ui.UI;
+		import com.vaadin.ui.VerticalLayout;
 
 /**
- * This views is the application entry point. A views may either represent a browser window
+ * This UI is the application entry point. A UI may either represent a browser window
  * (or tab) or some part of a html page where a Vaadin application is embedded.
  * <p>
- * The views is initialized using {@link #init(VaadinRequest)}. This method is intended to be
+ * The UI is initialized using {@link #init(VaadinRequest)}. This method is intended to be
  * overridden to add component to the user interface and initialize non-component functionality.
  */
-@SuppressWarnings("serial")
 @Theme("mytheme")
-public class MyUI extends UI implements DataGen {
+public class MyUI extends UI {
+
+	private Panel panel = new Panel();
+	private VerticalLayout panelContent = new VerticalLayout();
+	private VerticalLayout searchLayout = new VerticalLayout();
+	private VerticalLayout leftVLayout = new VerticalLayout();
+	private VerticalLayout rightVLayout = new VerticalLayout();
+	private HorizontalLayout headerLayout = new HorizontalLayout();
+	private HorizontalLayout inputLayout = new HorizontalLayout();
+	private HorizontalLayout loginLayout = new HorizontalLayout();
+
+	private Label titleLbl = new Label("Search Room");
+
+	private NativeSelect objSelect = new NativeSelect("Objects");
+	private NativeSelect equipSelect = new NativeSelect("Equipments");
+
+	private DateField fromDate = new PopupDateField("From");
+	private DateField toDate = new PopupDateField("To");
+
+	private Button searchBtn = new Button("Search");
+	private Button loginBtn = new Button("Login");
+	private Button signupBtn = new Button("Sign Up");
+
+	private Date date;
+	private Date lastDate;
+	private Calendar limitDate;
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
-		final VerticalLayout layout = new VerticalLayout();
+		date = new Date();
+		limitDate = Calendar.getInstance();
+		limitDate.setTime(date);
+		limitDate.add(Calendar.YEAR, 1);
+		lastDate = limitDate.getTime();
 
-        final TextField userName = new TextField();
-        userName.setCaption("Login:");
+		fromDate.setValue(date);
+		fromDate.setRangeStart(date);
+		fromDate.setRangeEnd(lastDate);
+		fromDate.setImmediate(true);
+		fromDate.setResolution(Resolution.MINUTE);
 
-        final TextField userPassword = new TextField();
-        userPassword.setCaption("Password:");
+		toDate.setRangeStart(date);
+		toDate.setRangeEnd(lastDate);
+		toDate.setImmediate(true);
+		toDate.setResolution(Resolution.MINUTE);
 
-		Button button = new Button("Click Me");
-		button.addClickListener( e -> {
-            layout.addComponent(new Label("Thanks " + userName.getValue()
-                    + ", it works!"));
-		});
+		objSelect.setSizeFull();
+		equipSelect.setSizeFull();
+		fromDate.setSizeFull();
+		toDate.setSizeFull();
+		searchBtn.setSizeFull();
 
-        generateInitialData();
+		loginLayout.addComponents(signupBtn, loginBtn);
 
-        layout.addComponents(userName, button);
-        layout.setMargin(true);
-		layout.setSpacing(true);
+		headerLayout.addComponent(titleLbl);
+		leftVLayout.addComponents(fromDate, objSelect);
+		leftVLayout.setSpacing(true);
+		leftVLayout.setSizeFull();
+		rightVLayout.addComponents(toDate, equipSelect);
+		rightVLayout.setSpacing(true);
+		rightVLayout.setSizeFull();
+		inputLayout.addComponents(leftVLayout, rightVLayout);
+		inputLayout.setSpacing(true);
+		inputLayout.setSizeFull();
 
-		setContent(layout);
+		searchLayout.addComponents(headerLayout, inputLayout, searchBtn);
+		searchLayout.setComponentAlignment(headerLayout, Alignment.TOP_CENTER);
+		searchLayout.setMargin(true);
+		searchLayout.setSpacing(true);
+		searchLayout.setWidth(500, Unit.PIXELS);
+
+		panelContent.addComponents(loginLayout, searchLayout);
+		panelContent.setComponentAlignment(searchLayout, Alignment.MIDDLE_CENTER);
+		panelContent.setComponentAlignment(loginLayout, Alignment.TOP_RIGHT);
+		panel.setContent(panelContent);
+		setContent(panel);
 	}
+
+//	@Override
+//	protected void init(VaadinRequest vaadinRequest) {
+//
+//	}
 
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
 	@VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
