@@ -10,7 +10,6 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations;
 
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations.BankCardProvider;
 import java.util.UUID;
 
 /**
