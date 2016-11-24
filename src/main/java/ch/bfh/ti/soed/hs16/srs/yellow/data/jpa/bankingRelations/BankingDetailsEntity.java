@@ -10,10 +10,12 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations;
 
 
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankCardProvider;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetails;
-import java.util.UUID;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.UUID;
 
 /**
  * Banking details of a CustomerEntity
@@ -62,7 +64,7 @@ public class BankingDetailsEntity
 		this.cardName = cardName;
 	}
 
-	public BankCardProvider getProvider() {
+	public ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankCardProvider getProvider() {
 		return provider;
 	}
 

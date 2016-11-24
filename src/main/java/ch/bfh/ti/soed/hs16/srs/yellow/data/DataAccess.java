@@ -10,12 +10,13 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
+
 import java.util.List;
 import java.util.UUID;
 
 public abstract class DataAccess {
 
-    public static final String DEFAULT_DATA_ACCESS_CLASS = "ch.bfh.due1.srs.data.jpa.JPADataAccess";
+    public static final String DEFAULT_DATA_ACCESS_CLASS = "ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.JPADataAccess";
 
     private static DataAccess instance = null;
 
