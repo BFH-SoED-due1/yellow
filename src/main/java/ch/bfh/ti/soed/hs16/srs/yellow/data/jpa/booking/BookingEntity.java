@@ -12,16 +12,19 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 /**
  *
  */
+@Entity
 public class BookingEntity
         implements Booking {
 
