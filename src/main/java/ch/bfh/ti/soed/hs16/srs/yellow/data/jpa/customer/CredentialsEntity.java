@@ -10,19 +10,20 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.customer;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Credentials;
-import java.util.UUID;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 /**
  *
  */
+@Entity
+@Table(name = "Credentials")
 public class CredentialsEntity
         implements Credentials {
 
     @Id
-    @GeneratedValue
-    private UUID ID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ID;
 
     /**
      * Name under which the customer is known to system

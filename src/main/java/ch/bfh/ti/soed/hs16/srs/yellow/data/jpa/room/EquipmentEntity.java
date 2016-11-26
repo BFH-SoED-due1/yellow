@@ -11,24 +11,27 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room;
 
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Equipment;
-import java.util.UUID;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * Describes equipment which is available to the room
  */
+@Entity
+@Table(name = "Equipment")
 public class EquipmentEntity
         implements Equipment {
 
-    private final UUID ID;
+	private Long ID;
 
     private String Description;
 
     public EquipmentEntity() {
-        this.ID = UUID.randomUUID();
         Description = "";
     }
 
-    public UUID getID() {
+	public Long getID() {
 		return ID;
 	}
 

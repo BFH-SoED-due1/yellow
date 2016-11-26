@@ -12,12 +12,17 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Building;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.GPSTag;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * BuildingEntity class which holds Rooms
  */
+@Entity
+@Table(name = "Building")
 public class BuildingEntity
         implements Building {
 

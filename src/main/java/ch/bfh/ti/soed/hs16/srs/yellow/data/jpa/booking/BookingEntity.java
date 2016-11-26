@@ -15,6 +15,7 @@ import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Collections;
 import java.util.HashSet;
@@ -29,8 +30,8 @@ public class BookingEntity
         implements Booking {
 
     @Id
-    @GeneratedValue
-    private UUID ID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ID;
 
     private Customer bookingCustomer;
 
@@ -45,7 +46,7 @@ public class BookingEntity
         paymentLinkID = new HashSet<>();
     }
 
-    public UUID getID() {
+    public Long getID() {
         return ID;
     }
 

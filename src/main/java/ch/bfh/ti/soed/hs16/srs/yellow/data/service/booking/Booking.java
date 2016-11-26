@@ -11,6 +11,7 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
+
 import java.util.Set;
 import java.util.UUID;
 
@@ -19,7 +20,7 @@ import java.util.UUID;
  */
 public interface Booking {
 
-    UUID getID();
+    Long getID();
 
     Customer getBookingCustomer();
 

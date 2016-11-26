@@ -11,7 +11,6 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer;
 
 
 import java.util.Date;
-import java.util.UUID;
 
 /**
  *
@@ -21,7 +20,7 @@ public interface Person {
     /**
      * PersonEntity can change any info except from UUID
      */
-    UUID getPersonID();
+    Long getID();
 
     String getLastName();
 

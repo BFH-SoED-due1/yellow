@@ -13,6 +13,9 @@ import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetai
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Credentials;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,6 +23,8 @@ import java.util.Set;
 /**
  * CustomerEntity is a person which signed up for a login
  */
+@Entity
+@Table(name = "Customer")
 public class CustomerEntity
         extends PersonEntity
         implements Customer {
