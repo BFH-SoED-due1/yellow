@@ -9,9 +9,10 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.room;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.GPSTagEntity;
-import static org.junit.Assert.assertEquals;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.GPSTagEntity;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Unit tests for GPSTag implementation

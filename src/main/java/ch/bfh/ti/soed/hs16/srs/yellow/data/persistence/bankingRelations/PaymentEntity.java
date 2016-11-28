@@ -7,7 +7,7 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations;
+package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations;
 
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
@@ -33,8 +33,10 @@ public class PaymentEntity
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ID;
 
+    @Column(name = "is_successful")
     private Boolean isSuccessful;
 
+    @Column(name = "pay_sum")
     private BigDecimal sumToPay;
 
     public PaymentEntity() {

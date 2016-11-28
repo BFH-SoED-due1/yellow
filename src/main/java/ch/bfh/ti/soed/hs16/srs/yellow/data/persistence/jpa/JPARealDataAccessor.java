@@ -7,27 +7,35 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa;
+package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.jpa;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.DataAccess;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.customer.PersonEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.RoomEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer.PersonEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.RoomEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.jpa.DataAccessor;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.List;
 
-public class JPADataAccess
-        extends DataAccess {
+public class JPARealDataAccessor
+        implements DataAccessor {
 
     public static final String PERSISTENCE_UNIT = "srs-pu";
-    private EntityManager entityManager;
 
-    public JPADataAccess() {
-        this.entityManager = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT).createEntityManager();
+    private EntityManagerFactory entityManagerFactory = null;
+
+    private EntityManager entityManager = null;
+
+    private EntityTransaction entityTransaction = null;
+
+    public JPARealDataAccessor() {
+        try {
+            entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+            this.entityManager = entityManagerFactory.createEntityManager();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
