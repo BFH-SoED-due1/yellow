@@ -9,7 +9,7 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.room;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.EquipmentEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.EquipmentEntity;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
@@ -20,22 +20,16 @@ import org.junit.Test;
 public class EquipmentEntityTest {
 
     @Test
-    public void testGetEquipmentID() {
-
+    public void testEquipmentInitialized() {
         EquipmentEntity equip1 = new EquipmentEntity();
-
-        assertNotNull(equip1.getID());
+        assertNotNull(equip1);
     }
 
     @Test
     public void testEquipmentDescription() {
-
         EquipmentEntity equip1 = new EquipmentEntity();
-
         String desc = "This equipment has a description";
-
         equip1.setDescription(desc);
-
         assertEquals(desc, equip1.getDescription());
     }
 

@@ -10,16 +10,14 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations;
 
 
-import java.util.UUID;
-
 /**
  * Banking details of a CustomerEntity
  */
 public interface BankingDetails {
 
-    UUID getID();
+    Long getID();
 
-    UUID getBoundPersonID();
+    Long getBoundPersonID();
 
     String getCardNumber();
 
@@ -29,8 +27,8 @@ public interface BankingDetails {
 
     void setCardName(String cardName);
 
-    BankCardProvider getProvider();
+    // BankCardProvider getProvider();
 
-    void setProvider(BankCardProvider provider);
+    // void setProvider(BankCardProvider provider);
 
 }

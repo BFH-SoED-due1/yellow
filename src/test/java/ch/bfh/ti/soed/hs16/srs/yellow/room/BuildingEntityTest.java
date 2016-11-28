@@ -9,9 +9,9 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.room;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.BuildingEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.GPSTagEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.RoomEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.BuildingEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.GPSTagEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.RoomEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Building;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.GPSTag;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
@@ -84,9 +84,7 @@ public class BuildingEntityTest {
     public void testRoomsInitialized() {
 
         Building build1 = new BuildingEntity();
-
         Set<Room> roomSet = build1.getRoomsInBuilding();
-
         assertNotNull(roomSet);
     }
 
@@ -94,11 +92,8 @@ public class BuildingEntityTest {
     public void testAddRoomToBuilding() {
 
         Building build1 = new BuildingEntity();
-
         Room rm1 = new RoomEntity();
-
         build1.addRoomToBuilding(rm1);
-
         assertTrue(build1.getRoomsInBuilding().contains(rm1));
     }
 }
