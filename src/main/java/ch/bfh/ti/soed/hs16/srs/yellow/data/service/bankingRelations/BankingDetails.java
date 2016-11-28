@@ -27,8 +27,8 @@ public interface BankingDetails {
 
     void setCardName(String cardName);
 
-    BankCardProvider getProvider();
+    // BankCardProvider getProvider();
 
-    void setProvider(BankCardProvider provider);
+    // void setProvider(BankCardProvider provider);
 
 }

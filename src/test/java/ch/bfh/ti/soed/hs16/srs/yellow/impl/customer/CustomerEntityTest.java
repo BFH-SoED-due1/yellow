@@ -1,5 +1,4 @@
 
-
 /*
  * Copyright (c) 2016 Berner Fachhochschule, Switzerland
  *
@@ -10,7 +9,7 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.customer.CustomerEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer.CustomerEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
 import org.junit.Test;
 
