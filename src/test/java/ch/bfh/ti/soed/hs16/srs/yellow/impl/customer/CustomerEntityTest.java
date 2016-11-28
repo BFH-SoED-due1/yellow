@@ -9,11 +9,15 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations.BankingDetailsEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations.PaymentEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer.CustomerEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetails;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
+import java.math.BigDecimal;
+import static org.junit.Assert.*;
 import org.junit.Test;
-
-import static org.junit.Assert.assertNotNull;
 
 /**
  * Unit tests for Customer implementation
@@ -27,11 +31,10 @@ public class CustomerEntityTest extends PersonEntityTest {
         assertNotNull(cust.getBankingDetails());
     }
 
- /*   @Test
+    @Test
     public void testAddBankingDetail() {
 
-        UUID boundPerson = UUID.randomUUID();
-        BankingDetails bd = new BankingDetailsEntity(boundPerson);
+        BankingDetails bd = new BankingDetailsEntity();
         Customer cust = new CustomerEntity();
         cust.addBankingDetail(bd);
         assertTrue(cust.getBankingDetails().contains(bd));
@@ -40,7 +43,6 @@ public class CustomerEntityTest extends PersonEntityTest {
     @Test
     public void testGetPaymentImpls() {
 
-        UUID boundPerson = UUID.randomUUID();
         Payment pt = new PaymentEntity();
         BigDecimal bd = new BigDecimal("76.8598");
         pt.setSumToPay(bd);
@@ -52,7 +54,6 @@ public class CustomerEntityTest extends PersonEntityTest {
     @Test
     public void testAddPayment() {
 
-        UUID boundPerson = UUID.randomUUID();
         Payment pt = new PaymentEntity();
         BigDecimal bd = new BigDecimal("78.8598");
         pt.setSumToPay(bd);
@@ -119,5 +120,4 @@ public class CustomerEntityTest extends PersonEntityTest {
         cust.updatePwdHash(pwdNew);
         assertEquals(pwdNew, cust.getpwdHash());
     }
-*/
 }

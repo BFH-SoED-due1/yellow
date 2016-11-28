@@ -12,11 +12,10 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Building;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.GPSTag;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.*;
 
 /**
  * BuildingEntity class which holds Rooms
@@ -40,17 +39,9 @@ public class BuildingEntity
     private GPSTag gpsTag;
 
     @OneToMany(targetEntity = RoomEntity.class)
-    private Set<Room> roomsInBuilding;
+    private Set<Room> roomsInBuilding = new HashSet<>();
 
     public BuildingEntity() {
-    }
-
-    public BuildingEntity(String name) {
-
-        name = "";
-        gpsTag = new GPSTagEntity("0", "0");
-        roomsInBuilding = new HashSet<>();
-
     }
 
     public BuildingEntity(String name, GPSTag tag) {

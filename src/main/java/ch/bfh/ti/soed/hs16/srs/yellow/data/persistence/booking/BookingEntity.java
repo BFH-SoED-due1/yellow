@@ -16,13 +16,12 @@ import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-import org.joda.time.Interval;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.*;
+import org.joda.time.Interval;
 
 /**
  *
@@ -70,19 +69,19 @@ public class BookingEntity
         this.bookingCustomer = bookingCustomer;
     }
 
-    public Room getBookedRoomImpl() {
+    public Room getBookedRoom() {
         return bookedRoom;
     }
 
-    public void setBookedRoomImpl(Room bookedRoomImpl) {
-        this.bookedRoom = bookedRoomImpl;
+    public void setBookedRoom(Room bookedRoom) {
+        this.bookedRoom = bookedRoom;
     }
 
-    public Set<Payment> getPaymentLinkID() {
+    public Set<Payment> getPayments() {
         return Collections.unmodifiableSet(payments);
     }
 
-    public void linkPaymentID(Payment paymentToLink) {
+    public void linkPayment(Payment paymentToLink) {
         this.payments.add(paymentToLink);
     }
 }

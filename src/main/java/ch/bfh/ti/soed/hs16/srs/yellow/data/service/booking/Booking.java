@@ -12,7 +12,6 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-
 import java.util.Set;
 
 /**
@@ -26,11 +25,11 @@ public interface Booking {
 
     void setBookingCustomer(Customer bookingCustomer);
 
-    Room getBookedRoomImpl();
+    Room getBookedRoom();
 
-    void setBookedRoomImpl(Room bookedRoomImpl);
+    void setBookedRoom(Room bookedRoomImpl);
 
-    Set<Payment> getPaymentLinkID();
+    Set<Payment> getPayments();
 
-    void linkPaymentID(Payment paymentToLink);
+    void linkPayment(Payment paymentToLink);
 }
