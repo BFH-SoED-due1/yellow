@@ -9,26 +9,16 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.views;
 
-import java.util.Calendar;
-import java.util.Date;
-
-import javax.servlet.annotation.WebServlet;
-
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.datefield.Resolution;
-import com.vaadin.ui.Alignment;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.DateField;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.NativeSelect;
-import com.vaadin.ui.Panel;
-import com.vaadin.ui.PopupDateField;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.*;
+
+import javax.servlet.annotation.WebServlet;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window
@@ -93,11 +83,11 @@ public class MainView extends UI {
 		searchBtn.setSizeFull();
 
 		signupBtn.addClickListener(e -> {
-		//	setContent(sPanel);
+			//	setContent(sPanel);
 		});
 
 		loginBtn.addClickListener(e -> {
-		//	setContent(lPanel);
+			//	setContent(lPanel);
 		});
 
 		loginLayout.addComponents(signupBtn, loginBtn);

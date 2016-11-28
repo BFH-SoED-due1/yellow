@@ -17,7 +17,7 @@ import com.vaadin.ui.*;
  * Created by rdrand on 28/11/16.
  */
 @Theme("mytheme")
-public class LoginView extends UI{
+public class LoginView extends UI {
 
     // Login
     private Panel lPanel = new Panel();

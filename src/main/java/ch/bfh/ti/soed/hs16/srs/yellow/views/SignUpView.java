@@ -32,7 +32,7 @@ public class SignUpView extends UI {
     private Button backBtn = new Button("Back");
     private Button sSignUpBtn = new Button("Sign up");
 
-    protected void init(VaadinRequest vaadinRequest){
+    protected void init(VaadinRequest vaadinRequest) {
 
         sUName.setRequired(true);
         sPwd.setRequired(true);
