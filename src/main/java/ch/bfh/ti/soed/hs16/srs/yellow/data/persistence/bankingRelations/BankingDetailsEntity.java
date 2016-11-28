@@ -7,7 +7,7 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations;
+package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations;
 
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetails;
@@ -36,6 +36,7 @@ public class BankingDetailsEntity
 	@Column(name = "nameoncard")
 	private String cardName;
 
+	@Column(name = "person_id")
 	private Long boundPersonID = 12345678910L;
 
 	//@ManyToOne(targetEntity = BankCardProvider.class)

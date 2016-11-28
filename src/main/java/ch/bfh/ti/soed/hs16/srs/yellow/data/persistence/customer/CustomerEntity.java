@@ -7,10 +7,10 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.customer;
+package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations.BankingDetailsEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations.PaymentEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations.BankingDetailsEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations.PaymentEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetails;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Credentials;

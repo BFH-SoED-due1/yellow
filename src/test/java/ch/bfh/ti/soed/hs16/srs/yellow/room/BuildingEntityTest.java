@@ -9,8 +9,8 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.room;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.BuildingEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.GPSTagEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.BuildingEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.GPSTagEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Building;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.GPSTag;
 import org.junit.Test;

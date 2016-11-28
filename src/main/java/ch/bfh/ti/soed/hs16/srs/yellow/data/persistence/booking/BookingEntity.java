@@ -7,15 +7,16 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.booking;
+package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.booking;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations.PaymentEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.customer.CustomerEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.RoomEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations.PaymentEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer.CustomerEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.RoomEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
+import org.joda.time.Interval;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -46,6 +47,9 @@ public class BookingEntity
 
     @OneToMany(targetEntity = PaymentEntity.class)
     private Set<Payment> payments;
+
+    @Transient
+    private Interval bookingFromToInterval;
 
     /**
      * Default constructor
