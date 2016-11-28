@@ -10,28 +10,39 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations;
 
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankCardProvider;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetails;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Banking details of a CustomerEntity
  */
-@Entity
+@Entity(name = "BankingDetailsEntity")
+@Access(AccessType.FIELD)
 @Table(name = "BankingDetails")
 public class BankingDetailsEntity
-        implements BankingDetails {
+		implements BankingDetails,
+		Serializable {
 
-	private final Long boundPersonID;
 	@Id
+	@Column(name = "bankdetail_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;
+
+	@Column(name = "cardno")
 	private String cardNumber;
 
-    private String cardName;
+	@Column(name = "nameoncard")
+	private String cardName;
 
-    private BankCardProvider provider;
+	private Long boundPersonID = 12345678910L;
+
+	//@ManyToOne(targetEntity = BankCardProvider.class)
+	//private BankCardProvider provider;
+
+	public BankingDetailsEntity() {
+	}
 
 	/**
 	 * Must bind a PersonEntity who created an entry by adding to account
@@ -64,12 +75,12 @@ public class BankingDetailsEntity
 		this.cardName = cardName;
 	}
 
-	public ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankCardProvider getProvider() {
-		return provider;
-	}
+	//public BankCardProvider getProvider() {
+	//	return provider;
+	//}
 
-	public void setProvider(BankCardProvider provider) {
-		this.provider = provider;
-	}
+	//public void setProvider(BankCardProvider provider) {
+	//	this.provider = provider;
+	//}
 
 }

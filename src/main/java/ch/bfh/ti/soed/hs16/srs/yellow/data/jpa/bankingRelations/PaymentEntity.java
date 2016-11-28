@@ -12,10 +12,8 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -23,10 +21,15 @@ import java.util.Locale;
 /**
  *
  */
-@Entity
-public class PaymentEntity implements Payment {
+@Entity(name = "PaymentEntity")
+@Access(AccessType.FIELD)
+@Table(name = "Payments")
+public class PaymentEntity
+        implements Payment,
+        Serializable {
 
     @Id
+    @Column(name = "payment_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ID;
 
@@ -34,9 +37,6 @@ public class PaymentEntity implements Payment {
 
     private BigDecimal sumToPay;
 
-    /**
-     * Default constructor
-     */
     public PaymentEntity() {
         isSuccessful = false;
         sumToPay = new BigDecimal("0.000");

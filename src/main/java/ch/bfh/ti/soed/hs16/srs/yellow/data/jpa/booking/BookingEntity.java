@@ -9,41 +9,49 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.booking;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations.PaymentEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.customer.CustomerEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.RoomEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 /**
  *
  */
-@Entity
+@Entity(name = "BookingEntity")
+@Table(name = "bookings")
+@Access(AccessType.FIELD)
 public class BookingEntity
-        implements Booking {
+        implements Booking,
+        Serializable {
 
     @Id
+    @Column(name = "booking_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
+    @ManyToOne(targetEntity = CustomerEntity.class)
     private Customer bookingCustomer;
 
-    private Room bookedRoomImpl;
+    @ManyToOne(targetEntity = RoomEntity.class)
+    private Room bookedRoom;
 
-    private Set<UUID> paymentLinkID;
+    @OneToMany(targetEntity = PaymentEntity.class)
+    private Set<Payment> payments;
 
     /**
      * Default constructor
      */
     public BookingEntity() {
-        paymentLinkID = new HashSet<>();
+        payments = new HashSet<>();
     }
 
     public Long getID() {
@@ -59,18 +67,18 @@ public class BookingEntity
     }
 
     public Room getBookedRoomImpl() {
-        return bookedRoomImpl;
+        return bookedRoom;
     }
 
     public void setBookedRoomImpl(Room bookedRoomImpl) {
-        this.bookedRoomImpl = bookedRoomImpl;
+        this.bookedRoom = bookedRoomImpl;
     }
 
-    public Set<UUID> getPaymentLinkID() {
-        return Collections.unmodifiableSet(paymentLinkID);
+    public Set<Payment> getPaymentLinkID() {
+        return Collections.unmodifiableSet(payments);
     }
 
-    public void linkPaymentID(UUID paymentIDToLink) {
-        this.paymentLinkID.add(paymentIDToLink);
+    public void linkPaymentID(Payment paymentToLink) {
+        this.payments.add(paymentToLink);
     }
 }

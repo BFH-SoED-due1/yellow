@@ -1,5 +1,6 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.data;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.JPADataAccess;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
 import org.junit.Before;
@@ -21,7 +22,9 @@ public class DataAccessTest {
  *
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-    private DataAccess dataAccess;
+    private DataAccess dataAccess = null;
+
+    private JPADataAccess jpa;
 
     @Before
     public void setUp() {

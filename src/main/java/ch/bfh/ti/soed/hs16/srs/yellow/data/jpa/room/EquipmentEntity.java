@@ -12,20 +12,26 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Equipment;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Describes equipment which is available to the room
  */
-@Entity
+@Entity(name = "EquipmentEntity")
+@Access(AccessType.FIELD)
 @Table(name = "Equipment")
 public class EquipmentEntity
-        implements Equipment {
+		implements Equipment,
+		Serializable {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "equ_id")
 	private Long ID;
 
-    private String Description;
+	@Column(name = "desc")
+	private String Description;
 
     public EquipmentEntity() {
         Description = "";

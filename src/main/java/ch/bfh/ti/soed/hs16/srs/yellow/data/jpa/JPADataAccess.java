@@ -22,16 +22,12 @@ import java.util.List;
 
 public class JPADataAccess
         extends DataAccess {
-    public static final String PERSISTENCE_UNIT = "srs-pu";
 
+    public static final String PERSISTENCE_UNIT = "srs-pu";
     private EntityManager entityManager;
 
     public JPADataAccess() {
-        try {
-            this.entityManager = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT).createEntityManager();
-        } catch (Exception ex) {
-            throw new RuntimeException("Persistence file not found or cannot be loaded");
-        }
+        this.entityManager = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT).createEntityManager();
     }
 
     @Override
@@ -46,7 +42,7 @@ public class JPADataAccess
     @SuppressWarnings("unchecked")
     @Override
     public List<Person> findAllPersons() {
-        Query query = this.entityManager.createQuery("select p from Person p");
+        Query query = this.entityManager.createQuery("select p from PersonEntity p");
         return query.getResultList();
     }
 
@@ -56,6 +52,7 @@ public class JPADataAccess
         PersonEntity person = this.entityManager.find(PersonEntity.class, id);
         this.entityManager.remove(person);
         this.entityManager.getTransaction().commit();
+
     }
 
     @Override
@@ -70,7 +67,7 @@ public class JPADataAccess
     @SuppressWarnings("unchecked")
     @Override
     public List<Room> findAllRooms() {
-        Query query = this.entityManager.createQuery("select r from Room r");
+        Query query = this.entityManager.createQuery("select r from RoomEntity r");
         return query.getResultList();
     }
 
@@ -81,17 +78,4 @@ public class JPADataAccess
         this.entityManager.remove(room);
         this.entityManager.getTransaction().commit();
     }
-
-   /* @Override
-    public Booking makeBooking(Person person, Room room) {
-        this.entityManager.getTransaction().begin();
-        //BookingEntity reservation = new BookingEntity(person, room);
-        //this.entityManager.persist(reservation);
-        //person.add(reservation);
-        //room.addReservation(reservation);
-        this.entityManager.merge(person);
-        this.entityManager.merge(room);
-        this.entityManager.getTransaction().commit();
-        return null;
-    } */
 }

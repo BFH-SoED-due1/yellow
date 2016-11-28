@@ -12,27 +12,33 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Credentials;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  *
  */
-@Entity
+@Entity(name = "CredentialsEntity")
+@Access(AccessType.FIELD)
 @Table(name = "Credentials")
 public class CredentialsEntity
-        implements Credentials {
+        implements Credentials,
+        Serializable {
 
     @Id
+    @Column(name = "cred_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
     /**
      * Name under which the customer is known to system
      */
+    @Column(name = "login")
     private String login;
 
     /**
      * Hash from customer's password from the input field (not a plaintext password !)
      */
+    @Column(name = "pwd_hash")
     private String passwordHash;
 
     public CredentialsEntity() {
