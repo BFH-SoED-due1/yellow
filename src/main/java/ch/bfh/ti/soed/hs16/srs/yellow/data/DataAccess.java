@@ -1,4 +1,3 @@
-package ch.bfh.ti.soed.hs16.srs.yellow.data;
 
 /*
  * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
@@ -8,14 +7,18 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data;
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
+package ch.bfh.ti.soed.hs16.srs.yellow.data;
+
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
 
 import java.util.List;
-import java.util.UUID;
 
 public abstract class DataAccess {
 
+    // A more versatile approach could be introduced here:
+    // - reading value via a Java property
+    // - using Java's CDI
     public static final String DEFAULT_DATA_ACCESS_CLASS = "ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.JPADataAccess";
 
     private static DataAccess instance = null;
@@ -28,6 +31,7 @@ public abstract class DataAccess {
                 Class clazz = Class.forName(DEFAULT_DATA_ACCESS_CLASS);
                 instance = (DataAccess) clazz.newInstance();
             } catch (Exception ex) {
+                ex.printStackTrace();
                 System.err.println("Could not load class: " + DEFAULT_DATA_ACCESS_CLASS);
                 throw new RuntimeException("Could not load class: " + DEFAULT_DATA_ACCESS_CLASS);
             }
@@ -41,7 +45,7 @@ public abstract class DataAccess {
 
     public abstract List<Person> findAllPersons();
 
-    public abstract void removePerson(UUID id);
+    public abstract void removePerson(Long id);
 
     // Methods for rooms
     ////////////////////
@@ -50,8 +54,4 @@ public abstract class DataAccess {
     public abstract List<Room> findAllRooms();
 
     public abstract void removeRoom(Long id);
-
-    // Methods for reservations
-    ///////////////////////////
-    //public abstract Reservation makeReservation(Person person, Room room, DateRange dateRange);
 }

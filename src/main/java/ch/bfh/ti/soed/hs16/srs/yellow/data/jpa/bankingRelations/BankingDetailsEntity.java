@@ -10,41 +10,52 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations;
 
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankCardProvider;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetails;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.util.UUID;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Banking details of a CustomerEntity
  */
+@Entity(name = "BankingDetailsEntity")
+@Access(AccessType.FIELD)
+@Table(name = "BankingDetails")
 public class BankingDetailsEntity
-        implements BankingDetails {
+		implements BankingDetails,
+		Serializable {
 
-	private final UUID boundPersonID;
-    @Id
-    @GeneratedValue
-    private UUID ID;
-    private String cardNumber;
+	@Id
+	@Column(name = "bankdetail_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long ID;
 
-    private String cardName;
+	@Column(name = "cardno")
+	private String cardNumber;
 
-    private BankCardProvider provider;
+	@Column(name = "nameoncard")
+	private String cardName;
+
+	private Long boundPersonID = 12345678910L;
+
+	//@ManyToOne(targetEntity = BankCardProvider.class)
+	//private BankCardProvider provider;
+
+	public BankingDetailsEntity() {
+	}
 
 	/**
-     * Must bound a PersonEntity who created an entry by adding to account
-     */
-    public BankingDetailsEntity(UUID boundPersonID) {
-        this.boundPersonID = boundPersonID;
+	 * Must bind a PersonEntity who created an entry by adding to account
+	 */
+	public BankingDetailsEntity(Long boundPersonID) {
+		this.boundPersonID = boundPersonID;
     }
 
-    public UUID getID() {
+	public Long getID() {
 		return ID;
 	}
 
-	public UUID getBoundPersonID() {
+	public Long getBoundPersonID() {
 		return boundPersonID;
 	}
 
@@ -64,12 +75,12 @@ public class BankingDetailsEntity
 		this.cardName = cardName;
 	}
 
-	public ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankCardProvider getProvider() {
-		return provider;
-	}
+	//public BankCardProvider getProvider() {
+	//	return provider;
+	//}
 
-	public void setProvider(BankCardProvider provider) {
-		this.provider = provider;
-	}
+	//public void setProvider(BankCardProvider provider) {
+	//	this.provider = provider;
+	//}
 
 }

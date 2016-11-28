@@ -11,39 +11,42 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.customer;
 
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 /**
  *
  */
+@Entity(name = "PersonEntity")
+@Access(AccessType.FIELD)
+@Table(name = "Person")
 public class PersonEntity
-        implements Person {
+        implements Person,
+        Serializable {
 
-    /**
-     * PersonEntity can change any info except from UUID
-     */
     @Id
-    @GeneratedValue
-    private final UUID ID;
+    @Column(name = "person_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ID;
 
+    @Column(name = "fname")
     private String firstName;
 
+    @Column(name = "lname")
     private String lastName;
 
+    @Column(name = "birthdate")
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
     public PersonEntity() {
-
-        this.ID = UUID.randomUUID();
     }
 
-    public UUID getPersonID() {
-
-		return ID;
-	}
+    public Long getID() {
+        return this.ID;
+    }
 
     public String getLastName() {
 

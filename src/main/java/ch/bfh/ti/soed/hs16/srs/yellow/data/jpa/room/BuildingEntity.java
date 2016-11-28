@@ -12,22 +12,40 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Building;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.GPSTag;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * BuildingEntity class which holds Rooms
  */
+@Entity(name = "BuildingEntity")
+@Access(AccessType.FIELD)
+@Table(name = "Buildings")
 public class BuildingEntity
-        implements Building {
+        implements Building,
+        Serializable {
 
+    @Id
+    @Column(name = "building_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ID;
+
+    @Column(name = "building_name")
     private String name;
 
+    @ManyToOne(targetEntity = GPSTagEntity.class)
     private GPSTag gpsTag;
 
+    @OneToMany(targetEntity = RoomEntity.class)
     private Set<Room> roomsInBuilding;
 
     public BuildingEntity() {
+    }
+
+    public BuildingEntity(String name) {
 
         name = "";
         gpsTag = new GPSTagEntity("0", "0");

@@ -11,30 +11,33 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Equipment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
-/**
- *
- */
+@Entity(name = "RoomEntity")
+@Access(AccessType.FIELD)
+@Table(name = "Room")
 public class RoomEntity
-        implements Room {
+        implements Room,
+        Serializable {
 
-    private final UUID ID;
+    @Id
+    @GeneratedValue
+    @Column(name = "room_id")
+    private Long ID;
 
-    /**
-     *
-     */
-    private Set<Equipment> equSet;
+    @OneToMany(targetEntity = EquipmentEntity.class)
+    private Set<Equipment> equSet = new HashSet<>();
 
     public RoomEntity() {
-        this.ID = UUID.randomUUID();
-        equSet = new HashSet<>();
+
     }
 
-    public UUID getID() {
+    public Long getID() {
         return this.ID;
     }
 

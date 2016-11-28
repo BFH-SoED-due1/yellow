@@ -11,14 +11,13 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations;
 
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 /**
  *
  */
 public interface Payment {
 
-    UUID getID();
+    Long getID();
 
     Boolean getIsSuccessful();
 

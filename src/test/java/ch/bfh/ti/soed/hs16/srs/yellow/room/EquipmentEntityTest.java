@@ -10,9 +10,10 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.room;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.EquipmentEntity;
+import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import org.junit.Test;
 
 /**
  * Unit tests for Equipment implementation
@@ -20,11 +21,11 @@ import org.junit.Test;
 public class EquipmentEntityTest {
 
     @Test
-    public void testGetEquipmentID() {
+    public void testEquipmentInitialized() {
 
         EquipmentEntity equip1 = new EquipmentEntity();
 
-        assertNotNull(equip1.getID());
+        assertNotNull(equip1);
     }
 
     @Test

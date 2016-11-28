@@ -11,36 +11,39 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations;
 
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Locale;
-import java.util.UUID;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 /**
  *
  */
-public class PaymentEntity implements Payment {
+@Entity(name = "PaymentEntity")
+@Access(AccessType.FIELD)
+@Table(name = "Payments")
+public class PaymentEntity
+        implements Payment,
+        Serializable {
 
     @Id
-    @GeneratedValue
-    private UUID ID;
+    @Column(name = "payment_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long ID;
 
     private Boolean isSuccessful;
 
     private BigDecimal sumToPay;
 
-    /**
-     * Default constructor
-     */
     public PaymentEntity() {
         isSuccessful = false;
         sumToPay = new BigDecimal("0.000");
     }
 
-    public UUID getID() {
-		return ID;
+    public Long getID() {
+        return ID;
 	}
 
 	public Boolean getIsSuccessful() {

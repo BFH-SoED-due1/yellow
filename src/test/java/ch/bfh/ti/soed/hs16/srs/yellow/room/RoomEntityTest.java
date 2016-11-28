@@ -12,10 +12,11 @@ package ch.bfh.ti.soed.hs16.srs.yellow.room;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.EquipmentEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.room.RoomEntity;
+import org.junit.Test;
+
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import org.junit.Test;
 
 /**
  * Unit tests for Room implementation
@@ -23,10 +24,10 @@ import org.junit.Test;
 public class RoomEntityTest {
 
     @Test
-	public void testUUIDisInitialized() {
+	public void testRoomEntityisInitialized() {
 
         RoomEntity rm1 = new RoomEntity();
-        assertNotNull(rm1.getID());
+		assertNotNull(rm1);
 
     }
 
