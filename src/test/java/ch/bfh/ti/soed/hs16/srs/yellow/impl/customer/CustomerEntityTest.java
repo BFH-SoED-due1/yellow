@@ -1,5 +1,4 @@
 
-
 /*
  * Copyright (c) 2016 Berner Fachhochschule, Switzerland
  *

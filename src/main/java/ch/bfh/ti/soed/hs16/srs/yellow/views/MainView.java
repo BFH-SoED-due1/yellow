@@ -7,18 +7,28 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow;
+package ch.bfh.ti.soed.hs16.srs.yellow.views;
+
+import java.util.Calendar;
+import java.util.Date;
+
+import javax.servlet.annotation.WebServlet;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.datefield.Resolution;
-import com.vaadin.ui.*;
-
-import javax.servlet.annotation.WebServlet;
-import java.util.Calendar;
-import java.util.Date;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.DateField;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.NativeSelect;
+import com.vaadin.ui.Panel;
+import com.vaadin.ui.PopupDateField;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window
@@ -28,8 +38,9 @@ import java.util.Date;
  * overridden to add component to the user interface and initialize non-component functionality.
  */
 @Theme("mytheme")
-public class MyUI extends UI {
+public class MainView extends UI {
 
+	// Main UI
 	private Panel panel = new Panel();
 	private VerticalLayout panelContent = new VerticalLayout();
 	private VerticalLayout searchLayout = new VerticalLayout();
@@ -57,6 +68,7 @@ public class MyUI extends UI {
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
+		// Main UI
 		date = new Date();
 		limitDate = Calendar.getInstance();
 		limitDate.setTime(date);
@@ -79,6 +91,14 @@ public class MyUI extends UI {
 		fromDate.setSizeFull();
 		toDate.setSizeFull();
 		searchBtn.setSizeFull();
+
+		signupBtn.addClickListener(e -> {
+		//	setContent(sPanel);
+		});
+
+		loginBtn.addClickListener(e -> {
+		//	setContent(lPanel);
+		});
 
 		loginLayout.addComponents(signupBtn, loginBtn);
 
@@ -106,13 +126,8 @@ public class MyUI extends UI {
 		setContent(panel);
 	}
 
-//	@Override
-//	protected void init(VaadinRequest vaadinRequest) {
-//
-//	}
-
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-	@VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
+	@VaadinServletConfiguration(ui = MainView.class, productionMode = false)
 	public static class MyUIServlet extends VaadinServlet {
 	}
 }

@@ -9,7 +9,6 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
 
-
 /**
  * Unit tests for Person implementation
  */

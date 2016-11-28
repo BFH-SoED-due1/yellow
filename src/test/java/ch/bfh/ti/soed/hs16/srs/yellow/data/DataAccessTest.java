@@ -1,3 +1,12 @@
+
+/*
+ * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
+ *
+ * Project Smart Reservation System.
+ *
+ * Distributable under GPL license. See terms of license at gnu.org.
+ */
+
 package ch.bfh.ti.soed.hs16.srs.yellow.data;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.JPADataAccess;
@@ -15,13 +24,6 @@ import static org.junit.Assert.*;
  */
 public class DataAccessTest {
 
-    /*
- * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
- *
- * Project Smart Reservation System.
- *
- * Distributable under GPL license. See terms of license at gnu.org.
- */
     private DataAccess dataAccess = null;
 
     private JPADataAccess jpa;
