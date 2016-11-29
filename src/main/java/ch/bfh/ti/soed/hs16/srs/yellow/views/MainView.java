@@ -14,11 +14,19 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.datefield.Resolution;
-import com.vaadin.ui.*;
-
-import javax.servlet.annotation.WebServlet;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.DateField;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.NativeSelect;
+import com.vaadin.ui.Panel;
+import com.vaadin.ui.PopupDateField;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
 import java.util.Calendar;
 import java.util.Date;
+import javax.servlet.annotation.WebServlet;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window
@@ -36,8 +44,8 @@ public class MainView extends UI {
 	private VerticalLayout searchLayout = new VerticalLayout();
 	private VerticalLayout leftVLayout = new VerticalLayout();
 	private VerticalLayout rightVLayout = new VerticalLayout();
-	private HorizontalLayout headerLayout = new HorizontalLayout();
-	private HorizontalLayout inputLayout = new HorizontalLayout();
+    private HorizontalLayout headerLayout;
+    private HorizontalLayout inputLayout = new HorizontalLayout();
 	private HorizontalLayout loginLayout = new HorizontalLayout();
 
 	private Label titleLbl = new Label("Search Room");
@@ -56,10 +64,14 @@ public class MainView extends UI {
 	private Date lastDate;
 	private Calendar limitDate;
 
-	@Override
-	protected void init(VaadinRequest vaadinRequest) {
+    public MainView() {
+    }
+
+    @Override
+    protected void init(VaadinRequest vaadinRequest) {
 		// Main UI
-		date = new Date();
+        headerLayout = new HorizontalLayout();
+        date = new Date();
 		limitDate = Calendar.getInstance();
 		limitDate.setTime(date);
 		limitDate.add(Calendar.YEAR, 1);

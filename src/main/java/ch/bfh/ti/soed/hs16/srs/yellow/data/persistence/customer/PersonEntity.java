@@ -18,7 +18,19 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import javax.persistence.*;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Entity(name = "PersonEntity")
@@ -31,20 +43,20 @@ public class PersonEntity
     @Id
     @Column(name = "person_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long ID;
+    private Long ID;
 
     @Column(name = "fname")
-    protected String firstName;
+    private String firstName;
 
     @Column(name = "lname")
-    protected String lastName;
+    private String lastName;
 
     @Column(name = "birthdate")
     @Temporal(TemporalType.DATE)
-    protected Date dateOfBirth;
+    private Date dateOfBirth;
 
     @OneToMany(targetEntity = BookingEntity.class)
-    List<Booking> bookingsList = new LinkedList<>();
+    private List<Booking> bookingsList = new LinkedList<>();
 
     public PersonEntity() {
     }
