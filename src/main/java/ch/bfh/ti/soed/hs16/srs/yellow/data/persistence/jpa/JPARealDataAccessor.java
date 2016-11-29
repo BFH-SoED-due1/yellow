@@ -9,14 +9,16 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.jpa;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.booking.BookingEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer.PersonEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.RoomEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.jpa.DataAccessor;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-
-import javax.persistence.*;
 import java.util.List;
+import javax.persistence.*;
+import org.joda.time.DateTime;
 
 public class JPARealDataAccessor
         implements DataAccessor {
@@ -85,5 +87,12 @@ public class JPARealDataAccessor
         RoomEntity room = this.entityManager.find(RoomEntity.class, id);
         this.entityManager.remove(room);
         this.entityManager.getTransaction().commit();
+    }
+
+    public void makeBooking(Person person, Room room, DateTime start, DateTime end) {
+        Booking booking = new BookingEntity();
+        booking.setBookedRoom(room);
+        booking.setInterval(start, end);
+        person.addBooking(booking);
     }
 }

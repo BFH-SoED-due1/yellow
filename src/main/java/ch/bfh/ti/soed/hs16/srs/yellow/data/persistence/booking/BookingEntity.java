@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
+import org.joda.time.DateTime;
 import org.joda.time.Interval;
 
 /**
@@ -45,16 +46,11 @@ public class BookingEntity
     private Room bookedRoom;
 
     @OneToMany(targetEntity = PaymentEntity.class)
-    private Set<Payment> payments;
+    private Set<Payment> payments = new HashSet<>();
 
-    @Transient
     private Interval bookingFromToInterval;
 
-    /**
-     * Default constructor
-     */
     public BookingEntity() {
-        payments = new HashSet<>();
     }
 
     public Long getID() {
@@ -83,5 +79,13 @@ public class BookingEntity
 
     public void linkPayment(Payment paymentToLink) {
         this.payments.add(paymentToLink);
+    }
+
+    public void setInterval(DateTime startDateTime, DateTime endDateTime) {
+        this.bookingFromToInterval = new Interval(startDateTime, endDateTime);
+    }
+
+    public Interval getInterval(DateTime startDateTime, DateTime endDateTime) {
+        return this.bookingFromToInterval;
     }
 }
