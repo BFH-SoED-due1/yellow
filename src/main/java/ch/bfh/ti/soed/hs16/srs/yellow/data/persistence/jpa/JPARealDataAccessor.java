@@ -17,7 +17,11 @@ import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.jpa.DataAccessor;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
 import java.util.List;
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import org.joda.time.DateTime;
 
 public class JPARealDataAccessor

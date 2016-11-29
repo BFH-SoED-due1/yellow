@@ -11,9 +11,15 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room;
 
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Equipment;
-
-import javax.persistence.*;
 import java.io.Serializable;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Describes equipment which is available to the room

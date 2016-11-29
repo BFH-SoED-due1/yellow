@@ -15,12 +15,16 @@ import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetai
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Credentials;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * CustomerEntity is a person which signed up for a login

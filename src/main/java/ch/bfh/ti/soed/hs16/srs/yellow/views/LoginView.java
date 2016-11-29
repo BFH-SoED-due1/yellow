@@ -11,11 +11,17 @@ package ch.bfh.ti.soed.hs16.srs.yellow.views;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.FormLayout;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Panel;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
 
-/**
- * Created by rdrand on 28/11/16.
- */
+
 @Theme("mytheme")
 public class LoginView extends UI {
 
