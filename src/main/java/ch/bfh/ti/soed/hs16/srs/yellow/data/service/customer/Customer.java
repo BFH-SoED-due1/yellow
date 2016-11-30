@@ -18,9 +18,6 @@ import java.util.Set;
  */
 public interface Customer extends Person {
 
-    /**
-     * First generating a PersonEntity so that we could use his data and UUID database key
-     */
     Set<BankingDetails> getBankingDetails();
 
     void addBankingDetail(BankingDetails bankingDetails);
