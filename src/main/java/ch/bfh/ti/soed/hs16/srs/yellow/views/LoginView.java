@@ -10,20 +10,24 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.views;
 
 import com.vaadin.annotations.Theme;
-import com.vaadin.server.VaadinRequest;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.server.Sizeable;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 
 @Theme("mytheme")
-public class LoginView extends UI {
+public class LoginView
+        extends CustomComponent
+        implements View {
 
     // Login
     private Panel lPanel = new Panel();
@@ -37,8 +41,10 @@ public class LoginView extends UI {
     private Button lLoginBtn = new Button("Login");
     private Button lbackBtn = new Button("Back");
 
-    @Override
-    protected void init(VaadinRequest vaadinRequest) {
+    public LoginView() {
+
+        setSizeFull();
+
         // Login
         lUName.setRequired(true);
         lPwd.setRequired(true);
@@ -49,7 +55,7 @@ public class LoginView extends UI {
 
         loginFormLayout.addComponents(lUName, lPwd, lLoginBtn);
         loginFormLayout.setMargin(true);
-        loginFormLayout.setWidth(500, Unit.PIXELS);
+        loginFormLayout.setWidth(500, Sizeable.Unit.PIXELS);
 
         lHeader.addComponent(lbackBtn);
         lbackBtn.addClickListener(e -> {
@@ -61,6 +67,10 @@ public class LoginView extends UI {
         loginVLayout.setComponentAlignment(loginFormLayout, Alignment.MIDDLE_CENTER);
         loginVLayout.setComponentAlignment(lHeader, Alignment.TOP_RIGHT);
 
-        lPanel.setContent(loginVLayout);
+        setCompositionRoot(loginVLayout);
+    }
+
+    public void enter(ViewChangeListener.ViewChangeEvent evt) {
+
     }
 }

@@ -9,18 +9,22 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.views;
 
-import com.vaadin.server.VaadinRequest;
+import com.vaadin.annotations.Theme;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.server.Sizeable;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-public class SignUpView extends UI {
+@Theme("mytheme")
+public class SignUpView extends CustomComponent implements View {
 
     // Sign up
     private Panel sPanel = new Panel();
@@ -37,8 +41,7 @@ public class SignUpView extends UI {
     private Button backBtn = new Button("Back");
     private Button sSignUpBtn = new Button("Sign up");
 
-    protected void init(VaadinRequest vaadinRequest) {
-
+    public SignUpView() {
         sUName.setRequired(true);
         sPwd.setRequired(true);
         fName.setRequired(true);
@@ -58,7 +61,7 @@ public class SignUpView extends UI {
 
         signFormLayout.addComponents(sUName, sPwd, fName, lName, emailField, sSignUpBtn);
         signFormLayout.setMargin(true);
-        signFormLayout.setWidth(500, Unit.PIXELS);
+        signFormLayout.setWidth(500, Sizeable.Unit.PIXELS);
 
         sHeader.addComponent(backBtn);
 
@@ -66,6 +69,11 @@ public class SignUpView extends UI {
         signVLayout.setSpacing(true);
         signVLayout.setComponentAlignment(signFormLayout, Alignment.MIDDLE_CENTER);
         signVLayout.setComponentAlignment(sHeader, Alignment.TOP_RIGHT);
-        sPanel.setContent(signVLayout);
+
+        setCompositionRoot(signVLayout);
+    }
+
+    public void enter(ViewChangeListener.ViewChangeEvent evt) {
+
     }
 }

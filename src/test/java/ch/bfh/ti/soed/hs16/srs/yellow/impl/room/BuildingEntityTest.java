@@ -7,7 +7,7 @@
  * Distributable under GPL license\. See terms of license at gnu.org
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.room;
+package ch.bfh.ti.soed.hs16.srs.yellow.impl.room;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.BuildingEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.GPSTagEntity;
@@ -15,9 +15,13 @@ import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.RoomEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Building;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.GPSTag;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-import java.util.Set;
-import static org.junit.Assert.*;
 import org.junit.Test;
+
+import java.util.Set;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit tests for Building implementation
@@ -26,7 +30,6 @@ public class BuildingEntityTest {
 
     @Test
     public void testBuildingCreation() {
-
         String lat = "26356";
         String lon = "6363653";
         String buildingName = "Hauptgebäude";
@@ -45,36 +48,23 @@ public class BuildingEntityTest {
 
     @Test
     public void testBuildingName() {
-
         Building build1 = new BuildingEntity();
-
         assertNotNull(build1);
-
         String bName = "Lex Corp";
-
         build1.setName(bName);
-
         assertEquals(bName, build1.getName());
     }
 
     @Test
     public void testBuildingGPS() {
-
         Building build1 = new BuildingEntity();
-
         assertNotNull(build1);
-
         String lat = "N40° 44.9764";
         String lon = "W073° 59.9735";
-
         GPSTag gpsTag = new GPSTagEntity(lat, lon);
-
         build1.setGpsTag(gpsTag);
-
         GPSTag gpsTagBuild = build1.getGpsTag();
-
         assertNotNull(gpsTagBuild);
-
         assertEquals(gpsTag.getXCoor(), lat);
         assertEquals(gpsTag.getYCoor(), lon);
 
@@ -82,7 +72,6 @@ public class BuildingEntityTest {
 
     @Test
     public void testRoomsInitialized() {
-
         Building build1 = new BuildingEntity();
         Set<Room> roomSet = build1.getRoomsInBuilding();
         assertNotNull(roomSet);
@@ -90,7 +79,6 @@ public class BuildingEntityTest {
 
     @Test
     public void testAddRoomToBuilding() {
-
         Building build1 = new BuildingEntity();
         Room rm1 = new RoomEntity();
         build1.addRoomToBuilding(rm1);
