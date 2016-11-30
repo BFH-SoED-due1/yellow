@@ -12,25 +12,21 @@ package ch.bfh.ti.soed.hs16.srs.yellow.impl.bankingRelations;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations.PaymentEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
-import org.junit.Test;
-
 import java.math.BigDecimal;
-
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  * Unit tests for Payment implementation
  */
 public class PaymentEntityTest {
 
-   /* @Test
-    public void testGetID() {
+    @Test
+    public void testIfInitialized() {
         Payment pay = new PaymentEntity();
-        UUID response = pay.getID();
-        assertNotNull(response);
-    }*/
+        assertNotNull(pay);
+    }
 
     @Test
     public void testIsSuccessful() {

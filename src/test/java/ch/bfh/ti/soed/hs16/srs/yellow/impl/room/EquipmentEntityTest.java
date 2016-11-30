@@ -7,7 +7,7 @@
  * Distributable under GPL license\. See terms of license at gnu.org
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.room;
+package ch.bfh.ti.soed.hs16.srs.yellow.impl.room;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.EquipmentEntity;
 import org.junit.Test;
@@ -22,21 +22,15 @@ public class EquipmentEntityTest {
 
     @Test
     public void testEquipmentInitialized() {
-
         EquipmentEntity equip1 = new EquipmentEntity();
-
         assertNotNull(equip1);
     }
 
     @Test
     public void testEquipmentDescription() {
-
         EquipmentEntity equip1 = new EquipmentEntity();
-
         String desc = "This equipment has a description";
-
         equip1.setDescription(desc);
-
         assertEquals(desc, equip1.getDescription());
     }
 

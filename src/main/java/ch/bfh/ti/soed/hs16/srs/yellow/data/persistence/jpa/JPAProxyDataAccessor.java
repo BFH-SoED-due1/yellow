@@ -12,8 +12,8 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.jpa;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.jpa.DataAccessor;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-
 import java.util.List;
+import org.joda.time.DateTime;
 
 public class JPAProxyDataAccessor
         implements DataAccessor {
@@ -59,5 +59,9 @@ public class JPAProxyDataAccessor
     }
 
     public void removeRoom(Long id) {
+    }
+
+    public void makeBooking(Person person, Room room, DateTime start, DateTime end) {
+        this.realInstance.makeBooking(person, room, start, end);
     }
 }

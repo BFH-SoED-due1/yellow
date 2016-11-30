@@ -10,14 +10,15 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.data;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.jpa.JPAProxyDataAccessor;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
+import java.util.List;
+import org.joda.time.DateTime;
+import org.joda.time.Interval;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by rdrand on 24/11/16.
@@ -80,22 +81,16 @@ public class DataAccessTest {
 //        assertFalse(studios.contains(r));
     }
 
-     /*   @Test
-        public void makeReservation() {
-            Person aPerson = this.JPAProxyDataAccessor.makePerson("Dubuis, Eric", "due1@nodomain.org");
-            Room aRoom = this.JPAProxyDataAccessor.makeRoom("N215", 12);
-            DateRangeFactory dateRangeFactory = new ch.bfh.ti.daterange.impl.pojo.DateRangeFactory();
-            LocalDateTime ltBegin = LocalDateTime.now().truncatedTo(ChronoUnit.HOURS);
-            Date startTime = Date.from(ltBegin.atZone(ZoneId.systemDefault()).toInstant());
-            LocalDateTime ltEnd = ltBegin.plusHours(1);
-            Date endTime = Date.from(ltEnd.atZone(ZoneId.systemDefault()).toInstant());
-            DateRange timeslot = dateRangeFactory.createDateRange(startTime, endTime);
-            this.JPAProxyDataAccessor.makeReservation(aPerson, aRoom, timeslot);
-            // Test if due1's reservation list has been updated
-            List<Reservation> res1 = aPerson.getReservations();
-            assertNotNull(res1);
-            // Test if n215's reservation list has been updated
-            List<Reservation> res2 = aRoom.getReservations();
-            assertNotNull(res2);
-        }*/
+    @Test
+    public void makeReservation() {
+        Person aPerson = this.jpaProxyDataAccessor.makePerson("Dubuis, Eric", "due1@nodomain.org");
+        Room aRoom = this.jpaProxyDataAccessor.makeRoom("N215", 12);
+        DateTime ltBegin = DateTime.now();
+        DateTime ltEnd = ltBegin.plusHours(1);
+        Interval timeslot = new Interval(ltBegin, ltEnd);
+        this.jpaProxyDataAccessor.makeBooking(aPerson, aRoom, ltBegin, ltEnd);
+        // Test if Person's reservation list has been updated
+        List<Booking> res1 = aPerson.getBookings();
+        assertNotNull(res1);
+    }
 }

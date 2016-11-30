@@ -12,8 +12,9 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-
 import java.util.Set;
+import org.joda.time.DateTime;
+import org.joda.time.Interval;
 
 /**
  *
@@ -26,11 +27,15 @@ public interface Booking {
 
     void setBookingCustomer(Customer bookingCustomer);
 
-    Room getBookedRoomImpl();
+    Room getBookedRoom();
 
-    void setBookedRoomImpl(Room bookedRoomImpl);
+    void setBookedRoom(Room bookedRoomImpl);
 
-    Set<Payment> getPaymentLinkID();
+    Set<Payment> getPayments();
 
-    void linkPaymentID(Payment paymentToLink);
+    void linkPayment(Payment paymentToLink);
+
+    public void setInterval(DateTime startDateTime, DateTime endDateTime);
+
+    public Interval getInterval(DateTime startDateTime, DateTime endDateTime);
 }

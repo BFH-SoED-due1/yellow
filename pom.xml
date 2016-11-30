@@ -152,6 +152,11 @@
 			<artifactId>joda-time</artifactId>
 			<version>2.9.6</version>
 		</dependency>
+        <dependency>
+            <groupId>org.joda</groupId>
+            <artifactId>joda-convert</artifactId>
+            <version>1.8.1</version>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -275,6 +280,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.9</version>
 				<configuration>
 					<dependencyDetailsEnabled>false</dependencyDetailsEnabled>
 					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
@@ -336,6 +342,7 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.7.201606060606</version>
 				<reportSets>
 					<reportSet>
 						<reports>

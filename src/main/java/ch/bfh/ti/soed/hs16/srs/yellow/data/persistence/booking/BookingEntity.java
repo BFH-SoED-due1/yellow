@@ -16,17 +16,23 @@ import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-import org.joda.time.Interval;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import org.joda.time.DateTime;
+import org.joda.time.Interval;
 
-/**
- *
- */
 @Entity(name = "BookingEntity")
 @Table(name = "bookings")
 @Access(AccessType.FIELD)
@@ -46,16 +52,11 @@ public class BookingEntity
     private Room bookedRoom;
 
     @OneToMany(targetEntity = PaymentEntity.class)
-    private Set<Payment> payments;
+    private Set<Payment> payments = new HashSet<>();
 
-    @Transient
     private Interval bookingFromToInterval;
 
-    /**
-     * Default constructor
-     */
     public BookingEntity() {
-        payments = new HashSet<>();
     }
 
     public Long getID() {
@@ -70,19 +71,27 @@ public class BookingEntity
         this.bookingCustomer = bookingCustomer;
     }
 
-    public Room getBookedRoomImpl() {
+    public Room getBookedRoom() {
         return bookedRoom;
     }
 
-    public void setBookedRoomImpl(Room bookedRoomImpl) {
-        this.bookedRoom = bookedRoomImpl;
+    public void setBookedRoom(Room bookedRoom) {
+        this.bookedRoom = bookedRoom;
     }
 
-    public Set<Payment> getPaymentLinkID() {
+    public Set<Payment> getPayments() {
         return Collections.unmodifiableSet(payments);
     }
 
-    public void linkPaymentID(Payment paymentToLink) {
+    public void linkPayment(Payment paymentToLink) {
         this.payments.add(paymentToLink);
+    }
+
+    public void setInterval(DateTime startDateTime, DateTime endDateTime) {
+        this.bookingFromToInterval = new Interval(startDateTime, endDateTime);
+    }
+
+    public Interval getInterval(DateTime startDateTime, DateTime endDateTime) {
+        return this.bookingFromToInterval;
     }
 }
