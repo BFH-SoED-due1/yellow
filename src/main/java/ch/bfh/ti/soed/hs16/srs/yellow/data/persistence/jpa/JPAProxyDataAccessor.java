@@ -9,11 +9,14 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.jpa;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.jpa.DataAccessor;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Equipment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-import java.util.List;
 import org.joda.time.DateTime;
+
+import java.util.List;
 
 public class JPAProxyDataAccessor
         implements DataAccessor {
@@ -59,9 +62,34 @@ public class JPAProxyDataAccessor
     }
 
     public void removeRoom(Long id) {
+        realInstance.removeRoom(id);
     }
 
-    public void makeBooking(Person person, Room room, DateTime start, DateTime end) {
-        this.realInstance.makeBooking(person, room, start, end);
+    // Methods for bookings
+    ////////////////////
+    public Booking makeBooking(Person person, Room room, DateTime start, DateTime end) {
+        return this.realInstance.makeBooking(person, room, start, end);
+    }
+
+    public void removeBooking(Long id) {
+        this.realInstance.removeBooking(id);
+    }
+
+    public List<Booking> findAllBookings() {
+        return this.realInstance.findAllBookings();
+    }
+
+    // Methods for equipments
+    ////////////////////
+    public Equipment makeEquipment(String description) {
+        return this.realInstance.makeEquipment(description);
+    }
+
+    public void removeEquipment(Long id) {
+        this.realInstance.removeEquipment(id);
+    }
+
+    public List<Equipment> findAllEquipments() {
+        return this.realInstance.findAllEquipments();
     }
 }

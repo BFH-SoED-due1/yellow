@@ -11,18 +11,21 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.jpa;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.booking.BookingEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer.PersonEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.EquipmentEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.RoomEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.jpa.DataAccessor;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Equipment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-import java.util.List;
+import org.joda.time.DateTime;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import org.joda.time.DateTime;
+import java.util.List;
 
 public class JPARealDataAccessor
         implements DataAccessor {
@@ -93,10 +96,53 @@ public class JPARealDataAccessor
         this.entityManager.getTransaction().commit();
     }
 
-    public void makeBooking(Person person, Room room, DateTime start, DateTime end) {
+    @Override
+    public Booking makeBooking(Person person, Room room, DateTime start, DateTime end) {
+        this.entityManager.getTransaction().begin();
         Booking booking = new BookingEntity();
         booking.setBookedRoom(room);
         booking.setInterval(start, end);
-        person.addBooking(booking);
+        this.entityManager.persist(booking);
+        this.entityManager.getTransaction().commit();
+        // person.addBooking(booking);
+        return booking;
+    }
+
+    @Override
+    public Equipment makeEquipment(String description) {
+        this.entityManager.getTransaction().begin();
+        Equipment equipment = new EquipmentEntity();
+        equipment.setDescription(description);
+        this.entityManager.persist(equipment);
+        this.entityManager.getTransaction().commit();
+        return equipment;
+    }
+
+    @Override
+    public void removeEquipment(Long id) {
+        this.entityManager.getTransaction().begin();
+        EquipmentEntity equipment = this.entityManager.find(EquipmentEntity.class, id);
+        this.entityManager.remove(equipment);
+        this.entityManager.getTransaction().commit();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Equipment> findAllEquipments() {
+        Query query = this.entityManager.createQuery("select equ from EquipmentEntity equ");
+        return query.getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Booking> findAllBookings() {
+        Query query = this.entityManager.createQuery("select booking from BookingEntity booking");
+        return query.getResultList();
+    }
+
+    @Override
+    public void removeBooking(Long id) {
+        this.entityManager.getTransaction().begin();
+        BookingEntity booking = this.entityManager.find(BookingEntity.class, id);
+        this.entityManager.remove(booking);
+        this.entityManager.getTransaction().commit();
     }
 }
