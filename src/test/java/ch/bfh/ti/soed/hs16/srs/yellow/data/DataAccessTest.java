@@ -12,17 +12,20 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.jpa.JPAProxyDataAccessor;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Equipment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-import java.util.List;
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Created by rdrand on 24/11/16.
- */
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 public class DataAccessTest {
 
     private JPAProxyDataAccessor jpaProxyDataAccessor = null;
@@ -35,6 +38,29 @@ public class DataAccessTest {
     @Test
     public void testDataLayerAvailable() {
         assertNotNull(jpaProxyDataAccessor);
+    }
+
+    @Test
+    public void testMakeEquipment() {
+
+        String description = "Sofa";
+        Equipment equ = this.jpaProxyDataAccessor.makeEquipment(description);
+        assertNotNull(equ);
+        List<Equipment> equList = this.jpaProxyDataAccessor.findAllEquipments();
+        assertTrue(equList.size() > 0);
+        assertTrue(equList.contains(equ));
+        assertEquals(description, equ.getDescription());
+    }
+
+    @Test
+    public void testRemoveEquipment() {
+
+        String description = "Sofa1";
+        Equipment equ = this.jpaProxyDataAccessor.makeEquipment(description);
+        assertNotNull(equ);
+        this.jpaProxyDataAccessor.removeEquipment(equ.getID());
+        List<Equipment> equList = this.jpaProxyDataAccessor.findAllEquipments();
+        assertFalse(equList.contains(equ));
     }
 
     @Test
@@ -78,19 +104,32 @@ public class DataAccessTest {
         this.jpaProxyDataAccessor.removeRoom(r.getID());
         List<Room> studios = this.jpaProxyDataAccessor.findAllRooms();
         assertNotNull(studios);
-//        assertFalse(studios.contains(r));
+        assertFalse(studios.contains(r));
     }
 
     @Test
-    public void makeReservation() {
-        Person aPerson = this.jpaProxyDataAccessor.makePerson("Dubuis, Eric", "due1@nodomain.org");
+    public void testmakeBooking() {
+        Person aPerson = this.jpaProxyDataAccessor.makePerson("Bond, James", "noname@nodomain.org");
         Room aRoom = this.jpaProxyDataAccessor.makeRoom("N215", 12);
         DateTime ltBegin = DateTime.now();
         DateTime ltEnd = ltBegin.plusHours(1);
         Interval timeslot = new Interval(ltBegin, ltEnd);
-        this.jpaProxyDataAccessor.makeBooking(aPerson, aRoom, ltBegin, ltEnd);
+        Booking bkng = this.jpaProxyDataAccessor.makeBooking(aPerson, aRoom, ltBegin, ltEnd);
+        assertTrue(this.jpaProxyDataAccessor.findAllBookings().contains(bkng));
         // Test if Person's reservation list has been updated
         List<Booking> res1 = aPerson.getBookings();
         assertNotNull(res1);
+    }
+
+    @Test
+    public void testRemoveBooking() {
+        Person aPerson = this.jpaProxyDataAccessor.makePerson("Unknown, Anonymous", "noname@nodomain.org");
+        Room aRoom = this.jpaProxyDataAccessor.makeRoom("N215", 12);
+        DateTime ltBegin = DateTime.now();
+        DateTime ltEnd = ltBegin.plusHours(1);
+        Interval timeslot = new Interval(ltBegin, ltEnd);
+        Booking bkng = this.jpaProxyDataAccessor.makeBooking(aPerson, aRoom, ltBegin, ltEnd);
+        this.jpaProxyDataAccessor.removeBooking(bkng.getID());
+        assertFalse(this.jpaProxyDataAccessor.findAllBookings().contains(bkng));
     }
 }
