@@ -9,6 +9,7 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.room;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.GPSTagEntity;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -20,12 +21,9 @@ public class GPSTagTest {
 
     @Test
     public void testGetGPSXCoor() {
-
         String latitude = "N40° 44.9064";
         String longitude = "W073° 59.0735";
-
-        GPSTagImpl gpsTag = new GPSTagImpl(latitude, longitude);
-
+        GPSTagEntity gpsTag = new GPSTagEntity(latitude, longitude);
         assertEquals(gpsTag.getXCoor(), latitude);
     }
 
@@ -33,9 +31,7 @@ public class GPSTagTest {
     public void testGetGPSYCoor() {
         String latitude = "N40° 44.9064";
         String longitude = "W073° 59.0735";
-
-        GPSTagImpl gpsTag = new GPSTagImpl(latitude, longitude);
-
+        GPSTagEntity gpsTag = new GPSTagEntity(latitude, longitude);
         assertEquals(gpsTag.getYCoor(), longitude);
     }
 }
