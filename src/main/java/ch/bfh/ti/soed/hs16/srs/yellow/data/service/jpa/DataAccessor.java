@@ -40,5 +40,11 @@ public interface DataAccessor {
 
     void removeEquipment(Long id);
 
+    @SuppressWarnings("unchecked")
+    List<Equipment> findAllEquipments();
+
+    @SuppressWarnings("unchecked")
+    List<Booking> findAllBookings();
+
     void removeBooking(Long id);
 }

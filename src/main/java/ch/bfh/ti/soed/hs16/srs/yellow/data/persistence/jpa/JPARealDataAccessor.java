@@ -126,12 +126,14 @@ public class JPARealDataAccessor
         this.entityManager.getTransaction().commit();
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public List<Equipment> findAllEquipments() {
         Query query = this.entityManager.createQuery("select equ from EquipmentEntity equ");
         return query.getResultList();
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public List<Booking> findAllBookings() {
         Query query = this.entityManager.createQuery("select booking from BookingEntity booking");
