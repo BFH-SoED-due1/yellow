@@ -9,12 +9,12 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.room;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.BuildingEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.GPSTagEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.RoomEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Building;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.GPSTag;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.BuildingEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.GPSTagEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.RoomEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Building;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.GPSTag;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Room;
 import org.junit.Test;
 
 import java.util.Set;

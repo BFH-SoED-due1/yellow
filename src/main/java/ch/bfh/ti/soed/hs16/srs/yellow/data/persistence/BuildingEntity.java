@@ -7,14 +7,12 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room;
+package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Building;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.GPSTag;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Building;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.GPSTag;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Room;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -25,6 +23,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * BuildingEntity class which holds Rooms

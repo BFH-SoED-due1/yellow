@@ -7,17 +7,17 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.jpa;
+package ch.bfh.ti.soed.hs16.srs.yellow.controllers;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.booking.BookingEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer.PersonEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.EquipmentEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.RoomEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.jpa.DataAccessor;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Equipment;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.BookingEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.EquipmentEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.PersonEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.RoomEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Booking;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.DataAccessor;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Equipment;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Person;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Room;
 import org.joda.time.DateTime;
 
 import javax.persistence.EntityManager;

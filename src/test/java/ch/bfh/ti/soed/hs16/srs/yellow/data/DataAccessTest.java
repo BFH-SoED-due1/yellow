@@ -9,11 +9,11 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.data;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.jpa.JPAProxyDataAccessor;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Equipment;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
+import ch.bfh.ti.soed.hs16.srs.yellow.controllers.JPAProxyDataAccessor;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Booking;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Equipment;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Person;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Room;
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
 import org.junit.Before;

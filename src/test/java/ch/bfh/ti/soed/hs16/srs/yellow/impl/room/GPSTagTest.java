@@ -9,7 +9,7 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.room;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.GPSTagEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.GPSTagEntity;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
