@@ -11,11 +11,12 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.bankingRelations;
 
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations.BankingDetailsEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetails;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.BankingDetailsEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.BankingDetails;
+import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import org.junit.Test;
 
 /**
  * Unit tests for BankingDetails implementation

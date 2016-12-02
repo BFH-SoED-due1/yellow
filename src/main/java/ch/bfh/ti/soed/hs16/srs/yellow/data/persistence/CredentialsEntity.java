@@ -7,10 +7,10 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer;
+package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Credentials;
-import java.io.Serializable;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Credentials;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -19,6 +19,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  *

@@ -7,17 +7,12 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer;
+package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence;
 
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.booking.BookingEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
-import java.io.Serializable;
-import java.util.Collections;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Booking;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Person;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -31,6 +26,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.io.Serializable;
+import java.util.Collections;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Entity(name = "PersonEntity")

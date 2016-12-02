@@ -9,13 +9,15 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer.PersonEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.PersonEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Person;
+import org.junit.Test;
+
 import java.util.Date;
 import java.util.Random;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import org.junit.Test;
 
 /**
  * Unit tests for Person implementation

@@ -9,9 +9,10 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer.CredentialsEntity;
-import static org.junit.Assert.assertEquals;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.CredentialsEntity;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Unit tests for Credentials implementation

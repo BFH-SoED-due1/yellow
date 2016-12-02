@@ -7,10 +7,8 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer;
+package ch.bfh.ti.soed.hs16.srs.yellow.data.service;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetails;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
 import java.util.Set;
 
 /**

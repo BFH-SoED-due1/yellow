@@ -7,24 +7,23 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer;
+package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations.BankingDetailsEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations.PaymentEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetails;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Credentials;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
-import java.io.Serializable;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.BankingDetails;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Credentials;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Customer;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Payment;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * CustomerEntity is a person which signed up for a login

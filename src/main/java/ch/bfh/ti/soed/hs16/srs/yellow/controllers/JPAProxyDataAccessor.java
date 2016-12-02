@@ -7,13 +7,13 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.jpa;
+package ch.bfh.ti.soed.hs16.srs.yellow.controllers;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Person;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.jpa.DataAccessor;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Equipment;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Booking;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.DataAccessor;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Equipment;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Person;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Room;
 import org.joda.time.DateTime;
 
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
 public class JPAProxyDataAccessor
         implements DataAccessor {
 
-    public static final String DEFAULT_DATA_ACCESS_CLASS = "ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.jpa.JPARealDataAccessor";
+    public static final String DEFAULT_DATA_ACCESS_CLASS = "JPARealDataAccessor";
     private static JPAProxyDataAccessor instance = null;
     private JPARealDataAccessor realInstance = null;
 

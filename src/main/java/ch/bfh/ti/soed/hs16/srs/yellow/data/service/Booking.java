@@ -7,14 +7,12 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking;
+package ch.bfh.ti.soed.hs16.srs.yellow.data.service;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-import java.util.Set;
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
+
+import java.util.Set;
 
 /**
  *
@@ -35,7 +33,7 @@ public interface Booking {
 
     void linkPayment(Payment paymentToLink);
 
-    public void setInterval(DateTime startDateTime, DateTime endDateTime);
+    void setInterval(DateTime startDateTime, DateTime endDateTime);
 
-    public Interval getInterval(DateTime startDateTime, DateTime endDateTime);
+    Interval getInterval(DateTime startDateTime, DateTime endDateTime);
 }

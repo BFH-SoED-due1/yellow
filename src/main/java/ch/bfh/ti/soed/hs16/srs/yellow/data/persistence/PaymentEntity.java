@@ -7,14 +7,11 @@
  * Distributable under GPL license. See terms of license at gnu.org.
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations;
+package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence;
 
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.text.NumberFormat;
-import java.util.Locale;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Payment;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -23,6 +20,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  *

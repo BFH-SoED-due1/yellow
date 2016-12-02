@@ -9,15 +9,19 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations.BankingDetailsEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations.PaymentEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer.CustomerEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetails;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
-import java.math.BigDecimal;
-import static org.junit.Assert.*;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.BankingDetailsEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.CustomerEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.PaymentEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.BankingDetails;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Customer;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Payment;
 import org.junit.Test;
+
+import java.math.BigDecimal;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit tests for Customer implementation

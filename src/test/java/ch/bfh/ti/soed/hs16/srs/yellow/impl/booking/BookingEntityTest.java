@@ -9,16 +9,19 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.booking;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.bankingRelations.PaymentEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.booking.BookingEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.customer.CustomerEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.room.RoomEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.booking.Booking;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.room.Room;
-import static org.junit.Assert.*;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.BookingEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.CustomerEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.PaymentEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.RoomEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Booking;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Customer;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Payment;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Room;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit tests for Booking implementation
