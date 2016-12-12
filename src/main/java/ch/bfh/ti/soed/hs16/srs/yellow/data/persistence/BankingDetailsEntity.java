@@ -80,12 +80,4 @@ public class BankingDetailsEntity
 		this.cardName = cardName;
 	}
 
-	//public BankCardProvider getProvider() {
-	//	return provider;
-	//}
-
-	//public void setProvider(BankCardProvider provider) {
-	//	this.provider = provider;
-	//}
-
 }
