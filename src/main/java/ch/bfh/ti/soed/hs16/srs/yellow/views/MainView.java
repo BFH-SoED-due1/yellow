@@ -59,6 +59,8 @@ public class MainView
     private Date lastDate;
     private Calendar limitDate;
 
+    private NavigationRoot navigationRoot;
+
     public MainView() {
 
         setSizeFull();
@@ -89,11 +91,11 @@ public class MainView
         searchBtn.setSizeFull();
 
         signupBtn.addClickListener(e -> {
-
+            navigationRoot.navigator.navigateTo(NavigationRoot.SIGNUPVIEW);
         });
 
         loginBtn.addClickListener(e -> {
-            //	setContent(lPanel);
+            navigationRoot.navigator.navigateTo(NavigationRoot.LOGINVIEW);
         });
 
         loginLayout.addComponents(signupBtn, loginBtn);
@@ -120,6 +122,10 @@ public class MainView
         panelContent.setComponentAlignment(loginLayout, Alignment.TOP_RIGHT);
         panel.setContent(panelContent);
         setCompositionRoot(panelContent);
+    }
+
+    public void setNavigator(NavigationRoot navigationRoot) {
+        this.navigationRoot = navigationRoot;
     }
 
     public void enter(ViewChangeListener.ViewChangeEvent evt) {

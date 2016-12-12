@@ -22,6 +22,16 @@ public interface DataAccessor {
 
     void removePerson(Long id);
 
+    // Methods for customers
+    //////////////////////
+    Customer makeCustomer(String name, String email);
+
+    List<Customer> findAllCustomers();
+
+    void removeCustomer(Long id);
+
+    Long authentifyCustomer(String login, String password);
+
     // Methods for rooms
     ////////////////////
     Room makeRoom(String name, int capacity);

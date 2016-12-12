@@ -9,6 +9,7 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.views;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.controllers.JPAProxyDataAccessor;
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
@@ -18,6 +19,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
@@ -41,6 +43,10 @@ public class SignUpView extends CustomComponent implements View {
     private Button backBtn = new Button("Back");
     private Button sSignUpBtn = new Button("Sign up");
 
+    private NavigationRoot navigationRoot;
+
+    private JPAProxyDataAccessor jpaProxyDataAccessor = new JPAProxyDataAccessor();
+
     public SignUpView() {
         sUName.setRequired(true);
         sPwd.setRequired(true);
@@ -55,9 +61,14 @@ public class SignUpView extends CustomComponent implements View {
         emailField.setSizeFull();
         sSignUpBtn.setSizeFull();
 
-     /*   backBtn.addClickListener(e -> {
-            setContent(panel);
-        });*/
+        backBtn.addClickListener(e -> {
+            navigationRoot.navigator.navigateTo(NavigationRoot.MAINVIEW);
+        });
+
+        sSignUpBtn.addClickListener(e -> {
+            jpaProxyDataAccessor.makeCustomer(this.sUName.getValue(), this.emailField.getValue());
+            Notification.show("User created successfully");
+        });
 
         signFormLayout.addComponents(sUName, sPwd, fName, lName, emailField, sSignUpBtn);
         signFormLayout.setMargin(true);
@@ -71,6 +82,10 @@ public class SignUpView extends CustomComponent implements View {
         signVLayout.setComponentAlignment(sHeader, Alignment.TOP_RIGHT);
 
         setCompositionRoot(signVLayout);
+    }
+
+    public void setNavigator(NavigationRoot navigationRoot) {
+        this.navigationRoot = navigationRoot;
     }
 
     public void enter(ViewChangeListener.ViewChangeEvent evt) {
