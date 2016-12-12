@@ -9,28 +9,18 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.data.service;
 
-
 import java.math.BigDecimal;
 
-/**
- *
- */
 public interface Payment {
 
     Long getID();
 
     Boolean getIsSuccessful();
 
-    /**
-     * @param isSuccessful
-     */
     void setIsSuccessful(Boolean isSuccessful);
 
     String getSumToPay();
 
-    /**
-     * @param sumToPay
-     */
     void setSumToPay(BigDecimal sumToPay);
 
 }
