@@ -49,12 +49,9 @@ public class BankingDetailsEntity
 	//@ManyToOne(targetEntity = BankCardProvider.class)
 	//private BankCardProvider provider;
 
-	public BankingDetailsEntity() {
-	}
+    public BankingDetailsEntity() {
+    }
 
-	/**
-	 * Must bind a PersonEntity who created an entry by adding to account
-	 */
 	public BankingDetailsEntity(Long boundPersonID) {
 		this.boundPersonID = boundPersonID;
     }
