@@ -10,10 +10,12 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.controllers;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.BookingEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.CustomerEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.EquipmentEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.PersonEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.RoomEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Booking;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.DataAccessor;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Equipment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Person;
@@ -25,6 +27,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class JPARealDataAccessor
@@ -70,6 +73,45 @@ public class JPARealDataAccessor
         this.entityManager.remove(person);
         this.entityManager.getTransaction().commit();
 
+    }
+
+    @Override
+    public Customer makeCustomer(String name, String email) {
+        this.entityManager.getTransaction().begin();
+        CustomerEntity customer = new CustomerEntity();
+        this.entityManager.persist(customer);
+        this.entityManager.getTransaction().commit();
+        return customer;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Customer> findAllCustomers() {
+        Query query = this.entityManager.createQuery("select c from CustomerEntity c");
+        return query.getResultList();
+    }
+
+    @Override
+    public void removeCustomer(Long id) {
+        this.entityManager.getTransaction().begin();
+        CustomerEntity customer = this.entityManager.find(CustomerEntity.class, id);
+        this.entityManager.remove(customer);
+        this.entityManager.getTransaction().commit();
+
+    }
+
+    public Long authentifyCustomer(String login, String password) {
+        EntityTransaction entr = this.entityManager.getTransaction();
+        entr.begin();
+        TypedQuery<Customer> query = this.entityManager.createQuery("SELECT c FROM CustomerEntity c WHERE c.cred.login = :login AND c.cred.passwordHash = :password", Customer.class);
+        query.setParameter("login", login);
+        query.setParameter("password", password);
+        try {
+            Customer c = query.getSingleResult();
+            return c.getID();
+        } catch (javax.persistence.NoResultException e) {
+            return null;
+        }
     }
 
     @Override
@@ -134,7 +176,6 @@ public class JPARealDataAccessor
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public List<Booking> findAllBookings() {
         Query query = this.entityManager.createQuery("select booking from BookingEntity booking");
         return query.getResultList();
@@ -147,4 +188,5 @@ public class JPARealDataAccessor
         this.entityManager.remove(booking);
         this.entityManager.getTransaction().commit();
     }
+
 }
