@@ -1,5 +1,4 @@
 
-
 /*
  * Copyright (c) 2016 Berner Fachhochschule, Switzerland
  *
@@ -10,16 +9,19 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
 
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations.BankingDetailsEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.bankingRelations.PaymentEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.jpa.customer.CustomerEntity;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.BankingDetails;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.bankingRelations.Payment;
-import ch.bfh.ti.soed.hs16.srs.yellow.data.service.customer.Customer;
-import java.math.BigDecimal;
-import java.util.UUID;
-import static org.junit.Assert.*;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.BankingDetailsEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.CustomerEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.PaymentEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.BankingDetails;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Customer;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Payment;
 import org.junit.Test;
+
+import java.math.BigDecimal;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit tests for Customer implementation
@@ -36,8 +38,7 @@ public class CustomerEntityTest extends PersonEntityTest {
     @Test
     public void testAddBankingDetail() {
 
-        UUID boundPerson = UUID.randomUUID();
-        BankingDetails bd = new BankingDetailsEntity(boundPerson);
+        BankingDetails bd = new BankingDetailsEntity();
         Customer cust = new CustomerEntity();
         cust.addBankingDetail(bd);
         assertTrue(cust.getBankingDetails().contains(bd));
@@ -46,7 +47,6 @@ public class CustomerEntityTest extends PersonEntityTest {
     @Test
     public void testGetPaymentImpls() {
 
-        UUID boundPerson = UUID.randomUUID();
         Payment pt = new PaymentEntity();
         BigDecimal bd = new BigDecimal("76.8598");
         pt.setSumToPay(bd);
@@ -58,7 +58,6 @@ public class CustomerEntityTest extends PersonEntityTest {
     @Test
     public void testAddPayment() {
 
-        UUID boundPerson = UUID.randomUUID();
         Payment pt = new PaymentEntity();
         BigDecimal bd = new BigDecimal("78.8598");
         pt.setSumToPay(bd);
@@ -125,5 +124,4 @@ public class CustomerEntityTest extends PersonEntityTest {
         cust.updatePwdHash(pwdNew);
         assertEquals(pwdNew, cust.getpwdHash());
     }
-
 }

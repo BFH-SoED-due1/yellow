@@ -3,7 +3,7 @@
 		-------------
 		Eric Dubuis
 		-------------
-		November 18, 2016
+		November 18, 2016; updated December 11, 2016
 
 
 Deliverable 3
@@ -112,6 +112,49 @@ example, in the Iteration Plan document, however.)
 	50 points at most per team member are attributed to this deliverable. Points may
 not be equally distributed among team members. (However, this is the goal.)
 
+*-------------------------------------------+---------------*-----------------*
+| Item										| Max. points	| Points received |
+*-------------------------------------------+---------------*-----------------*
+| Product backlog items at the beginning\	| 		 6		| 		 6		  |
+| COMMENTS:\								| 				| 				  |
+| - Good									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Sprint backlog items / tasks and their states\ | 	6		| 		 6		  |
+| COMMENTS:\								| 				| 				  |
+| - Good									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Package structure meets SOLID principles, JDepend\ | 8	| 		 8		  |
+| COMMENTS:\								| 				| 				  |
+| - No cycles: good\ 						| 				| 				  |
+| - Rest: good 								| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Production classes and interfaces\		| 		 8		| 		 6		  |
+| COMMENTS:\								| 				| 				  |
+| - Unused fields (-1) \ 					| 				| 				  |
+| - Unnecessary @SuppressWarnings("unchecked") (-1)\ | 		| 				  |
+| - Others... 								| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Working infrastructure with persistence\	| 		 8		| 		 8		  |
+| COMMENTS:\								| 				| 			  	  |
+| - Good 									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| JUnit tests, code coverage\				| 		 8		| 		 8		  |
+| COMMENTS:\								| 				| 			  	  |
+| - Okay 									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Checkstyle report\						| 		 6		| 		 6		  |
+| COMMENTS:\								| 				| 			  	  |
+| - Okay 									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Miscellaneous\							| 				| 		 		  |
+| COMMENTS:\								| 				| 			  	  |
+| - Fix errors in JavaDoc comment\ 			| 				| 				  |
+| - Contribution too minimal: itnam94 (-10)\ | 				| 				  |
+| - Contribution too minimal: RolandR (-XX)  | 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Total										| 		50		| 		48		  |
+*-------------------------------------------+---------------*-----------------*
+Distribution of points for this deliverable.
 
 
 * Deadline
