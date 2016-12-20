@@ -51,9 +51,18 @@ public class BuildingEntity
     @OneToMany(targetEntity = RoomEntity.class)
     private Set<Room> roomsInBuilding = new HashSet<>();
 
+    /**
+     * Default constructor. Must be used in order for O/R Mapper to function properly. Must be empty.
+     */
     public BuildingEntity() {
     }
 
+    /**
+     * Constructor which initializes a building with initial data
+     *
+     * @param name Name of the building
+     * @param tag  GPS Tag of the buildings coordinates
+     */
     public BuildingEntity(String name, GPSTag tag) {
 
         this.name = name;
@@ -62,6 +71,12 @@ public class BuildingEntity
 
     }
 
+    /**
+     * Constructor which initializes a building without passing a GPS Tag
+     * @param name Name of the building
+     * @param latitude Latitude coordinates of the building
+     * @param longitude Longitude coordinates of the building
+     */
     public BuildingEntity(String name, String latitude, String longitude) {
 
         this.name = name;
@@ -70,30 +85,51 @@ public class BuildingEntity
 
     }
 
+    /**
+     * @return Name of the building
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets name of the building to new one
+     * @param name Name of the building
+     */
     public void setName(String name) {
 
         this.name = name;
     }
 
+    /**
+     * @return Location of the building as GPS Tag
+     */
     public GPSTag getGpsTag() {
 
         return gpsTag;
     }
 
+    /**
+     * Sets GPS Tag of the building to new one
+     * @param gpsTag GPS Tag of the building
+     */
     public void setGpsTag(GPSTag gpsTag) {
 
         this.gpsTag = gpsTag;
     }
 
+    /**
+     * @return set of all rooms in this building
+     */
     public Set<Room> getRoomsInBuilding() {
 
         return roomsInBuilding;
     }
 
+    /**
+     * Adds room to building
+     * @param newRoom Room to add to building
+     */
     public void addRoomToBuilding(Room newRoom) {
 
         this.roomsInBuilding.add(newRoom);

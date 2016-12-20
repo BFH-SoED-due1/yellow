@@ -42,18 +42,33 @@ public class GPSTagEntity
     @Column(name = "ycoor")
     private String YCoor = "";
 
+    /**
+     * Default constructor. Must be used in order for O/R Mapper to function properly. Must be empty.
+     */
     public GPSTagEntity() {
     }
 
+    /**
+     * Constructor which initializes a new GPSTag with initial coordinates
+     *
+     * @param XCoor x coordinate
+     * @param YCoor y coordinate
+     */
     public GPSTagEntity(String XCoor, String YCoor) {
         this.XCoor = XCoor;
         this.YCoor = YCoor;
     }
 
+    /**
+     * @return X coordinate
+     */
     public String getXCoor() {
         return XCoor;
     }
 
+    /**
+     * @return Y coordinate
+     */
     public String getYCoor() {
         return YCoor;
     }

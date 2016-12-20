@@ -47,7 +47,7 @@ public class BankingDetailsEntity
 	private Long boundPersonID = 12345678910L;
 
     /**
-     * Default constructor
+     * Default constructor. Must be used in order for O/R Mapper to function properly. Must be empty.
      */
     public BankingDetailsEntity() {
     }

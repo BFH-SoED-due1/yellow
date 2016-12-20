@@ -54,9 +54,15 @@ public class BookingEntity
 
     private Interval bookingFromToInterval;
 
+    /**
+     * Default constructor. Must be used in order for O/R Mapper to function properly. Must be empty.
+     */
     public BookingEntity() {
     }
 
+    /**
+     * @return ID of that booking entity
+     */
     public Long getID() {
         return ID;
     }
@@ -70,8 +76,7 @@ public class BookingEntity
 
     /**
      * Set customer which performed a booking
-     *
-     * @param bookingCustomer
+     * @param bookingCustomer customer which performed a booking
      */
     public void setBookingCustomer(Customer bookingCustomer) {
         this.bookingCustomer = bookingCustomer;
@@ -92,6 +97,11 @@ public class BookingEntity
         this.bookedRoom = bookedRoom;
     }
 
+    /**
+     * Get all payments connected with this booking
+     *
+     * @return Unmodifiable Set of all payments connected with this booking
+     */
     public Set<Payment> getPayments() {
         return Collections.unmodifiableSet(payments);
     }
