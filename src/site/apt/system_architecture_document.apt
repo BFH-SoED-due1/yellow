@@ -9,23 +9,39 @@ System architecture document
 
   By far, there is a following package structure of this project:
 
-A-I diagram:
+[images/PackageDependencies/packdep.jpg]
 
-There are several packages:
+  JDepend report:
 
-1. ch.bfh.ti.soed.hs16.srs.yellow.data
+[images/PackageDependencies/jdepend.png]
+
+  A-I diagram:
+
+
+
+  There are several packages:
+
+----------------------------------------------
+1. ch.bfh.ti.soed.hs16.srs.yellow.data.service
+----------------------------------------------
 
     Package ch.bfh.ti.soed.hs16.srs.yellow.data is, as explicitly stated in the package name, responsible for database interaction:
 
-    1.1. Package ch.bfh.ti.soed.hs16.srs.yellow.data.service contains all the interfaces, which must be implemented by the ch.bfh.ti.soed.hs16.srs.yellow.data.persistence to function properly.
+    Package ch.bfh.ti.soed.hs16.srs.yellow.data.service contains all the interfaces, which must be implemented by the ch.bfh.ti.soed.hs16.srs.yellow.data.persistence to function properly.
 
     It is also used for independent unit tests by far.
 
-    1.2 Package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence contains all the persistence layer (JPA) implementation.
+--------------------------------------------------
+2. ch.bfh.ti.soed.hs16.srs.yellow.data.persistence
+--------------------------------------------------
 
-    All of the classes in that package are Entities and annotated for usage with EclipseLink O/R Mapper and Hibernate validator.
+     Package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence contains all the persistence layer (JPA) implementation.
 
-2. ch.bfh.ti.soed.hs16.srs.yellow.controllers
+     All of the classes in that package are Entities and annotated for usage with EclipseLink O/R Mapper and Hibernate validator.
+
+----------------------------------------------
+3. ch.bfh.ti.soed.hs16.srs.yellow.controllers
+----------------------------------------------
 
     Package ch.bfh.ti.soed.hs16.srs.yellow.controllers represents itself, as can be derived from its name,
 
@@ -35,7 +51,9 @@ There are several packages:
 
     These controllers are also used to perform implementation - independent persistence tests.
 
-3. ch.bfh.ti.soed.hs16.srs.yellow.views
+----------------------------------------
+4. ch.bfh.ti.soed.hs16.srs.yellow.views
+----------------------------------------
 
     Package ch.bfh.ti.soed.hs16.srs.yellow.views are Graphical User Interface files which are written with Vaadin Framework.
 
