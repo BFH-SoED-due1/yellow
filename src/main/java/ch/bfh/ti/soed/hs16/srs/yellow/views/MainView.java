@@ -52,8 +52,8 @@ public class MainView
     private DateField toDate = new PopupDateField("To");
 
     private Button searchBtn = new Button("Search");
-    private Button loginBtn = new Button("Login");
-    private Button signupBtn = new Button("Sign Up");
+    private Button loginBtn = new Button("Sign In");
+    private Button signupBtn = new Button("Register");
 
     private Date date;
     private Date lastDate;

@@ -46,46 +46,66 @@ public class BankingDetailsEntity
 	@Column(name = "person_id")
 	private Long boundPersonID = 12345678910L;
 
-	//@ManyToOne(targetEntity = BankCardProvider.class)
-	//private BankCardProvider provider;
-
+    /**
+     * Default constructor. Must be used in order for O/R Mapper to function properly. Must be empty.
+     */
     public BankingDetailsEntity() {
     }
 
-	public BankingDetailsEntity(Long boundPersonID) {
-		this.boundPersonID = boundPersonID;
+    /**
+     * Banking details normally do not exist without a person entity bound to them
+     * @param boundPersonID ID of person who created banking details entry
+     */
+    public BankingDetailsEntity(Long boundPersonID) {
+        this.boundPersonID = boundPersonID;
     }
 
-	public Long getID() {
-		return ID;
-	}
+    /**
+     * Get ID of the banking details entry
+     * @return ID of the banking details entry
+     */
+    public Long getID() {
+        return ID;
+    }
 
-	public Long getBoundPersonID() {
-		return boundPersonID;
-	}
+    /**
+     * Get ID of the person to whom these BankingDetails belong
+     * @return ID of the person to whom these BankingDetails belong
+     */
+    public Long getBoundPersonID() {
+        return boundPersonID;
+    }
 
-	public String getCardNumber() {
-		return cardNumber;
-	}
+    /**
+     * Get number of banking card
+     * @return number of banking card
+     */
+    public String getCardNumber() {
+        return cardNumber;
+    }
 
-	public void setCardNumber(String cardNumber) {
-		this.cardNumber = cardNumber;
-	}
+    /**
+     * Set number of banking card
+     * @param cardNumber number of banking card
+     */
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
 
-	public String getCardName() {
-		return cardName;
-	}
+    /**
+     * Get name written on the banking card
+     * @return number of banking card
+     */
+    public String getCardName() {
+        return cardName;
+    }
 
-	public void setCardName(String cardName) {
-		this.cardName = cardName;
-	}
-
-	//public BankCardProvider getProvider() {
-	//	return provider;
-	//}
-
-	//public void setProvider(BankCardProvider provider) {
-	//	this.provider = provider;
-	//}
+    /**
+     * Get name banking card
+     * @param cardName name on banking card
+     */
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
+    }
 
 }

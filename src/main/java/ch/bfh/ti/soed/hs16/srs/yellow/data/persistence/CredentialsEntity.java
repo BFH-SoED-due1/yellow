@@ -36,39 +36,46 @@ public class CredentialsEntity
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
-    /**
-     * Name under which the customer is known to system
-     */
     @Column(name = "login")
     private String login;
 
-    /**
-     * Hash from customer's password from the input field (not a plaintext password !)
-     */
     @Column(name = "pwd_hash")
     private String passwordHash;
 
+    /**
+     * Default constructor. Must be used in order for O/R Mapper to function properly. Must be empty.
+     */
     public CredentialsEntity() {
     }
 
+    /**
+     * @return hash of a password to be checked for correctness
+     */
     public String getPasswordHash() {
-
         return this.passwordHash;
-	}
+    }
 
-
-	public void setPasswordHash(String passwordHash) {
-
+    /**
+     * Sets hash of user password
+     *
+     * @param passwordHash hash of the user's password
+     */
+    public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
-	}
+    }
 
-	public String getLogin() {
-
+    /**
+     * @return login name of the customer
+     */
+    public String getLogin() {
         return this.login;
-	}
+    }
 
-	public void setLogin(String login) {
-
+    /**
+     * Sets login of the user
+     * @param login login of the user
+     */
+    public void setLogin(String login) {
         this.login = login;
-	}
+    }
 }

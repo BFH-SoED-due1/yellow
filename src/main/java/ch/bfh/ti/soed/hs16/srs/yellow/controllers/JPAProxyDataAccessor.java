@@ -38,6 +38,13 @@ public class JPAProxyDataAccessor
         }
     }
 
+    /**
+     * Function to make a person
+     *
+     * @param name  Full-Qualified name of the person
+     * @param email e-mail address of the person
+     * @return Returns the created person
+     */
     // Methods for persons
     //////////////////////
     @Override
@@ -45,10 +52,15 @@ public class JPAProxyDataAccessor
         return realInstance.makePerson(name, email);
     }
 
+    /**
+     * Function to find all persons in the database
+     * @return List of all persons in the database
+     */
     @Override
     public List<Person> findAllPersons() {
         return realInstance.findAllPersons();
     }
+
 
     @Override
     public void removePerson(Long id) {
