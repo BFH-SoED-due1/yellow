@@ -61,18 +61,33 @@ public class BookingEntity
         return ID;
     }
 
+    /**
+     * @return Customer entity involved in booking
+     */
     public Customer getBookingCustomer() {
         return bookingCustomer;
     }
 
+    /**
+     * Set customer which performed a booking
+     *
+     * @param bookingCustomer
+     */
     public void setBookingCustomer(Customer bookingCustomer) {
         this.bookingCustomer = bookingCustomer;
     }
 
+    /**
+     * Returns room entity involved in a booking
+     * @return room entity involved in a booking
+     */
     public Room getBookedRoom() {
         return bookedRoom;
     }
 
+    /**
+     * @param bookedRoom room which must be reserved
+     */
     public void setBookedRoom(Room bookedRoom) {
         this.bookedRoom = bookedRoom;
     }
@@ -81,14 +96,26 @@ public class BookingEntity
         return Collections.unmodifiableSet(payments);
     }
 
+    /**
+     * @param paymentToLink awaits Payment entity to be added to this booking debt list
+     */
     public void linkPayment(Payment paymentToLink) {
         this.payments.add(paymentToLink);
     }
 
+    /**
+     * @param startDateTime starting point of te booking in form of JodaTime DateTime type
+     * @param endDateTime ending point of the booking in form of JodaTime DateTime type
+     */
     public void setInterval(DateTime startDateTime, DateTime endDateTime) {
         this.bookingFromToInterval = new Interval(startDateTime, endDateTime);
     }
 
+    /**
+     * @param startDateTime starting point of te booking in form of JodaTime DateTime type
+     * @param endDateTime ending point of the booking in form of JodaTime DateTime type
+     * @return JodaTime interval constructed for you
+     */
     public Interval getInterval(DateTime startDateTime, DateTime endDateTime) {
         return this.bookingFromToInterval;
     }

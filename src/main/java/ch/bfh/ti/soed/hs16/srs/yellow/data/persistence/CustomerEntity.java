@@ -46,9 +46,6 @@ public class CustomerEntity
     @ManyToOne(targetEntity = CredentialsEntity.class, cascade = CascadeType.PERSIST)
     private Credentials cred;
 
-    /**
-     * First generating a PersonEntity so that we could use his data and UUID database key
-     */
     public CustomerEntity() {
         super();
         this.bankingDetails = new HashSet<>();
