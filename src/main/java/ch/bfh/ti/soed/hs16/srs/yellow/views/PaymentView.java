@@ -13,9 +13,6 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.CustomComponent;
 
-/**
- * Created by rdrand on 14/12/16.
- */
 public class PaymentView extends CustomComponent implements View {
 
     @Override

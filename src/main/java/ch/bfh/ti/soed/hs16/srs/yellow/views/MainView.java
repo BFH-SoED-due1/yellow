@@ -9,6 +9,7 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.views;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.controllers.JPAProxyDataAccessor;
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
@@ -33,33 +34,47 @@ public class MainView
         extends CustomComponent
         implements View {
 
-    // Main UI
     private Panel panel = new Panel();
+
     private VerticalLayout panelContent = new VerticalLayout();
+
     private VerticalLayout searchLayout = new VerticalLayout();
+
     private VerticalLayout leftVLayout = new VerticalLayout();
+
     private VerticalLayout rightVLayout = new VerticalLayout();
+
     private HorizontalLayout headerLayout;
+
     private HorizontalLayout inputLayout = new HorizontalLayout();
+
     private HorizontalLayout loginLayout = new HorizontalLayout();
 
     private Label titleLbl = new Label("Search Room");
 
     private NativeSelect objSelect = new NativeSelect("Objects");
+
     private NativeSelect equipSelect = new NativeSelect("Equipments");
 
     private DateField fromDate = new PopupDateField("From");
+
     private DateField toDate = new PopupDateField("To");
 
     private Button searchBtn = new Button("Search");
+
     private Button loginBtn = new Button("Sign In");
+
     private Button signupBtn = new Button("Register");
 
     private Date date;
+
     private Date lastDate;
+
     private Calendar limitDate;
 
     private NavigationRoot navigationRoot;
+
+    private JPAProxyDataAccessor jpaProxyDataAccessor = new JPAProxyDataAccessor();
 
     public MainView() {
 
@@ -98,6 +113,10 @@ public class MainView
             navigationRoot.navigator.navigateTo(NavigationRoot.LOGINVIEW);
         });
 
+        searchBtn.addClickListener(evt -> {
+
+        });
+
         loginLayout.addComponents(signupBtn, loginBtn);
 
         headerLayout.addComponent(titleLbl);
@@ -129,6 +148,6 @@ public class MainView
     }
 
     public void enter(ViewChangeListener.ViewChangeEvent evt) {
-
+        this.objSelect.addItems(this.jpaProxyDataAccessor.findAllBuildings());
     }
 }

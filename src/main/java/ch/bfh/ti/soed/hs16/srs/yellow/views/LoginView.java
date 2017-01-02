@@ -31,16 +31,20 @@ public class LoginView
         extends CustomComponent
         implements View {
 
-    // Login
     private Panel lPanel = new Panel();
+
     private VerticalLayout loginVLayout = new VerticalLayout();
+
     private FormLayout loginFormLayout = new FormLayout();
+
     private HorizontalLayout lHeader = new HorizontalLayout();
 
-    private TextField lUName = new TextField("Username");
+    private TextField lUName = new TextField("Username or email:");
+
     private PasswordField lPwd = new PasswordField("Password");
 
     private Button lLoginBtn = new Button("Login");
+
     private Button lbackBtn = new Button("Back");
 
     private NavigationRoot navigationRoot;
@@ -51,7 +55,6 @@ public class LoginView
 
         setSizeFull();
 
-        // Login
         lUName.setRequired(true);
         lPwd.setRequired(true);
 
@@ -64,6 +67,7 @@ public class LoginView
         loginFormLayout.setWidth(500, Sizeable.Unit.PIXELS);
 
         lHeader.addComponent(lbackBtn);
+
         lbackBtn.addClickListener(e -> {
             navigationRoot.navigator.navigateTo(NavigationRoot.MAINVIEW);
         });

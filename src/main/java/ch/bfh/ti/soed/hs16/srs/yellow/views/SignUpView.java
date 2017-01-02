@@ -10,6 +10,10 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.views;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.controllers.JPAProxyDataAccessor;
+import ch.bfh.ti.soed.hs16.srs.yellow.validation.EMailValidationStrategy;
+import ch.bfh.ti.soed.hs16.srs.yellow.validation.NameValidationStrategy;
+import ch.bfh.ti.soed.hs16.srs.yellow.validation.UserNameValidationStrategy;
+import ch.bfh.ti.soed.hs16.srs.yellow.validation.ValidationContext;
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
@@ -28,26 +32,36 @@ import com.vaadin.ui.VerticalLayout;
 @Theme("mytheme")
 public class SignUpView extends CustomComponent implements View {
 
-    // Sign up
     private Panel sPanel = new Panel();
+
     private VerticalLayout signVLayout = new VerticalLayout();
+
     private FormLayout signFormLayout = new FormLayout();
+
     private HorizontalLayout sHeader = new HorizontalLayout();
 
     private TextField sUName = new TextField("Username");
+
     private PasswordField sPwd = new PasswordField("Password");
+
     private TextField fName = new TextField("Firstname");
+
     private TextField lName = new TextField("Lastname");
+
     private TextField emailField = new TextField("Email");
 
     private Button backBtn = new Button("Back");
+
     private Button sSignUpBtn = new Button("Sign up");
 
     private NavigationRoot navigationRoot;
 
     private JPAProxyDataAccessor jpaProxyDataAccessor = new JPAProxyDataAccessor();
 
+    private ValidationContext validationContext = new ValidationContext();
+
     public SignUpView() {
+
         sUName.setRequired(true);
         sPwd.setRequired(true);
         fName.setRequired(true);
@@ -60,6 +74,34 @@ public class SignUpView extends CustomComponent implements View {
         lName.setSizeFull();
         emailField.setSizeFull();
         sSignUpBtn.setSizeFull();
+
+        sUName.addTextChangeListener(evt -> {
+            validationContext.setStrategy(new UserNameValidationStrategy());
+            if (!validationContext.executeStrategy(sUName.getCaption())) {
+                Notification.show("Sorry, seems like your username contains invalid symbols.\n Only alphanumeric characters are allowed");
+            }
+        });
+
+        emailField.addTextChangeListener(evt -> {
+            validationContext.setStrategy(new EMailValidationStrategy());
+            if (!validationContext.executeStrategy(emailField.getCaption())) {
+                Notification.show("Sorry, seems like you have an invalid e-mail");
+            }
+        });
+
+        fName.addTextChangeListener(evt -> {
+            validationContext.setStrategy(new NameValidationStrategy());
+            if (!validationContext.executeStrategy(fName.getCaption())) {
+                Notification.show("Sorry, seems like you have an invalid name.");
+            }
+        });
+
+        lName.addTextChangeListener(evt -> {
+            validationContext.setStrategy(new NameValidationStrategy());
+            if (!validationContext.executeStrategy(lName.getCaption())) {
+                Notification.show("Sorry, seems like you have an invalid name.");
+            }
+        });
 
         backBtn.addClickListener(e -> {
             navigationRoot.navigator.navigateTo(NavigationRoot.MAINVIEW);

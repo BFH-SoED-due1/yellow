@@ -11,6 +11,7 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.controllers.JPAProxyDataAccessor;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Booking;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Equipment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Person;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Room;
@@ -32,7 +33,7 @@ public class DataAccessTest {
 
     @Before
     public void setUp() {
-        this.jpaProxyDataAccessor = new JPAProxyDataAccessor();
+        this.jpaProxyDataAccessor = new JPAProxyDataAccessor("test");
     }
 
     @Test
@@ -50,6 +51,7 @@ public class DataAccessTest {
         assertTrue(equList.size() > 0);
         assertTrue(equList.contains(equ));
         assertEquals(description, equ.getDescription());
+
     }
 
     @Test
@@ -68,6 +70,7 @@ public class DataAccessTest {
         String name = "Albert Lee";
         String email = "albert@lee.org";
         Person p = this.jpaProxyDataAccessor.makePerson(name, email);
+        assertNotNull(p.getID());
         List<Person> all = this.jpaProxyDataAccessor.findAllPersons();
         assertNotNull(all);
         assertTrue(all.size() > 0);
@@ -108,7 +111,7 @@ public class DataAccessTest {
     }
 
     @Test
-    public void testmakeBooking() {
+    public void testMakeBooking() {
         Person aPerson = this.jpaProxyDataAccessor.makePerson("Bond, James", "noname@nodomain.org");
         Room aRoom = this.jpaProxyDataAccessor.makeRoom("N215", 12);
         DateTime ltBegin = DateTime.now();
@@ -132,4 +135,11 @@ public class DataAccessTest {
         this.jpaProxyDataAccessor.removeBooking(bkng.getID());
         assertFalse(this.jpaProxyDataAccessor.findAllBookings().contains(bkng));
     }
+
+    @Test
+    public void testCustomerLogInOK() {
+        Customer cust = this.jpaProxyDataAccessor.makeCustomer("jjjj", "12345");
+        assertNotNull(this.jpaProxyDataAccessor.authentifyCustomer("jjjj", "12345"));
+    }
+
 }

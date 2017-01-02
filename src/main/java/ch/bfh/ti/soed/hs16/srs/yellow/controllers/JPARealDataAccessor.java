@@ -15,6 +15,7 @@ import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.EquipmentEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.PersonEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.RoomEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Booking;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Building;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.DataAccessor;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Equipment;
@@ -33,7 +34,9 @@ import java.util.List;
 public class JPARealDataAccessor
         implements DataAccessor {
 
-    public static final String PERSISTENCE_UNIT = "srs-pu";
+    private static final String PERSISTENCE_UNIT_PRODUCTION = "srs-pu-production-derby-eclipselink";
+
+    private static final String PERSISTENCE_UNIT_TEST = "srs-pu-test";
 
     private EntityManagerFactory entityManagerFactory = null;
 
@@ -43,7 +46,16 @@ public class JPARealDataAccessor
 
     public JPARealDataAccessor() {
         try {
-            entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+            entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_PRODUCTION);
+            this.entityManager = entityManagerFactory.createEntityManager();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public JPARealDataAccessor(String key) {
+        try {
+            entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_TEST);
             this.entityManager = entityManagerFactory.createEntityManager();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -76,9 +88,10 @@ public class JPARealDataAccessor
     }
 
     @Override
-    public Customer makeCustomer(String name, String email) {
+    public Customer makeCustomer(String name, String password) {
         this.entityManager.getTransaction().begin();
         CustomerEntity customer = new CustomerEntity();
+        customer.setCredentials(name, password);
         this.entityManager.persist(customer);
         this.entityManager.getTransaction().commit();
         return customer;
@@ -100,6 +113,7 @@ public class JPARealDataAccessor
 
     }
 
+    @Override
     public Long authentifyCustomer(String login, String password) {
         EntityTransaction entr = this.entityManager.getTransaction();
         entr.begin();
@@ -108,8 +122,10 @@ public class JPARealDataAccessor
         query.setParameter("password", password);
         try {
             Customer c = query.getSingleResult();
+            entr.commit();
             return c.getID();
         } catch (javax.persistence.NoResultException e) {
+            entr.rollback();
             return null;
         }
     }
@@ -176,6 +192,7 @@ public class JPARealDataAccessor
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<Booking> findAllBookings() {
         Query query = this.entityManager.createQuery("select booking from BookingEntity booking");
         return query.getResultList();
@@ -189,4 +206,14 @@ public class JPARealDataAccessor
         this.entityManager.getTransaction().commit();
     }
 
+    public void searchRooms() {
+
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Building> findAllBuildings() {
+        Query query = this.entityManager.createQuery("select build from BuildingEntity build");
+        return query.getResultList();
+    }
 }
