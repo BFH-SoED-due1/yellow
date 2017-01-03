@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Tue Jan 03 18:41:54 CET 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): instance a816c00e-0159-656c-4fb4-00001e483ec0 
-on database directory /home/rdrand/MEGAsync/3HS/soed/yellow/target/derbydb2  with class loader WebAppClassLoader=53807796@3350ab4 
+Tue Jan 03 23:23:30 CET 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): instance a816c00e-0159-666e-1f34-00001ddf5088 
+on database directory /home/rdrand/MEGAsync/3HS/soed/yellow/target/derbydb2  with class loader WebAppClassLoader=863811613@337cb81d 
 Loaded from file:/home/rdrand/.m2/repository/org/apache/derby/derby/10.8.3.0/derby-10.8.3.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_111-b14

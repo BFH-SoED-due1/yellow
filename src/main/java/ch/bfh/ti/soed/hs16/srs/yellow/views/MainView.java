@@ -176,7 +176,7 @@ public class MainView
                             else return "";
                         })
                 .collect(Collectors.toList());
-        this.equipSelect.addItems(this.jpaProxyDataAccessor.findAllEquipments());
+        this.equipSelect.addItems(equipmentsNamesList);
     }
 
     public void setNavigator(NavigationRoot navigationRoot) {
