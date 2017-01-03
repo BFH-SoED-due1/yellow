@@ -10,6 +10,7 @@
 package ch.bfh.ti.soed.hs16.srs.yellow.controllers;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.BookingEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.BuildingEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.CustomerEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.EquipmentEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.PersonEntity;
@@ -48,6 +49,7 @@ public class JPARealDataAccessor
         try {
             entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_PRODUCTION);
             this.entityManager = entityManagerFactory.createEntityManager();
+            this.generateFakeData();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -60,6 +62,24 @@ public class JPARealDataAccessor
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    private void generateFakeData() {
+        Building building = this.makeBuilding("GEO1");
+        Building building1 = this.makeBuilding("NAT2");
+        Building building2 = this.makeBuilding("ROLEX3");
+        Building building3 = this.makeBuilding("ID4");
+        Building building4 = this.makeBuilding("TRN5");
+        Equipment equipment = this.makeEquipment("TV");
+        Equipment equipment1 = this.makeEquipment("Panoramic view");
+        Equipment equipment2 = this.makeEquipment("Douche");
+        Equipment equipment3 = this.makeEquipment("Projector");
+        Equipment equipment4 = this.makeEquipment("Embedded PC");
+        Room room = this.makeRoom("N1", 15);
+        Room room1 = this.makeRoom("N1", 10);
+        Room room2 = this.makeRoom("N1", 12);
+        Room room3 = this.makeRoom("N1", 13);
+        Room room4 = this.makeRoom("N1", 16);
     }
 
     @Override
@@ -117,7 +137,9 @@ public class JPARealDataAccessor
     public Long authentifyCustomer(String login, String password) {
         EntityTransaction entr = this.entityManager.getTransaction();
         entr.begin();
-        TypedQuery<Customer> query = this.entityManager.createQuery("SELECT c FROM CustomerEntity c WHERE c.cred.login = :login AND c.cred.passwordHash = :password", Customer.class);
+        TypedQuery<Customer> query = this.entityManager.createQuery("SELECT c FROM CustomerEntity c " +
+                "WHERE c.cred.login = :login " +
+                "                                                           AND c.cred.passwordHash = :password", Customer.class);
         query.setParameter("login", login);
         query.setParameter("password", password);
         try {
@@ -194,7 +216,7 @@ public class JPARealDataAccessor
     @Override
     @SuppressWarnings("unchecked")
     public List<Booking> findAllBookings() {
-        Query query = this.entityManager.createQuery("select booking from BookingEntity booking");
+        Query query = this.entityManager.createQuery("SELECT booking FROM BookingEntity booking");
         return query.getResultList();
     }
 
@@ -206,8 +228,35 @@ public class JPARealDataAccessor
         this.entityManager.getTransaction().commit();
     }
 
-    public void searchRooms() {
+    @Override
+    public List<Booking> searchRooms(DateTime startDate, DateTime endDate) {
+        EntityTransaction entr = this.entityManager.getTransaction();
+        entr.begin();
+        TypedQuery<Booking> query = this.entityManager.createQuery("SELECT book " +
+                "FROM BookingEntity book " +
+                "WHERE book.startDateTime " +
+                " > :startDate " +
+                " AND book.endDateTime < :endDate ", Booking.class);
+        query.setParameter("startDate", startDate);
+        query.setParameter("endDate", endDate);
+        try {
+            List<Booking> bookingList = query.getResultList();
+            entr.commit();
+            return bookingList;
+        } catch (javax.persistence.NoResultException e) {
+            entr.rollback();
+            return null;
+        }
+    }
 
+    @Override
+    public Building makeBuilding(String name) {
+        this.entityManager.getTransaction().begin();
+        Building building = new BuildingEntity();
+        building.setName(name);
+        this.entityManager.persist(building);
+        this.entityManager.getTransaction().commit();
+        return building;
     }
 
     @Override
@@ -216,4 +265,5 @@ public class JPARealDataAccessor
         Query query = this.entityManager.createQuery("select build from BuildingEntity build");
         return query.getResultList();
     }
+
 }

@@ -11,7 +11,7 @@ package ch.bfh.ti.soed.hs16.srs.yellow.views;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.controllers.JPAProxyDataAccessor;
 import ch.bfh.ti.soed.hs16.srs.yellow.validation.EMailValidationStrategy;
-import ch.bfh.ti.soed.hs16.srs.yellow.validation.NameValidationStrategy;
+import ch.bfh.ti.soed.hs16.srs.yellow.validation.PasswordValidationStrategy;
 import ch.bfh.ti.soed.hs16.srs.yellow.validation.UserNameValidationStrategy;
 import ch.bfh.ti.soed.hs16.srs.yellow.validation.ValidationContext;
 import com.vaadin.annotations.Theme;
@@ -50,7 +50,7 @@ public class SignUpView extends CustomComponent implements View {
 
     private TextField emailField = new TextField("Email");
 
-    private Button backBtn = new Button("Back");
+    private Button backBtn = new Button(" <- Back");
 
     private Button sSignUpBtn = new Button("Sign up");
 
@@ -75,41 +75,21 @@ public class SignUpView extends CustomComponent implements View {
         emailField.setSizeFull();
         sSignUpBtn.setSizeFull();
 
-        sUName.addTextChangeListener(evt -> {
-            validationContext.setStrategy(new UserNameValidationStrategy());
-            if (!validationContext.executeStrategy(sUName.getCaption())) {
-                Notification.show("Sorry, seems like your username contains invalid symbols.\n Only alphanumeric characters are allowed");
-            }
-        });
-
-        emailField.addTextChangeListener(evt -> {
-            validationContext.setStrategy(new EMailValidationStrategy());
-            if (!validationContext.executeStrategy(emailField.getCaption())) {
-                Notification.show("Sorry, seems like you have an invalid e-mail");
-            }
-        });
-
-        fName.addTextChangeListener(evt -> {
-            validationContext.setStrategy(new NameValidationStrategy());
-            if (!validationContext.executeStrategy(fName.getCaption())) {
-                Notification.show("Sorry, seems like you have an invalid name.");
-            }
-        });
-
-        lName.addTextChangeListener(evt -> {
-            validationContext.setStrategy(new NameValidationStrategy());
-            if (!validationContext.executeStrategy(lName.getCaption())) {
-                Notification.show("Sorry, seems like you have an invalid name.");
-            }
-        });
-
         backBtn.addClickListener(e -> {
             navigationRoot.navigator.navigateTo(NavigationRoot.MAINVIEW);
         });
 
         sSignUpBtn.addClickListener(e -> {
-            jpaProxyDataAccessor.makeCustomer(this.sUName.getValue(), this.emailField.getValue());
-            Notification.show("User created successfully");
+            String result = checkIfAllFieldsAreValid();
+            if (!(result == "")) {
+                Notification.show(result);
+            } else if (checkIfAllTextEntryNonEmpty()) {
+                jpaProxyDataAccessor.makeCustomer(this.sUName.getValue(), this.sPwd.getValue());
+                Notification.show("User created successfully");
+                backBtn.click();
+            } else {
+                Notification.show("Please fill all required fields to create an user!");
+            }
         });
 
         signFormLayout.addComponents(sUName, sPwd, fName, lName, emailField, sSignUpBtn);
@@ -124,6 +104,33 @@ public class SignUpView extends CustomComponent implements View {
         signVLayout.setComponentAlignment(sHeader, Alignment.TOP_RIGHT);
 
         setCompositionRoot(signVLayout);
+    }
+
+    private boolean checkIfAllTextEntryNonEmpty() {
+        return sUName.getValue() != "" && sPwd.getValue() != "" && fName.getValue() != "" && lName.getValue() != "" && emailField.getValue() != "";
+    }
+
+    private String checkIfAllFieldsAreValid() {
+
+        validationContext.setStrategy(new UserNameValidationStrategy());
+        if (!validationContext.executeStrategy(sUName.getValue())) {
+            return "Sorry, seems like your username contains invalid symbols.\n " +
+                    "Only alphanumeric characters are allowed";
+        }
+        validationContext.setStrategy(new PasswordValidationStrategy());
+        if (!validationContext.executeStrategy(sPwd.getValue())) {
+            return "Sorry, seems like your password is not strong enough. Rules:\n " +
+                    "1) A digit must occur at least once \n " +
+                    "2) A lower and upper case letter must occur at least once \n " +
+                    "3) A special character must occur at least once \n " +
+                    "4) No whitespace allowed in the entire string \n " +
+                    "5) Password must be at least eight places long.";
+        }
+        validationContext.setStrategy(new EMailValidationStrategy());
+        if (!validationContext.executeStrategy(emailField.getValue())) {
+            return "Sorry, seems like you have an invalid e-mail";
+        }
+        return "";
     }
 
     public void setNavigator(NavigationRoot navigationRoot) {

@@ -15,14 +15,14 @@ import java.util.regex.Pattern;
 public class UserNameValidationStrategy
         implements ValidationStrategy {
 
-    private static final String VALID_USERNAME_REGEX = "^[a-zA-Z\\\\s]+";
+    private static final String VALID_USERNAME_REGEX = "^(?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\\w\\s-]{3,9}$";
 
     @Override
     public boolean validate(String input) {
 
         Pattern pattern = Pattern.compile(VALID_USERNAME_REGEX);
         Matcher matcher = pattern.matcher(input);
-        return matcher.find();
+        return matcher.matches();
     }
 
 }

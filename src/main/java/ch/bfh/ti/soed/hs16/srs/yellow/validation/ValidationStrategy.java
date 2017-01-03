@@ -12,5 +12,4 @@ package ch.bfh.ti.soed.hs16.srs.yellow.validation;
 public interface ValidationStrategy {
 
     boolean validate(String input);
-
 }

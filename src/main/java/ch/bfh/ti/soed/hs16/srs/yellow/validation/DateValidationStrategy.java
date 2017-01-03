@@ -22,7 +22,7 @@ public class DateValidationStrategy
     public boolean validate(String input) {
 
         Matcher matcher = VALID_DATE_REGEX.matcher(input);
-        return matcher.find();
+        return matcher.matches();
 
     }
 

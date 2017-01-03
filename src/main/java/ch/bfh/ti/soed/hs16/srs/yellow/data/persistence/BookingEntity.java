@@ -54,6 +54,10 @@ public class BookingEntity
 
     private Interval bookingFromToInterval;
 
+    private DateTime startDateTime;
+
+    private DateTime endDateTime;
+
     /**
      * Default constructor. Must be used in order for O/R Mapper to function properly. Must be empty.
      */

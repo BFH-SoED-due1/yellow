@@ -21,16 +21,18 @@ public class DateValidationTest {
 
     @Before
     public void setUp() {
-        setStrategy(new DateValidationStrategy());
-    }
-
-    public void setStrategy(ValidationStrategy strategy) {
-        this.validationStrategy = strategy;
+        this.validationStrategy = new DateValidationStrategy();
     }
 
     @Test
     public void validateWrongDate() throws Exception {
         String input = "1028-12-10";
+        assertFalse(this.validationStrategy.validate(input));
+    }
+
+    @Test
+    public void validateWrongDate1() throws Exception {
+        String input = "1029.12.10";
         assertFalse(this.validationStrategy.validate(input));
     }
 

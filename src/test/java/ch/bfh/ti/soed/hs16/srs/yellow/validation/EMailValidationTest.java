@@ -12,6 +12,7 @@ package ch.bfh.ti.soed.hs16.srs.yellow.validation;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class EMailValidationTest {
@@ -20,11 +21,7 @@ public class EMailValidationTest {
 
     @Before
     public void setUp() {
-        setStrategy(new EMailValidationStrategy());
-    }
-
-    public void setStrategy(ValidationStrategy strategy) {
-        this.validationStrategy = strategy;
+        this.validationStrategy = new EMailValidationStrategy();
     }
 
     @Test
@@ -35,8 +32,20 @@ public class EMailValidationTest {
 
     @Test
     public void validateCorrectEmail1() throws Exception {
-        String email = "test@192.168.0.1";
+        String email = "test321@test.ch";
         assertTrue(this.validationStrategy.validate(email));
+    }
+
+    @Test
+    public void validateInCorrectEmail1() throws Exception {
+        String email = "test@test627.com%";
+        assertFalse(this.validationStrategy.validate(email));
+    }
+
+    @Test
+    public void validateInCorrectEmail2() throws Exception {
+        String email = "test672@test627.company";
+        assertFalse(this.validationStrategy.validate(email));
     }
 
 }

@@ -119,6 +119,11 @@ public class JPAProxyDataAccessor
         realInstance.removeRoom(id);
     }
 
+    @Override
+    public List<Booking> searchRooms(DateTime startDate, DateTime endDate) {
+        return this.realInstance.searchRooms(startDate, endDate);
+    }
+
     // Methods for bookings
     ////////////////////
     @Override
@@ -158,5 +163,10 @@ public class JPAProxyDataAccessor
     @Override
     public List<Building> findAllBuildings() {
         return realInstance.findAllBuildings();
+    }
+
+    @Override
+    public Building makeBuilding(String name) {
+        return this.realInstance.makeBuilding(name);
     }
 }

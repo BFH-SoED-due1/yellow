@@ -25,9 +25,12 @@ import com.vaadin.ui.NativeSelect;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.PopupDateField;
 import com.vaadin.ui.VerticalLayout;
+import org.joda.time.DateTime;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Theme("mytheme")
 public class MainView
@@ -62,7 +65,7 @@ public class MainView
 
     private Button searchBtn = new Button("Search");
 
-    private Button loginBtn = new Button("Sign In");
+    private Button loginBtn = new Button("Sign in");
 
     private Button signupBtn = new Button("Register");
 
@@ -80,7 +83,6 @@ public class MainView
 
         setSizeFull();
 
-        // Main UI
         headerLayout = new HorizontalLayout();
         date = new Date();
         limitDate = Calendar.getInstance();
@@ -114,7 +116,7 @@ public class MainView
         });
 
         searchBtn.addClickListener(evt -> {
-
+            this.jpaProxyDataAccessor.searchRooms(new DateTime(fromDate.getRangeEnd()), new DateTime(toDate.getRangeEnd()));
         });
 
         loginLayout.addComponents(signupBtn, loginBtn);
@@ -143,11 +145,49 @@ public class MainView
         setCompositionRoot(panelContent);
     }
 
+    private void updateSelectionOfObjects() {
+
+        if (!this.objSelect.isEmpty()) {
+            this.objSelect.removeAllItems();
+        }
+        List<String> buildingNamesList = this.jpaProxyDataAccessor.findAllBuildings()
+                .stream()
+                .map(x ->
+                {
+                    if (x.getName() != "")
+                        return x.getName();
+                    else return "";
+                })
+                .collect(Collectors.toList());
+        this.objSelect.addItems(buildingNamesList);
+    }
+
+    private void updateSelectionOfEquipments() {
+
+        if (!this.equipSelect.isEmpty()) {
+            this.equipSelect.removeAllItems();
+        }
+        List<String> equipmentsNamesList = this.jpaProxyDataAccessor.findAllEquipments()
+                .stream()
+                .map(
+                        x -> {
+                            if (x.getDescription() != "")
+                                return x.getDescription();
+                            else return "";
+                        })
+                .collect(Collectors.toList());
+        this.equipSelect.addItems(this.jpaProxyDataAccessor.findAllEquipments());
+    }
+
     public void setNavigator(NavigationRoot navigationRoot) {
         this.navigationRoot = navigationRoot;
     }
 
     public void enter(ViewChangeListener.ViewChangeEvent evt) {
-        this.objSelect.addItems(this.jpaProxyDataAccessor.findAllBuildings());
+
+        updateSelectionOfObjects();
+
+        updateSelectionOfEquipments();
+
     }
 }

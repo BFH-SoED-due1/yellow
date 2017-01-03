@@ -17,6 +17,10 @@ public class ValidationContext {
     public ValidationContext() {
     }
 
+    public ValidationContext(ValidationStrategy strategy) {
+        this.strategy = strategy;
+    }
+
     public void setStrategy(ValidationStrategy strategy) {
         this.strategy = strategy;
     }

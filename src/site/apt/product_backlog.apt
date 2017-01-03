@@ -48,13 +48,13 @@
 *----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
 |4.9 |Customer         |Allow Customer to pay for booked room              |Low     |10             |                |                 | UNDETERMINED|
 *----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
-|4.10 |Guest           |Allow Guest to pay for booked room                |Low     |5              |                |                 | UNDETERMINED|
+|4.10 |Guest           |Allow Guest to pay for booked room                |Low     |5              |                |                  | UNDETERMINED|
 *----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
-|4.11 |Customer        |Allow Customer to get refund on cancelled booking |Low     |10             |                |                 | UNDETERMINED|
+|4.11 |Customer        |Allow Customer to get refund on cancelled booking |Low     |10             |                |                  | UNDETERMINED|
 *----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
-|4.12 |Guest           |Allow Guest to get refund on cancelled booking    |Low     |5              |                |                 | UNDETERMINED|
+|4.12 |Guest           |Allow Guest to get refund on cancelled booking    |Low     |5              |                |                  | UNDETERMINED|
 *----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
-|4.13 |Admin           |Allow Admin to analyze the stats                  |Low     |10             |                |                 | UNDETERMINED|
+|4.13 |Admin           |Allow Admin to analyze the stats                  |Low     |10             |                |                  | UNDETERMINED|
 *----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+
 |4.14 |Admin           |Some small fixes                                  |High     |10             |                |                 | OK|
 *----+-----------------+---------------------------------------------------+--------+---------------+----------------+-----------------+------+

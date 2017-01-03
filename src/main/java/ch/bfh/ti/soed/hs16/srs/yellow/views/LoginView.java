@@ -45,7 +45,7 @@ public class LoginView
 
     private Button lLoginBtn = new Button("Login");
 
-    private Button lbackBtn = new Button("Back");
+    private Button lbackBtn = new Button(" <- Back");
 
     private NavigationRoot navigationRoot;
 
@@ -76,6 +76,7 @@ public class LoginView
             Long cID = jpaProxyDataAccessor.authentifyCustomer(lUName.getValue(), lPwd.getValue());
             if (cID != null) {
                 Notification.show("Successfully authentified");
+                lbackBtn.click();
             } else {
                 Notification.show("Sorry, could not authentify. Please check your credentials one more time");
             }
