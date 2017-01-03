@@ -9,7 +9,7 @@ System architecture document
 
   By far, there is a following package structure of this project:
 
-[images/PackageDependencies/packdep.jpg]
+[images/PackageDependencies/packdep.png]
 
   JDepend report:
 
@@ -55,6 +55,14 @@ System architecture document
 4. ch.bfh.ti.soed.hs16.srs.yellow.views
 ----------------------------------------
 
-    Package ch.bfh.ti.soed.hs16.srs.yellow.views are Graphical User Interface files which are written with Vaadin Framework.
+    Package ch.bfh.ti.soed.hs16.srs.yellow.views contains Graphical User Interface files which are written with Vaadin Framework.
 
     If you want to correct or modify User Interface of the application, you can find them there.
+
+--------------------------------------------
+5. ch.bfh.ti.soed.hs16.srs.yellow.validation
+--------------------------------------------
+
+    Package ch.bfh.ti.soed.hs16.srs.yellow.validation contains
+
+    the Strategy Pattern classes used to validate all types of user input into the application.
