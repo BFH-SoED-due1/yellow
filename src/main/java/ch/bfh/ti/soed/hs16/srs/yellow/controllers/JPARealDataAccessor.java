@@ -59,6 +59,7 @@ public class JPARealDataAccessor
         try {
             entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_TEST);
             this.entityManager = entityManagerFactory.createEntityManager();
+            this.generateFakeData();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

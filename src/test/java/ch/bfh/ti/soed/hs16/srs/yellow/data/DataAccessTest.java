@@ -43,6 +43,12 @@ public class DataAccessTest {
     }
 
     @Test
+    public void testCreationOfProductionDB() {
+        JPAProxyDataAccessor jpaProdDB = new JPAProxyDataAccessor();
+        assertNotNull(jpaProdDB);
+    }
+
+    @Test
     public void testMakeEquipment() {
 
         String description = "Sofa";
@@ -159,5 +165,11 @@ public class DataAccessTest {
         String buildingName = "NewBuild";
         Building building = this.jpaProxyDataAccessor.makeBuilding(buildingName);
         assertTrue(this.jpaProxyDataAccessor.findAllBuildings().contains(building));
+    }
+
+    @Test
+    public void testNonExistingUser() {
+        Long custID = this.jpaProxyDataAccessor.authentifyCustomer("xqk", "test");
+        assertTrue(custID == null);
     }
 }
