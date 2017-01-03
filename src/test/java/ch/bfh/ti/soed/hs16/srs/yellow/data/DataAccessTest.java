@@ -11,6 +11,7 @@ package ch.bfh.ti.soed.hs16.srs.yellow.data;
 
 import ch.bfh.ti.soed.hs16.srs.yellow.controllers.JPAProxyDataAccessor;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Booking;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Building;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Equipment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Person;
@@ -142,4 +143,21 @@ public class DataAccessTest {
         assertNotNull(this.jpaProxyDataAccessor.authentifyCustomer("jjjj", "12345"));
     }
 
+    @Test
+    public void testRemoveCustomer() {
+        String name = "Janis Joplin";
+        String pwd = "rzrue67646*/&";
+        Customer c = this.jpaProxyDataAccessor.makeCustomer(name, pwd);
+        this.jpaProxyDataAccessor.removeCustomer(c.getID());
+        List<Customer> customerList = this.jpaProxyDataAccessor.findAllCustomers();
+        assertNotNull(customerList);
+        assertFalse(customerList.contains(c));
+    }
+
+    @Test
+    public void testMakeBuilding() {
+        String buildingName = "NewBuild";
+        Building building = this.jpaProxyDataAccessor.makeBuilding(buildingName);
+        assertTrue(this.jpaProxyDataAccessor.findAllBuildings().contains(building));
+    }
 }

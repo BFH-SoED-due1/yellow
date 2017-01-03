@@ -17,6 +17,8 @@ import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Customer;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Payment;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Room;
+import org.joda.time.DateTime;
+import org.joda.time.Interval;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -61,5 +63,15 @@ public class BookingEntityTest {
         Payment pay = new PaymentEntity();
         book.linkPayment(pay);
         assertTrue(book.getPayments().contains(pay));
+    }
+
+    @Test
+    public void testGetInterval() throws Exception {
+        Booking book = new BookingEntity();
+        DateTime dt = DateTime.now();
+        DateTime dt1 = new DateTime(2017, 02, 03, 11, 17);
+        book.setInterval(dt, dt1);
+        Interval interval = book.getInterval();
+        assertNotNull(interval);
     }
 }

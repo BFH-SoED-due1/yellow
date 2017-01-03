@@ -126,11 +126,9 @@ public class BookingEntity
     }
 
     /**
-     * @param startDateTime starting point of te booking in form of JodaTime DateTime type
-     * @param endDateTime ending point of the booking in form of JodaTime DateTime type
-     * @return JodaTime interval constructed for you
+     * @return JodaTime interval which was set up before
      */
-    public Interval getInterval(DateTime startDateTime, DateTime endDateTime) {
+    public Interval getInterval() {
         return this.bookingFromToInterval;
     }
 }

@@ -17,35 +17,35 @@ import static org.junit.Assert.assertTrue;
 
 public class EMailValidationTest {
 
-    private ValidationStrategy validationStrategy;
+    private ValidationContext validationContext;
 
     @Before
     public void setUp() {
-        this.validationStrategy = new EMailValidationStrategy();
+        this.validationContext = new ValidationContext(new EMailValidationStrategy());
     }
 
     @Test
     public void validateCorrectEmail() throws Exception {
         String email = "test@test.com";
-        assertTrue(this.validationStrategy.validate(email));
+        assertTrue(this.validationContext.executeStrategy(email));
     }
 
     @Test
     public void validateCorrectEmail1() throws Exception {
         String email = "test321@test.ch";
-        assertTrue(this.validationStrategy.validate(email));
+        assertTrue(this.validationContext.executeStrategy(email));
     }
 
     @Test
     public void validateInCorrectEmail1() throws Exception {
         String email = "test@test627.com%";
-        assertFalse(this.validationStrategy.validate(email));
+        assertFalse(this.validationContext.executeStrategy(email));
     }
 
     @Test
     public void validateInCorrectEmail2() throws Exception {
         String email = "test672@test627.company";
-        assertFalse(this.validationStrategy.validate(email));
+        assertFalse(this.validationContext.executeStrategy(email));
     }
 
 }

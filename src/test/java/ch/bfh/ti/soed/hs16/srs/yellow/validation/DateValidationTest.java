@@ -17,29 +17,29 @@ import static org.junit.Assert.assertTrue;
 
 public class DateValidationTest {
 
-    private ValidationStrategy validationStrategy;
+    private ValidationContext validationContext;
 
     @Before
     public void setUp() {
-        this.validationStrategy = new DateValidationStrategy();
+        this.validationContext = new ValidationContext(new DateValidationStrategy());
     }
 
     @Test
     public void validateWrongDate() throws Exception {
         String input = "1028-12-10";
-        assertFalse(this.validationStrategy.validate(input));
+        assertFalse(this.validationContext.executeStrategy(input));
     }
 
     @Test
     public void validateWrongDate1() throws Exception {
-        String input = "1029.12.10";
-        assertFalse(this.validationStrategy.validate(input));
+        String input = "1029.1210";
+        assertFalse(this.validationContext.executeStrategy(input));
     }
 
     @Test
     public void validateRightDate() throws Exception {
         String input = "23.11.1027";
-        assertTrue(this.validationStrategy.validate(input));
+        assertTrue(this.validationContext.executeStrategy(input));
     }
 
 }
