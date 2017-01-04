@@ -76,11 +76,19 @@ public class JPARealDataAccessor
         Equipment equipment2 = this.makeEquipment("Douche");
         Equipment equipment3 = this.makeEquipment("Projector");
         Equipment equipment4 = this.makeEquipment("Embedded PC");
+        Customer customer = this.makeCustomer("nt4245", "rwutth9428*/&");
+        Customer customer1 = this.makeCustomer("test", "twztuzrw85478&/(");
+        Customer customer2 = this.makeCustomer("test1", "rwut428*/&");
+        Customer customer3 = this.makeCustomer("test2", "fkdsnmfks428*/&");
+        Customer customer4 = this.makeCustomer("test3", "rwutt(()7778*/&");
         Room room = this.makeRoom("N1", 15);
-        Room room1 = this.makeRoom("N1", 10);
-        Room room2 = this.makeRoom("N1", 12);
-        Room room3 = this.makeRoom("N1", 13);
-        Room room4 = this.makeRoom("N1", 16);
+        Room room1 = this.makeRoom("N2", 10);
+        Room room2 = this.makeRoom("N3", 12);
+        Room room3 = this.makeRoom("N4", 13);
+        Room room4 = this.makeRoom("N5", 16);
+        Booking booking = this.makeBooking(customer, room, DateTime.now(), new DateTime(2017, 6, 2, 5, 17));
+        Booking booking1 = this.makeBooking(customer1, room1, DateTime.now(), new DateTime(2017, 6, 2, 5, 13));
+        Booking booking2 = this.makeBooking(customer, room, DateTime.now(), new DateTime(2017, 6, 2, 4, 17));
     }
 
     @Override
@@ -185,7 +193,6 @@ public class JPARealDataAccessor
         booking.setInterval(start, end);
         this.entityManager.persist(booking);
         this.entityManager.getTransaction().commit();
-        // person.addBooking(booking);
         return booking;
     }
 
@@ -227,27 +234,6 @@ public class JPARealDataAccessor
         BookingEntity booking = this.entityManager.find(BookingEntity.class, id);
         this.entityManager.remove(booking);
         this.entityManager.getTransaction().commit();
-    }
-
-    @Override
-    public List<Booking> searchRooms(DateTime startDate, DateTime endDate) {
-        EntityTransaction entr = this.entityManager.getTransaction();
-        entr.begin();
-        TypedQuery<Booking> query = this.entityManager.createQuery("SELECT book " +
-                "FROM BookingEntity book " +
-                "WHERE book.startDateTime " +
-                " > :startDate " +
-                " AND book.endDateTime < :endDate ", Booking.class);
-        query.setParameter("startDate", startDate);
-        query.setParameter("endDate", endDate);
-        try {
-            List<Booking> bookingList = query.getResultList();
-            entr.commit();
-            return bookingList;
-        } catch (javax.persistence.NoResultException e) {
-            entr.rollback();
-            return null;
-        }
     }
 
     @Override

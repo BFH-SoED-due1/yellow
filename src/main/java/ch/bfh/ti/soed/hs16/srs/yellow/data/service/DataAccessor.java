@@ -54,8 +54,6 @@ public interface DataAccessor {
 
     void removeBooking(Long id);
 
-    List<Booking> searchRooms(DateTime startDate, DateTime endDate);
-
     Building makeBuilding(String name);
 
     List<Building> findAllBuildings();

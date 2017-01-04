@@ -22,10 +22,10 @@ import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.NativeSelect;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.PopupDateField;
 import com.vaadin.ui.VerticalLayout;
-import org.joda.time.DateTime;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -116,7 +116,7 @@ public class MainView
         });
 
         searchBtn.addClickListener(evt -> {
-            this.jpaProxyDataAccessor.searchRooms(new DateTime(fromDate.getRangeEnd()), new DateTime(toDate.getRangeEnd()));
+            Notification.show("Sorry, search will be made later with Vaadin Grid.");
         });
 
         loginLayout.addComponents(signupBtn, loginBtn);

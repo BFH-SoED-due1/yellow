@@ -119,11 +119,6 @@ public class JPAProxyDataAccessor
         realInstance.removeRoom(id);
     }
 
-    @Override
-    public List<Booking> searchRooms(DateTime startDate, DateTime endDate) {
-        return this.realInstance.searchRooms(startDate, endDate);
-    }
-
     // Methods for bookings
     ////////////////////
     @Override
