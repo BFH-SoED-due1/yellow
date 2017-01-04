@@ -52,9 +52,6 @@
             <item name="The FAQ Format" href="faq.html"/>
         </menu>
         <menu ref="reports"/>
-        <menu name="Additional Reports">
-            <item name="Test Coverage" href="jacoco/index.html"/>
-        </menu>
     </body>
     <skin>
         <groupId>org.apache.maven.skins</groupId>
