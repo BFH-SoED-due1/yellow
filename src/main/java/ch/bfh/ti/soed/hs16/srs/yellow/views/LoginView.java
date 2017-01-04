@@ -9,6 +9,7 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.views;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.controllers.JPAProxyDataAccessor;
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
@@ -18,6 +19,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
@@ -29,23 +31,30 @@ public class LoginView
         extends CustomComponent
         implements View {
 
-    // Login
     private Panel lPanel = new Panel();
+
     private VerticalLayout loginVLayout = new VerticalLayout();
+
     private FormLayout loginFormLayout = new FormLayout();
+
     private HorizontalLayout lHeader = new HorizontalLayout();
 
-    private TextField lUName = new TextField("Username");
+    private TextField lUName = new TextField("Username or email:");
+
     private PasswordField lPwd = new PasswordField("Password");
 
     private Button lLoginBtn = new Button("Login");
-    private Button lbackBtn = new Button("Back");
+
+    private Button lbackBtn = new Button(" <- Back");
+
+    private NavigationRoot navigationRoot;
+
+    private JPAProxyDataAccessor jpaProxyDataAccessor = new JPAProxyDataAccessor();
 
     public LoginView() {
 
         setSizeFull();
 
-        // Login
         lUName.setRequired(true);
         lPwd.setRequired(true);
 
@@ -58,8 +67,19 @@ public class LoginView
         loginFormLayout.setWidth(500, Sizeable.Unit.PIXELS);
 
         lHeader.addComponent(lbackBtn);
+
         lbackBtn.addClickListener(e -> {
-            //setContent(panel);
+            navigationRoot.navigator.navigateTo(NavigationRoot.MAINVIEW);
+        });
+
+        lLoginBtn.addClickListener(evt -> {
+            Long cID = jpaProxyDataAccessor.authentifyCustomer(lUName.getValue(), lPwd.getValue());
+            if (cID != null) {
+                Notification.show("Successfully authentified");
+                lbackBtn.click();
+            } else {
+                Notification.show("Sorry, could not authentify. Please check your credentials one more time");
+            }
         });
 
         loginVLayout.addComponents(lHeader, loginFormLayout);
@@ -69,6 +89,11 @@ public class LoginView
 
         setCompositionRoot(loginVLayout);
     }
+
+    public void setNavigator(NavigationRoot navigationRoot) {
+        this.navigationRoot = navigationRoot;
+    }
+
 
     public void enter(ViewChangeListener.ViewChangeEvent evt) {
 

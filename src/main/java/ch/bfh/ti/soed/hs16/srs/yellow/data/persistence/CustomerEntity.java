@@ -16,6 +16,7 @@ import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Payment;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -36,18 +37,15 @@ public class CustomerEntity
         implements Customer,
         Serializable {
 
-    @OneToMany(targetEntity = BankingDetailsEntity.class)
+    @OneToMany(targetEntity = BankingDetailsEntity.class, cascade = CascadeType.PERSIST)
     private Set<BankingDetails> bankingDetails;
 
-    @OneToMany(targetEntity = PaymentEntity.class)
+    @OneToMany(targetEntity = PaymentEntity.class, cascade = CascadeType.PERSIST)
     private Set<Payment> payments;
 
-    @ManyToOne(targetEntity = CredentialsEntity.class)
+    @ManyToOne(targetEntity = CredentialsEntity.class, cascade = CascadeType.PERSIST)
     private Credentials cred;
 
-    /**
-     * First generating a PersonEntity so that we could use his data and UUID database key
-     */
     public CustomerEntity() {
         super();
         this.bankingDetails = new HashSet<>();

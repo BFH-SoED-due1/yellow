@@ -1,0 +1,64 @@
+    ----------
+    System architecture document
+    ----------
+    November 08, 2016
+
+System architecture document
+
+  This document describes the core packages of the system
+
+  By far, there is a following package structure of this project:
+
+[images/PackageDependencies/packdep.png]
+
+  JDepend report:
+
+[images/PackageDependencies/jdepend.png]
+
+  There are several packages:
+
+----------------------------------------------
+1. ch.bfh.ti.soed.hs16.srs.yellow.data.service
+----------------------------------------------
+
+    Package ch.bfh.ti.soed.hs16.srs.yellow.data is, as explicitly stated in the package name, responsible for database interaction:
+
+    Package ch.bfh.ti.soed.hs16.srs.yellow.data.service contains all the interfaces, which must be implemented by the ch.bfh.ti.soed.hs16.srs.yellow.data.persistence to function properly.
+
+    It is also used for independent unit tests by far.
+
+--------------------------------------------------
+2. ch.bfh.ti.soed.hs16.srs.yellow.data.persistence
+--------------------------------------------------
+
+     Package ch.bfh.ti.soed.hs16.srs.yellow.data.persistence contains all the persistence layer (JPA) implementation.
+
+     All of the classes in that package are Entities and annotated for usage with EclipseLink O/R Mapper and Hibernate validator.
+
+----------------------------------------------
+3. ch.bfh.ti.soed.hs16.srs.yellow.controllers
+----------------------------------------------
+
+    Package ch.bfh.ti.soed.hs16.srs.yellow.controllers represents itself, as can be derived from its name,
+
+    numerous controllers which can be used by GUI components of the software (In this particular case - by Vaadin framework)
+
+    to persist some data into the application data storage system and to retrieve the corresponding data required by the user.
+
+    These controllers are also used to perform implementation - independent persistence tests.
+
+----------------------------------------
+4. ch.bfh.ti.soed.hs16.srs.yellow.views
+----------------------------------------
+
+    Package ch.bfh.ti.soed.hs16.srs.yellow.views contains Graphical User Interface files which are written with Vaadin Framework.
+
+    If you want to correct or modify User Interface of the application, you can find them there.
+
+--------------------------------------------
+5. ch.bfh.ti.soed.hs16.srs.yellow.validation
+--------------------------------------------
+
+    Package ch.bfh.ti.soed.hs16.srs.yellow.validation contains
+
+    the Strategy Pattern classes used to validate all types of user input into the application.

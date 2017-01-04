@@ -157,7 +157,18 @@
             <artifactId>joda-convert</artifactId>
             <version>1.8.1</version>
         </dependency>
-	</dependencies>
+        <dependency>
+            <groupId>jdepend</groupId>
+            <artifactId>jdepend</artifactId>
+            <version>2.9.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.8.3.0</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<pluginManagement>

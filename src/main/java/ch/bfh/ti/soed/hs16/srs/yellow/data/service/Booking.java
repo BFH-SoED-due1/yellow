@@ -35,5 +35,5 @@ public interface Booking {
 
     void setInterval(DateTime startDateTime, DateTime endDateTime);
 
-    Interval getInterval(DateTime startDateTime, DateTime endDateTime);
+    Interval getInterval();
 }

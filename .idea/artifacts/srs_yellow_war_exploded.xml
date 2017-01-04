@@ -27,6 +27,7 @@
           <element id="library" level="project" name="Maven: javax.validation:validation-api:1.0.0.GA" />
           <element id="library" level="project" name="Maven: joda-time:joda-time:2.9.6" />
           <element id="library" level="project" name="Maven: org.joda:joda-convert:1.8.1" />
+          <element id="library" level="project" name="Maven: org.apache.derby:derby:10.8.3.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

@@ -8,7 +8,7 @@
  */
 
 
-package ch.bfh.ti.soed.hs16.srs.yellow.impl.bankingRelations;
+package ch.bfh.ti.soed.hs16.srs.yellow.entity;
 
 
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.BankingDetailsEntity;

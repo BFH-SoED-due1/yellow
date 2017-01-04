@@ -7,9 +7,11 @@
  * Distributable under GPL license\. See terms of license at gnu.org
  */
 
-package ch.bfh.ti.soed.hs16.srs.yellow.impl.customer;
+package ch.bfh.ti.soed.hs16.srs.yellow.entity;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.BookingEntity;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.persistence.PersonEntity;
+import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Booking;
 import ch.bfh.ti.soed.hs16.srs.yellow.data.service.Person;
 import org.junit.Test;
 
@@ -18,6 +20,7 @@ import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit tests for Person implementation
@@ -51,6 +54,14 @@ public class PersonEntityTest {
         Date bDate = new Date(rand.nextInt());
         person1.setDateOfBirth(bDate);
         assertEquals(bDate, person1.getDateOfBirth());
+    }
+
+    @Test
+    public void testAddBooking() {
+        Booking booking = new BookingEntity();
+        Person person1 = new PersonEntity();
+        person1.addBooking(booking);
+        assertTrue(person1.getBookings().contains(booking));
     }
 
 }
