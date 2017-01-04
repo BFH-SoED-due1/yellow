@@ -54,6 +54,10 @@ public class BookingEntity
 
     private Interval bookingFromToInterval;
 
+    private DateTime startDateTime;
+
+    private DateTime endDateTime;
+
     /**
      * Default constructor. Must be used in order for O/R Mapper to function properly. Must be empty.
      */
@@ -122,11 +126,9 @@ public class BookingEntity
     }
 
     /**
-     * @param startDateTime starting point of te booking in form of JodaTime DateTime type
-     * @param endDateTime ending point of the booking in form of JodaTime DateTime type
-     * @return JodaTime interval constructed for you
+     * @return JodaTime interval which was set up before
      */
-    public Interval getInterval(DateTime startDateTime, DateTime endDateTime) {
+    public Interval getInterval() {
         return this.bookingFromToInterval;
     }
 }

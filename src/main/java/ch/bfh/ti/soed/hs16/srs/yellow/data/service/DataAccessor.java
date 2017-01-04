@@ -53,4 +53,8 @@ public interface DataAccessor {
     List<Booking> findAllBookings();
 
     void removeBooking(Long id);
+
+    Building makeBuilding(String name);
+
+    List<Building> findAllBuildings();
 }

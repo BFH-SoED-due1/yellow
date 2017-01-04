@@ -37,8 +37,8 @@ public class EquipmentEntity
 	@Column(name = "equ_id")
 	private Long ID;
 
-	@Column(name = "desc")
-    private String Description = "";
+    @Column(name = "equ_description")
+    private String Description;
 
     /**
      * Default constructor. Must be used in order for O/R Mapper to function properly. Must be empty.

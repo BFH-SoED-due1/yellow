@@ -21,9 +21,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
-/**
- *
- */
 @Entity(name = "CredentialsEntity")
 @Access(AccessType.FIELD)
 @Table(name = "Credentials")

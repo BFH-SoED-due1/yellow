@@ -9,6 +9,7 @@
 
 package ch.bfh.ti.soed.hs16.srs.yellow.views;
 
+import ch.bfh.ti.soed.hs16.srs.yellow.controllers.JPAProxyDataAccessor;
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
@@ -21,51 +22,67 @@ import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.NativeSelect;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.PopupDateField;
 import com.vaadin.ui.VerticalLayout;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Theme("mytheme")
 public class MainView
         extends CustomComponent
         implements View {
 
-    // Main UI
     private Panel panel = new Panel();
+
     private VerticalLayout panelContent = new VerticalLayout();
+
     private VerticalLayout searchLayout = new VerticalLayout();
+
     private VerticalLayout leftVLayout = new VerticalLayout();
+
     private VerticalLayout rightVLayout = new VerticalLayout();
+
     private HorizontalLayout headerLayout;
+
     private HorizontalLayout inputLayout = new HorizontalLayout();
+
     private HorizontalLayout loginLayout = new HorizontalLayout();
 
     private Label titleLbl = new Label("Search Room");
 
     private NativeSelect objSelect = new NativeSelect("Objects");
+
     private NativeSelect equipSelect = new NativeSelect("Equipments");
 
     private DateField fromDate = new PopupDateField("From");
+
     private DateField toDate = new PopupDateField("To");
 
     private Button searchBtn = new Button("Search");
-    private Button loginBtn = new Button("Sign In");
+
+    private Button loginBtn = new Button("Sign in");
+
     private Button signupBtn = new Button("Register");
 
     private Date date;
+
     private Date lastDate;
+
     private Calendar limitDate;
 
     private NavigationRoot navigationRoot;
+
+    private JPAProxyDataAccessor jpaProxyDataAccessor = new JPAProxyDataAccessor();
 
     public MainView() {
 
         setSizeFull();
 
-        // Main UI
         headerLayout = new HorizontalLayout();
         date = new Date();
         limitDate = Calendar.getInstance();
@@ -98,6 +115,10 @@ public class MainView
             navigationRoot.navigator.navigateTo(NavigationRoot.LOGINVIEW);
         });
 
+        searchBtn.addClickListener(evt -> {
+            Notification.show("Sorry, search will be made later with Vaadin Grid.");
+        });
+
         loginLayout.addComponents(signupBtn, loginBtn);
 
         headerLayout.addComponent(titleLbl);
@@ -124,11 +145,49 @@ public class MainView
         setCompositionRoot(panelContent);
     }
 
+    private void updateSelectionOfObjects() {
+
+        if (!this.objSelect.isEmpty()) {
+            this.objSelect.removeAllItems();
+        }
+        List<String> buildingNamesList = this.jpaProxyDataAccessor.findAllBuildings()
+                .stream()
+                .map(x ->
+                {
+                    if (x.getName() != "")
+                        return x.getName();
+                    else return "";
+                })
+                .collect(Collectors.toList());
+        this.objSelect.addItems(buildingNamesList);
+    }
+
+    private void updateSelectionOfEquipments() {
+
+        if (!this.equipSelect.isEmpty()) {
+            this.equipSelect.removeAllItems();
+        }
+        List<String> equipmentsNamesList = this.jpaProxyDataAccessor.findAllEquipments()
+                .stream()
+                .map(
+                        x -> {
+                            if (x.getDescription() != "")
+                                return x.getDescription();
+                            else return "";
+                        })
+                .collect(Collectors.toList());
+        this.equipSelect.addItems(equipmentsNamesList);
+    }
+
     public void setNavigator(NavigationRoot navigationRoot) {
         this.navigationRoot = navigationRoot;
     }
 
     public void enter(ViewChangeListener.ViewChangeEvent evt) {
+
+        updateSelectionOfObjects();
+
+        updateSelectionOfEquipments();
 
     }
 }
