@@ -13,3 +13,4 @@
 .idea/libraries/Maven__org_hibernate_hibernate_validator_4_2_0_Final.xml
 .idea/libraries/Maven__org_slf4j_slf4j_api_1_7_21.xml
 .idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_21.xml
+/derby.log
